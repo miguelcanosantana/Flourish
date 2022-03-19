@@ -1,15 +1,21 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BeeIntelligenceScript : MonoBehaviour
-{
 
+public class BeeAgentScript : MonoBehaviour
+{
     //Components
+    [SerializeField] private GameObject heightRegulator;
+
     private NavMeshAgent agent;
     private GameObject[] listOfFlowers;
-    private GameObject targetEntry = null;
+    private GameObject targetFlower = null;
+
+    //Variables
+    private float timeBetweenTarget = 0f;
 
 
     //Start is called before the first frame update
@@ -25,7 +31,7 @@ public class BeeIntelligenceScript : MonoBehaviour
     {
 
         //If there isn't a destination flower, set and new one and return
-        if (targetEntry == null)
+        if (targetFlower == null)
         {
             SetNewDestination();
             return;
@@ -40,7 +46,15 @@ public class BeeIntelligenceScript : MonoBehaviour
         }
 
         //Move the agent to the target flower, if the flower has not disappeared
-        if (targetEntry != null) agent.SetDestination(targetEntry.transform.position);
+        if (targetFlower != null) agent.SetDestination(targetFlower.transform.position);
+
+        //Vector3 positionToMove = new Vector3(transform.position.x, targetFlower.transform.position.y, transform.position.z);
+        //heightRegulator.transform.DOMove(positionToMove, 4);
+
+        //Do a tween between the heightRegulator Y and the target flower Y
+        timeBetweenTarget = agent.remainingDistance / agent.speed;
+        heightRegulator.transform.DOMoveY(targetFlower.transform.position.y, timeBetweenTarget * 5);
+        Debug.Log(timeBetweenTarget);
     }
 
 
@@ -52,15 +66,7 @@ public class BeeIntelligenceScript : MonoBehaviour
 
         //Get a random flower and set it as the target
         int randomDestination = Random.Range(0, listOfFlowers.Length);
-
-        targetEntry = listOfFlowers[randomDestination];
-
-        //for (int i = 0; i < cityScript.buildingsEntries.Count; i++)
-        //{
-        //    GameObject tempEntry = cityScript.buildingsEntries[i];
-        //    if (i == randomDestination) targetEntry = tempEntry;
-        //}
+        targetFlower = listOfFlowers[randomDestination];
     }
-
 
 }
