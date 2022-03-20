@@ -42,6 +42,8 @@ public class BeeAgentScript : MonoBehaviour
     {
         isOnFlower = true;
 
+        DOTween.Clear();
+
         //Set the animation
         animator.SetBool("OnFlower", true);
 
@@ -69,7 +71,7 @@ public class BeeAgentScript : MonoBehaviour
         else //If the flower has not disappeared, calculate remaining position time
         {
             //Do a tween between the heightRegulator Y and the target flower Y
-            //Debug.Log(timeBetweenTarget);
+            Debug.Log(timeBetweenTarget);
             timeBetweenTarget = agent.remainingDistance / agent.speed;
             heightRegulator.transform.DOMoveY(targetFlower.transform.position.y, timeBetweenTarget * 5);
         }
