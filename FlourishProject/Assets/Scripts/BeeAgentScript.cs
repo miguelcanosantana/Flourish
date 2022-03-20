@@ -17,6 +17,7 @@ public class BeeAgentScript : MonoBehaviour
 
 
     //Variables
+    private bool canSetHeight = true;
     private bool isOnFlower = false;
     private float timeBetweenTarget = 0f;
 
@@ -32,8 +33,12 @@ public class BeeAgentScript : MonoBehaviour
     //Update
     private void Update()
     {
-        //If not already in a flower, travel to it
-        if (!isOnFlower) TravelToFlower();
+        //If not already in a flower, travel to it and set heightRegulator position
+        if (!isOnFlower)
+        {
+            TravelToFlower();
+            SetPosition();
+        } 
     }
 
 
@@ -41,8 +46,6 @@ public class BeeAgentScript : MonoBehaviour
     private IEnumerator LandOnFlower()
     {
         isOnFlower = true;
-
-        DOTween.Clear();
 
         //Set the animation
         animator.SetBool("OnFlower", true);
@@ -70,19 +73,43 @@ public class BeeAgentScript : MonoBehaviour
         }
         else //If the flower has not disappeared, calculate remaining position time
         {
-            //Do a tween between the heightRegulator Y and the target flower Y
-            Debug.Log(timeBetweenTarget);
+            //Calculate the time between the target
             timeBetweenTarget = agent.remainingDistance / agent.speed;
-            heightRegulator.transform.DOMoveY(targetFlower.transform.position.y, timeBetweenTarget * 5);
+
+            //Do the height regulator tween only once, (When the calculated path is available)
+            if (agent.hasPath && canSetHeight) SetHeight();
         }
 
-        //If the agent is in the target position,
-        //it doesn't have path or it's speed is 0, land in the flower
+        //If the agent is in the target position, it doesn't have path or it's speed is 0, land in the flower
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             //Using sqrMagnitude instead of magnitude increases performance
             if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f) StartCoroutine(LandOnFlower());
         }
+    }
+
+    
+    //Set the heightRegulator location and position
+    private void SetPosition()
+    {
+        //Set the location to follow the Navmesh agent
+        heightRegulator.transform.position = new Vector3(
+            transform.position.x, 
+            heightRegulator.transform.position.y, 
+            transform.position.z);
+
+        //Set the rotation to match Navmesh agent's one
+        heightRegulator.transform.rotation = transform.rotation;
+    }
+
+
+    //Update the height of the heightRegulator with a tween
+    private void SetHeight()
+    {
+        canSetHeight = false;
+
+        //Do a tween between the heightRegulator Y and the target flower Y
+        heightRegulator.transform.DOMoveY(targetFlower.transform.position.y, timeBetweenTarget);
     }
 
 
@@ -98,6 +125,9 @@ public class BeeAgentScript : MonoBehaviour
 
         //Set the destination
         agent.SetDestination(targetFlower.transform.position);
+
+        //Can update the height again
+        canSetHeight = true;
     }
 
 }
