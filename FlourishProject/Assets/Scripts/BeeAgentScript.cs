@@ -51,7 +51,7 @@ public class BeeAgentScript : MonoBehaviour
         animator.SetBool("OnFlower", true);
 
         //Wait a random time before leaving
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(Random.Range(2f, 4f));
 
         //Leave the flower
         SetNewDestination();
