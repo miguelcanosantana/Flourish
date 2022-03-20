@@ -37,8 +37,9 @@ public class BeeAgentScript : MonoBehaviour
         if (!isOnFlower)
         {
             TravelToFlower();
-            SetPosition();
         } 
+
+        if (targetFlower != null) SetPosition();
     }
 
 
