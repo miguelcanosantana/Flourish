@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heightRegulator: {fileID: 1560788820}
+  animator: {fileID: 1759245445}
 --- !u!4 &478360782
 Transform:
   m_ObjectHideFlags: 0
@@ -679,7 +680,7 @@ Animator:
   m_GameObject: {fileID: 1759245444}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16642161fa66d214ea063e5a273495d6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
