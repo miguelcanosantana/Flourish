@@ -16293,6 +16293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1818014698}
   - component: {fileID: 1818014699}
+  - component: {fileID: 1818014700}
   m_Layer: 0
   m_Name: FSMBee
   m_TagString: Untagged
@@ -16337,6 +16338,18 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1818014700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818014697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97ae30782262df24d886f416354af108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1819128214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8583892235671343264, guid: 48e734dca9e910348b92401a7fb7369f, type: 3}
