@@ -14,11 +14,11 @@ public class BeeAiScript : MonoBehaviour
     private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
 
     //Variables
-
     [HideInInspector] public List<GameObject> listOfFlowers = new List<GameObject>();
     [HideInInspector] public GameObject targetFlower;
     [HideInInspector] public GameObject previousFlower;
     [HideInInspector] public bool allowRecollecting;
+    [HideInInspector] public bool alreadyTweening;
 
 
     //Start

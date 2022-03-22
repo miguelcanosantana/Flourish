@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
+using DG.Tweening;
 
 
 public class BeeStateClass
@@ -72,13 +73,8 @@ public class BeeStateClass
     //Regulate the height of the bee
     public void RegulateHeight()
     {
-        float xDistance = beeScript.targetFlower.transform.position.x - bee.transform.position.x;
-        float yDistance = beeScript.targetFlower.transform.position.x - bee.transform.position.x;
-
-        beeScript.beeContainerObject.transform.position = new Vector3(
-            beeScript.beeContainerObject.transform.position.x,
-            beeScript.targetFlower.transform.position.y,
-            beeScript.beeContainerObject.transform.position.z);
+        beeScript.alreadyTweening = true;
+        beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, 8f);
     }
 }
 
@@ -149,6 +145,7 @@ public class Traveling : BeeStateClass
     {
         base.Enter();
         animator.SetBool("OnFlower", false);
+        beeScript.alreadyTweening = false;
     }
 
 
@@ -162,8 +159,8 @@ public class Traveling : BeeStateClass
             //Set the destination
             agent.SetDestination(beeScript.targetFlower.transform.position);
 
-            //Regulate the height
-            RegulateHeight();
+            //Regulate the height if not already tweening
+            if (!beeScript.alreadyTweening) RegulateHeight();
         }
         else //if the flower has been deleted, choose another target
         {
@@ -196,6 +193,7 @@ public class Traveling : BeeStateClass
     public override void Exit()
     {
         base.Exit();
+        beeScript.alreadyTweening = false;
     }
 }
 
