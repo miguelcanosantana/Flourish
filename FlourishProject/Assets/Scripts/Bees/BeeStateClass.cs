@@ -68,6 +68,15 @@ public class BeeStateClass
         }
         return this;
     }
+
+    //Regulate the height of the bee
+    public void RegulateHeight()
+    {
+        beeScript.beeContainerObject.transform.position = new Vector3(
+            beeScript.beeContainerObject.transform.position.x,
+            beeScript.targetFlower.transform.position.y,
+            beeScript.beeContainerObject.transform.position.z);
+    }
 }
 
 
@@ -147,7 +156,11 @@ public class Traveling : BeeStateClass
         //If the target flower is not null
         if (beeScript.targetFlower != null)
         {
+            //Set the destination
             agent.SetDestination(beeScript.targetFlower.transform.position);
+
+            //Regulate the height
+            RegulateHeight();
         }
 
         //If the agent is in the target position, it doesn't have path or it's speed is 0, land in the flower

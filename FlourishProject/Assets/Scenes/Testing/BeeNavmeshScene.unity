@@ -16374,9 +16374,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ae30782262df24d886f416354af108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beeContainerObject: {fileID: 2049383914}
   animator: {fileID: 200907369}
   listOfFlowers: []
   targetFlower: {fileID: 0}
+  previousFlower: {fileID: 0}
+  allowRecollecting: 0
 --- !u!4 &1819128214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8583892235671343264, guid: 48e734dca9e910348b92401a7fb7369f, type: 3}

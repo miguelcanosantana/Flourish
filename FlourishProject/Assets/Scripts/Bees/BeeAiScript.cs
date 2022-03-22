@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class BeeAiScript : MonoBehaviour
 {
     //References
+    public GameObject beeContainerObject;
     public Animator animator;
     private NavMeshAgent agent;
     private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
