@@ -8,7 +8,7 @@ using System.Linq;
 public class BeeStateClass
 {
     //States the be can do
-    public enum State { Idle, Traveling, Recolecting};
+    public enum State { Idle, Traveling, Recollecting};
 
     //The phase the state is in, each state has 3 phases
     public enum Event { Enter, Update, Exit };
@@ -33,7 +33,7 @@ public class BeeStateClass
         bee = beeObject;
         beeScript = script;
         agent = beeObject.GetComponent<NavMeshAgent>();
-        animator = beeObject.GetComponent<Animator>();
+        animator = beeScript.animator;
         phase = Event.Enter;
     }
 
@@ -81,6 +81,7 @@ public class Idle : BeeStateClass
     public Idle(GameObject beeObject, BeeAiScript script) : base(beeObject, script)
     {
         stateName = State.Idle;
+        animator.SetBool("OnFlower", false);
     }
 
 
@@ -131,24 +132,73 @@ public class Traveling : BeeStateClass
     public override void Enter()
     {
         base.Enter();
+        animator.SetBool("OnFlower", false);
     }
 
 
     //Traveling Behavior
     public override void Update()
     {
-        Debug.Log(beeScript.targetFlower.name);
 
         //If the target flower is not null
         if (beeScript.targetFlower != null)
         {
             agent.SetDestination(beeScript.targetFlower.transform.position);
         }
-            
+
+        //If the agent is in the target position, it doesn't have path or it's speed is 0, land in the flower
+        if (agent.remainingDistance <= agent.stoppingDistance)
+        {
+            //Using this because the agent when starting for the first time returns 0, so the stoppingDistance is 0.01f
+            if (agent.remainingDistance <= 0f) return;
+
+            //Using sqrMagnitude instead of magnitude increases performance
+            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            {
+                nextState = new Recollecting(bee, beeScript);
+
+                //Exit the Traveling state
+                phase = Event.Exit;
+            }
+        }
+
     }
 
 
     //Exit the Traveling state and reset it
+    public override void Exit()
+    {
+        base.Exit();
+    }
+}
+
+
+//Recollecting state
+public class Recollecting : BeeStateClass
+{
+    //Recollecting's constructor (Take the bee from the base class)
+    public Recollecting(GameObject beeObject, BeeAiScript script) : base(beeObject, script)
+    {
+        stateName = State.Recollecting;
+    }
+
+
+    //Enter the Recollecting
+    public override void Enter()
+    {
+        base.Enter();
+        animator.SetBool("OnFlower", true);
+    }
+
+
+    //Recollecting Behavior
+    public override void Update()
+    {
+        Debug.Log("Recollecting");
+    }
+
+
+    //Exit the Recollecting state and reset it
     public override void Exit()
     {
         base.Exit();
