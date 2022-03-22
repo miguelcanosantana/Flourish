@@ -12,8 +12,9 @@ public class BeeAiScript : MonoBehaviour
     public Animator animator;
     private NavMeshAgent agent;
     private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
-    
+
     //Variables
+
     [HideInInspector] public List<GameObject> listOfFlowers = new List<GameObject>();
     [HideInInspector] public GameObject targetFlower;
     [HideInInspector] public GameObject previousFlower;

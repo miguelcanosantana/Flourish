@@ -72,6 +72,9 @@ public class BeeStateClass
     //Regulate the height of the bee
     public void RegulateHeight()
     {
+        float xDistance = beeScript.targetFlower.transform.position.x - bee.transform.position.x;
+        float yDistance = beeScript.targetFlower.transform.position.x - bee.transform.position.x;
+
         beeScript.beeContainerObject.transform.position = new Vector3(
             beeScript.beeContainerObject.transform.position.x,
             beeScript.targetFlower.transform.position.y,
@@ -162,6 +165,13 @@ public class Traveling : BeeStateClass
             //Regulate the height
             RegulateHeight();
         }
+        else //if the flower has been deleted, choose another target
+        {
+            nextState = new Idle(bee, beeScript);
+
+            //Exit the Traveling state
+            phase = Event.Exit;
+        }
 
         //If the agent is in the target position, it doesn't have path or it's speed is 0, land in the flower
         if (agent.remainingDistance <= agent.stoppingDistance)
@@ -214,8 +224,11 @@ public class Recollecting : BeeStateClass
     //Recollecting Behavior
     public override void Update()
     {
-        if (beeScript.allowRecollecting) Debug.Log("Recollecting");
-        else //If can't recollect anymore (for example when time passed) set to idle then travel
+        if (beeScript.targetFlower != null && beeScript.allowRecollecting)
+        {
+            //Debug.Log("Recollecting");
+        }
+        else //If can't recollect anymore (for example when time passed or flower deleted) get another flower target
         {
             nextState = new Idle(bee, beeScript);
 
