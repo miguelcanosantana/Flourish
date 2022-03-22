@@ -66,11 +66,8 @@ public class BeeStateClass
             Exit();
             return nextState;
         }
-
         return this;
     }
-
-
 }
 
 
@@ -98,9 +95,16 @@ public class Idle : BeeStateClass
         //Enter the Traveling state immediately if the list of flowers has at least 1
         if (beeScript.listOfFlowers.Count > 0)
         {
-            //Select a flower as a target
-            int randomDestination = Random.Range(0, beeScript.listOfFlowers.Count);
-            beeScript.targetFlower = beeScript.listOfFlowers[randomDestination];
+            //If the bee had a target flower if coming from a State, set it as the previous flower 
+            if (beeScript.targetFlower != null) beeScript.previousFlower = beeScript.targetFlower;
+
+            //Select a flower as a target, if it's the same flower as the previous one, repeat
+            do
+            {
+                int randomDestination = Random.Range(0, beeScript.listOfFlowers.Count);
+                beeScript.targetFlower = beeScript.listOfFlowers[randomDestination];
+
+            } while (beeScript.targetFlower == beeScript.previousFlower);
 
             nextState = new Traveling(bee, beeScript);
 
@@ -188,13 +192,23 @@ public class Recollecting : BeeStateClass
     {
         base.Enter();
         animator.SetBool("OnFlower", true);
+
+        //The Coroutine is launched from the beeScript, normal classes cannot launch coroutines
+        beeScript.StartCoroutine(beeScript.SetRestInFlowerTime(Random.Range(2f, 4f)));
     }
 
 
     //Recollecting Behavior
     public override void Update()
     {
-        Debug.Log("Recollecting");
+        if (beeScript.allowRecollecting) Debug.Log("Recollecting");
+        else //If can't recollect anymore (for example when time passed) set to idle then travel
+        {
+            nextState = new Idle(bee, beeScript);
+
+            //Exit the Recollecting state
+            phase = Event.Exit;
+        }
     }
 
 

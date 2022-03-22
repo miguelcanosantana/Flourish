@@ -15,6 +15,8 @@ public class BeeAiScript : MonoBehaviour
     //Variables
     [HideInInspector] public List<GameObject> listOfFlowers = new List<GameObject>();
     [HideInInspector] public GameObject targetFlower;
+    [HideInInspector] public GameObject previousFlower;
+    [HideInInspector] public bool allowRecollecting;
 
 
     //Start
@@ -35,6 +37,15 @@ public class BeeAiScript : MonoBehaviour
     void Update()
     {
         currentState = currentState.Process();
+    }
+
+
+    //Coroutine for FSM => Set the bee to recollect in the flower for a time, all managed on the FSM
+    public IEnumerator SetRestInFlowerTime(float time)
+    {
+        allowRecollecting = true;
+        yield return new WaitForSeconds(time);
+        allowRecollecting = false;
     }
 
 }
