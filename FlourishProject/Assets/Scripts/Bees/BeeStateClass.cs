@@ -70,11 +70,49 @@ public class BeeStateClass
         return this;
     }
 
-    //Regulate the height of the bee
-    public void RegulateHeight()
+    //Regulate the position, the rotation and the height of the bee
+    public void RegulatePositionHeight()
     {
-        beeScript.alreadyTweening = true;
-        beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, 8f);
+
+        //Regulate position
+        beeScript.beeContainerObject.transform.position = new Vector3(
+            agent.transform.position.x,
+            beeScript.beeContainerObject.transform.position.y,
+            agent.transform.position.z);
+
+        //Regulate rotation
+        beeScript.beeContainerObject.transform.rotation = agent.transform.rotation;
+
+        //If not already tweening and the distance is less than infinite, regulate height
+        //https://stackoverflow.com/questions/61421172/why-does-navmeshagent-remainingdistance-return-values-of-infinity-and-then-a-flo
+        if (!beeScript.alreadyTweening && agent.remainingDistance < Mathf.Infinity)
+        {
+            beeScript.alreadyTweening = true;
+
+            float time = agent.remainingDistance / agent.speed;
+            beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, time);
+        }
+
+
+
+
+
+
+        //Transform beeContainer = beeScript.beeContainerObject.transform;
+        //float targetFlowerY = beeScript.targetFlower.transform.position.y;
+        //float distanceLeft = agent.remainingDistance;
+
+        ////Using this to evade infinite
+        //if (distanceLeft > 0)
+        //{
+        //    float speed = (1.5f / distanceLeft) * Time.deltaTime;
+
+        //    //Regulate the height based on the distance to the flower
+        //    if (beeContainer.position.y < targetFlowerY) beeContainer.transform.position += new Vector3(0, speed, 0);
+        //    if (beeContainer.position.y > targetFlowerY) beeContainer.transform.position += new Vector3(0, -speed, 0);
+        //}
+
+        //Debug.Log(agent.remainingDistance);
     }
 }
 
@@ -159,8 +197,8 @@ public class Traveling : BeeStateClass
             //Set the destination
             agent.SetDestination(beeScript.targetFlower.transform.position);
 
-            //Regulate the height if not already tweening
-            if (!beeScript.alreadyTweening) RegulateHeight();
+            //Regulate the position and the height if the distance is more than 0
+            if (agent.remainingDistance > 0) RegulatePositionHeight();
         }
         else //if the flower has been deleted, choose another target
         {
