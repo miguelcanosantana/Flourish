@@ -1,3 +1,7 @@
+//References
+//https://stackoverflow.com/questions/61421172/why-does-navmeshagent-remainingdistance-return-values-of-infinity-and-then-a-flo
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -84,36 +88,32 @@ public class BeeStateClass
         beeScript.beeContainerObject.transform.rotation = agent.transform.rotation;
 
         //If not already tweening and the distance is less than infinite, regulate height
-        //https://stackoverflow.com/questions/61421172/why-does-navmeshagent-remainingdistance-return-values-of-infinity-and-then-a-flo
-        if (!beeScript.alreadyTweening && agent.remainingDistance < Mathf.Infinity)
+        if (!beeScript.alreadyTweening) //&& agent.remainingDistance < Mathf.Infinity)
         {
             beeScript.alreadyTweening = true;
 
-            float time = agent.remainingDistance / agent.speed;
+            //float time = agent.remainingDistance / agent.speed;
+            float time = GetAgentDistance(agent) / agent.speed;
             beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, time);
         }
-
-
-
-
-
-
-        //Transform beeContainer = beeScript.beeContainerObject.transform;
-        //float targetFlowerY = beeScript.targetFlower.transform.position.y;
-        //float distanceLeft = agent.remainingDistance;
-
-        ////Using this to evade infinite
-        //if (distanceLeft > 0)
-        //{
-        //    float speed = (1.5f / distanceLeft) * Time.deltaTime;
-
-        //    //Regulate the height based on the distance to the flower
-        //    if (beeContainer.position.y < targetFlowerY) beeContainer.transform.position += new Vector3(0, speed, 0);
-        //    if (beeContainer.position.y > targetFlowerY) beeContainer.transform.position += new Vector3(0, -speed, 0);
-        //}
-
-        //Debug.Log(agent.remainingDistance);
     }
+
+
+    //Get the navmesh distance with accuracy
+    private float GetAgentDistance(NavMeshAgent navMeshAgent)
+    {
+        if (navMeshAgent.pathPending || navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid || navMeshAgent.path.corners.Length == 0) return -1f;
+
+        float distance = 0.0f;
+
+        for (int i = 0; i < navMeshAgent.path.corners.Length - 1; ++i)
+        {
+            distance += Vector3.Distance(navMeshAgent.path.corners[i], navMeshAgent.path.corners[i + 1]);
+        }
+
+        return distance;
+    }
+
 }
 
 
