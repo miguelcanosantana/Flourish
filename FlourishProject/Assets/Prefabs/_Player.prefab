@@ -310,6 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e5f3cb434f76a4fad883c8dffc8fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 5
-  mouseMultiplier: 1.5
+  speedMultiplier: 8
+  mouseMultiplier: 1.25
   cameraContainer: {fileID: 3827941539604013529}
