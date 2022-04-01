@@ -185,8 +185,8 @@ public class Traveling : BeeStateClass
         animator.SetBool("OnFlower", false);
         beeScript.alreadyTweening = false;
 
-        //Set the destination
-        agent.SetDestination(beeScript.targetFlower.transform.position);
+        //Set the destination if the flower exists
+        if (beeScript.targetFlower) agent.SetDestination(beeScript.targetFlower.transform.position);
     }
 
 
