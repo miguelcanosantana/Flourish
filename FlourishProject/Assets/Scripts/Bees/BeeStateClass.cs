@@ -184,6 +184,9 @@ public class Traveling : BeeStateClass
         base.Enter();
         animator.SetBool("OnFlower", false);
         beeScript.alreadyTweening = false;
+
+        //Set the destination
+        agent.SetDestination(beeScript.targetFlower.transform.position);
     }
 
 
@@ -194,10 +197,7 @@ public class Traveling : BeeStateClass
         //If the target flower is not null
         if (beeScript.targetFlower != null)
         {
-            //Set the destination
-            agent.SetDestination(beeScript.targetFlower.transform.position);
-
-            //Regulate the position and the height if the distance is more than 0
+            //Regulate the position and the height
             if (agent.remainingDistance > 0) RegulatePositionHeight();
         }
         else //if the flower has been deleted, choose another target
@@ -208,14 +208,14 @@ public class Traveling : BeeStateClass
             phase = Event.Exit;
         }
 
-        //If the agent is in the target position, it doesn't have path or it's speed is 0, land in the flower
-        if (agent.remainingDistance <= agent.stoppingDistance)
+        //If the agent is in the target position, land in the flower
+        if (agent.remainingDistance <= 0.1f)
         {
             //Using this because the agent when starting for the first time returns 0, so the stoppingDistance is 0.01f
             if (agent.remainingDistance <= 0f) return;
 
             //Using sqrMagnitude instead of magnitude increases performance
-            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            //if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
             {
                 nextState = new Recollecting(bee, beeScript);
 
