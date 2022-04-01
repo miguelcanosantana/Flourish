@@ -124,7 +124,6 @@ public class Idle : BeeStateClass
     public Idle(GameObject beeObject, BeeAiScript script) : base(beeObject, script)
     {
         stateName = State.Idle;
-        animator.SetBool("OnFlower", false);
     }
 
 
@@ -132,6 +131,7 @@ public class Idle : BeeStateClass
     public override void Enter()
     {
         base.Enter();
+        animator.SetBool("OnFlower", false);
     }
 
 
