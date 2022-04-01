@@ -138,6 +138,9 @@ public class Idle : BeeStateClass
     //Idle's behavior
     public override void Update()
     {
+        //Update flowers list on the bee if it can (Increases performance waiting a time each attempt)
+        if (beeScript.canUpdateFlowers) beeScript.StartCoroutine(beeScript.UpdateFlowersList());
+
         //Enter the Traveling state immediately if the list of flowers has at least 1
         if (beeScript.listOfFlowers.Count > 0)
         {

@@ -19,6 +19,7 @@ public class BeeAiScript : MonoBehaviour
     [HideInInspector] public GameObject previousFlower;
     [HideInInspector] public bool allowRecollecting;
     [HideInInspector] public bool alreadyTweening;
+    [HideInInspector] public bool canUpdateFlowers = true;
 
 
     //Start
@@ -26,9 +27,6 @@ public class BeeAiScript : MonoBehaviour
     {
         //Get the components
         agent = GetComponent<NavMeshAgent>();
-
-        //Get the flowers
-        listOfFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
 
         //Start the FSM in idle state
         currentState = new Idle(gameObject, this);
@@ -39,6 +37,19 @@ public class BeeAiScript : MonoBehaviour
     void Update()
     {
         currentState = currentState.Process();
+    }
+
+
+    //Update the list of flowers the bee can travel to (Using a timer to increase performance)
+    public IEnumerator UpdateFlowersList()
+    {
+        canUpdateFlowers = false;
+
+        listOfFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
+        Debug.Log("Updated flowers: " + listOfFlowers.Count);
+
+        yield return new WaitForSeconds(2f);
+        canUpdateFlowers = true;
     }
 
 
