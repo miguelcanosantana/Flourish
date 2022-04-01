@@ -4065,6 +4065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestFlower (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
 --- !u!4 &276754017 stripped
@@ -13373,6 +13377,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestFlower (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
 --- !u!4 &895407664 stripped
@@ -19232,6 +19240,10 @@ PrefabInstance:
     - target: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
       propertyPath: m_Name
       value: TestFlower (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
@@ -27036,6 +27048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestFlower (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
 --- !u!4 &1648428183 stripped
@@ -33207,6 +33223,10 @@ PrefabInstance:
     - target: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
       propertyPath: m_Name
       value: TestFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
