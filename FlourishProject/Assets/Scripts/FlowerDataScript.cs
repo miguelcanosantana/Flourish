@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public enum FlowerType
 {
@@ -15,12 +15,16 @@ public class FlowerDataScript : MonoBehaviour
 {
     [Header("Stats")]
     public FlowerType flowerType = FlowerType.None;
-    [Range(20, 50)] public int maxPollen;
-    [Range(1, 20)] public int regeneratePollenRate;
+    public int maxPollen;
+    public int regeneratePollenRate;
+
+    [Header("References")]
+    [SerializeField] private Image pollenBarBackground;
+    [SerializeField] private Image pollenBarLevel;
 
     //Variables
-    public float age = 0; //1 second = 1 day
-    public int currentPollen = 0;
+    [HideInInspector] public float age = 0; //1 second = 1 day
+    [HideInInspector] public int currentPollen = 0;
     [HideInInspector] public bool isBeePosed = false;
 
     private float timeWhenCreated = 0f;
@@ -33,6 +37,8 @@ public class FlowerDataScript : MonoBehaviour
     {
         //Save the time when it was created
         timeWhenCreated = Time.timeSinceLevelLoad;
+
+        UpdatePollenUI();
     }
 
 
@@ -58,11 +64,20 @@ public class FlowerDataScript : MonoBehaviour
     private IEnumerator RegeneratePollen()
     {
         canRegeneratePollen = false;
-
         yield return new WaitForSeconds(regeneratePollenRate);
 
         currentPollen++;
+        UpdatePollenUI();
         canRegeneratePollen = true;
+    }
+
+
+    //Update the elements in the pollen UI 
+    private void UpdatePollenUI()
+    {
+        float percentage = ((float) currentPollen / (float) maxPollen);
+        pollenBarLevel.fillAmount = percentage;
+        Debug.Log(percentage);
     }
 
 

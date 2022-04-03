@@ -64,7 +64,7 @@ public class BeeAiScript : MonoBehaviour
         }
 
         //listOfFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
-        Debug.Log("Updated flowers: " + listOfFlowers.Count);
+        //Debug.Log("Updated flowers: " + listOfFlowers.Count);
 
         yield return new WaitForSeconds(2f);
         canUpdateFlowers = true;
