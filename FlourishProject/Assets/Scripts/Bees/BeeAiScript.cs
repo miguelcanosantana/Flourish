@@ -20,6 +20,7 @@ public class BeeAiScript : MonoBehaviour
     [HideInInspector] public bool allowRecollecting;
     [HideInInspector] public bool alreadyTweening;
     [HideInInspector] public bool canUpdateFlowers = true;
+    [HideInInspector] public float loadedPollen = 0f;
 
 
     //Start
@@ -40,13 +41,30 @@ public class BeeAiScript : MonoBehaviour
     }
 
 
-    //Update the list of flowers the bee can travel to (Using a timer to increase performance)
+    //Coroutine for FSM => Update the list of flowers the bee can travel to (Using a timer to increase performance)
     public IEnumerator UpdateFlowersList()
     {
         canUpdateFlowers = false;
 
-        listOfFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
-        //Debug.Log("Updated flowers: " + listOfFlowers.Count);
+        //Get all flowers
+        List<GameObject> allFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
+
+        //Clear the previous flower list
+        listOfFlowers.Clear();
+
+        //Only put in list of flowers the flowers with pollen and with no bees posed
+        foreach (GameObject flower in allFlowers)
+        {
+            FlowerDataScript tempFlowerScript = flower.GetComponent<FlowerDataScript>();
+
+            if (tempFlowerScript.currentPollen > 0 && !tempFlowerScript.isBeePosed)
+            {
+                listOfFlowers.Add(flower);
+            }
+        }
+
+        //listOfFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
+        Debug.Log("Updated flowers: " + listOfFlowers.Count);
 
         yield return new WaitForSeconds(2f);
         canUpdateFlowers = true;
