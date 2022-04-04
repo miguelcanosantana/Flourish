@@ -75,9 +75,9 @@ public class FlowerDataScript : MonoBehaviour
     //Update the elements in the pollen UI 
     private void UpdatePollenUI()
     {
+        //Fill the bar depending on the pollen level
         float percentage = ((float) currentPollen / (float) maxPollen);
         pollenBarLevel.fillAmount = percentage;
-        Debug.Log(percentage);
     }
 
 
@@ -90,7 +90,7 @@ public class FlowerDataScript : MonoBehaviour
             currentPollen -= pollenToTake;
             return pollenToTake;
         }
-        //Else if there is only a bit of pollen, take that little amount and mark the flower as not available
+        //Else if there is only a bit of pollen, take that little amount
         else if (currentPollen > 0)
         {
             int pollenBackup = currentPollen;

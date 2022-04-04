@@ -87,12 +87,11 @@ public class BeeStateClass
         //Regulate rotation
         beeScript.beeContainerObject.transform.rotation = agent.transform.rotation;
 
-        //If not already tweening and the distance is less than infinite, regulate height
-        if (!beeScript.alreadyTweening) //&& agent.remainingDistance < Mathf.Infinity)
+        //If not already tweening, regulate height
+        if (!beeScript.alreadyTweening)
         {
             beeScript.alreadyTweening = true;
 
-            //float time = agent.remainingDistance / agent.speed;
             float time = GetAgentDistance(agent) / agent.speed;
             beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, time);
         }
@@ -196,12 +195,11 @@ public class Traveling : BeeStateClass
     //Traveling Behavior
     public override void Update()
     {
-
         //If the target flower is not null
         if (beeScript.targetFlower != null)
         {
             //Regulate the position and the height
-            if (agent.remainingDistance > 0) RegulatePositionHeight();
+            if (agent.remainingDistance > 0 && !agent.pathPending) RegulatePositionHeight();
         }
         else //if the flower has been deleted, choose another target
         {
@@ -212,19 +210,12 @@ public class Traveling : BeeStateClass
         }
 
         //If the agent is in the target position, land in the flower
-        if (agent.remainingDistance <= 0.1f)
+        if (agent.remainingDistance <= 0.1f && !agent.pathPending)
         {
-            //Using this because the agent when starting for the first time returns 0, so the stoppingDistance is 0.01f
-            if (agent.remainingDistance <= 0f) return;
+            nextState = new Recollecting(bee, beeScript);
 
-            //Using sqrMagnitude instead of magnitude increases performance
-            //if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-            {
-                nextState = new Recollecting(bee, beeScript);
-
-                //Exit the Traveling state
-                phase = Event.Exit;
-            }
+            //Exit the Traveling state
+            phase = Event.Exit;
         }
 
     }
