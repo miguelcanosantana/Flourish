@@ -99,11 +99,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beeContainerObject: {fileID: 8673488259503158960}
   animator: {fileID: 8673488260303581491}
+  recollectionAmount: 5
   listOfFlowers: []
   targetFlower: {fileID: 0}
   previousFlower: {fileID: 0}
   allowRecollecting: 0
   alreadyTweening: 0
+  canUpdateFlowers: 1
+  loadedPollen: 0
 --- !u!1 &8673488259849679950
 GameObject:
   m_ObjectHideFlags: 0

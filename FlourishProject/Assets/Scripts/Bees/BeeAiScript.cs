@@ -14,6 +14,7 @@ public class BeeAiScript : MonoBehaviour
     private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
 
     //Variables
+    public int recollectionAmount;
     [HideInInspector] public List<GameObject> listOfFlowers = new List<GameObject>();
     [HideInInspector] public GameObject targetFlower;
     [HideInInspector] public GameObject previousFlower;
@@ -63,7 +64,6 @@ public class BeeAiScript : MonoBehaviour
             }
         }
 
-        //listOfFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
         //Debug.Log("Updated flowers: " + listOfFlowers.Count);
 
         yield return new WaitForSeconds(2f);
@@ -71,11 +71,15 @@ public class BeeAiScript : MonoBehaviour
     }
 
 
-    //Coroutine for FSM => Set the bee to recollect in the flower for a time, all managed on the FSM
-    public IEnumerator SetRestInFlowerTime(float time)
+    //Coroutine for FSM => Wait a time and recollect some pollen from the flower 
+    public IEnumerator RecollectPollen(float time)
     {
         allowRecollecting = true;
+
         yield return new WaitForSeconds(time);
+        FlowerDataScript flowerScript = targetFlower.GetComponent<FlowerDataScript>();
+        loadedPollen += flowerScript.TryTakePollen(recollectionAmount);
+
         allowRecollecting = false;
     }
 

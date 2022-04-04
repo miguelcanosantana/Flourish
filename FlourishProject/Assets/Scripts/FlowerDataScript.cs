@@ -91,7 +91,7 @@ public class FlowerDataScript : MonoBehaviour
             return pollenToTake;
         }
         //Else if there is only a bit of pollen, take that little amount
-        else if (currentPollen > 0)
+        else if (currentPollen < pollenToTake && currentPollen > 0)
         {
             int pollenBackup = currentPollen;
             currentPollen = 0;

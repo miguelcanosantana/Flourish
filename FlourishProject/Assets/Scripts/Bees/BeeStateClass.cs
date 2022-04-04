@@ -246,8 +246,12 @@ public class Recollecting : BeeStateClass
         base.Enter();
         animator.SetBool("OnFlower", true);
 
-        //The Coroutine is launched from the beeScript, normal classes cannot launch coroutines
-        beeScript.StartCoroutine(beeScript.SetRestInFlowerTime(Random.Range(2f, 4f)));
+        //Recollect some pollen from the flower
+        if (beeScript.targetFlower != null)
+        {
+            float recollectWait = Random.Range(2f, 4f);
+            beeScript.StartCoroutine(beeScript.RecollectPollen(recollectWait));
+        }
     }
 
 
