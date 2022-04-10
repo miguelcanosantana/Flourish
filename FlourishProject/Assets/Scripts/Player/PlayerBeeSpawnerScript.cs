@@ -23,7 +23,6 @@ public class PlayerBeeSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canCheck) StartCoroutine(CheckFlowersAndBeesAround());
     }
 
 
@@ -31,6 +30,8 @@ public class PlayerBeeSpawnerScript : MonoBehaviour
     private IEnumerator CheckFlowersAndBeesAround()
     {
         canCheck = false;
+
+        Debug.Log("Check: " + Time.time);
 
         yield return new WaitForSeconds(1f);
 
@@ -46,6 +47,9 @@ public class PlayerBeeSpawnerScript : MonoBehaviour
 
         //Add the bee to the list if it's near
         if (collider.gameObject.tag == "Bee") nearBees.Add(collider.gameObject);
+
+        //Check near bees and flowers
+        if (canCheck) StartCoroutine(CheckFlowersAndBeesAround());
     }
 
 
