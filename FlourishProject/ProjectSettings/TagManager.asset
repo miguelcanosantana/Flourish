@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Flower
   - Ground
+  - Bee
   layers:
   - Default
   - TransparentFX
