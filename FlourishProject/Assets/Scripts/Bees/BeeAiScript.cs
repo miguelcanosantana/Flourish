@@ -61,15 +61,14 @@ public class BeeAiScript : MonoBehaviour
         {
             FlowerDataScript tempFlowerScript = flower.GetComponent<FlowerDataScript>();
 
-            if (tempFlowerScript.currentPollen > 0 && !tempFlowerScript.isBeePosed)
+            //Check if bee is posed in the FSM instead here, causes editor freeze
+            if (tempFlowerScript.currentPollen > 0)// && !tempFlowerScript.isBeePosed)
             {
                 listOfFlowers.Add(flower);
             }
         }
 
-        //Debug.Log("Updated flowers: " + listOfFlowers.Count);
-
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         canUpdateFlowers = true;
     }
 
