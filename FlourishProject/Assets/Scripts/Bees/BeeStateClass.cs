@@ -93,7 +93,13 @@ public class BeeStateClass
             beeScript.alreadyTweening = true;
 
             float time = GetAgentDistance(agent) / agent.speed;
-            beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, time);
+
+            //Create a sequence and add the movement to it
+            beeScript.flySequence = DOTween.Sequence();
+            beeScript.flySequence.Append(beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, time));
+            beeScript.flySequence.Play();
+
+            //beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, time);
         }
     }
 
@@ -131,6 +137,9 @@ public class Idle : BeeStateClass
     {
         base.Enter();
         animator.SetBool("OnFlower", false);
+
+        //Kill previously tweens
+        beeScript.flySequence.Kill();
     }
 
 
@@ -143,14 +152,19 @@ public class Idle : BeeStateClass
         //Enter the Traveling state immediately if the list of flowers has at least 1
         if (beeScript.listOfFlowers.Count > 0)
         {
-            //If the bee had a target flower if coming from a State, set it as the previous flower 
-            if (beeScript.targetFlower != null) beeScript.previousFlower = beeScript.targetFlower;
-
+            //If the bee had a target flower if coming from a State, set it as the previous flower
+            if (beeScript.targetFlower != null)
+            {
+                //Set as previous
+                beeScript.previousFlower = beeScript.targetFlower;
+            }
+                
             //Select a flower as a target, if it's the same flower as the previous one, repeat
             do
             {
                 int randomDestination = Random.Range(0, beeScript.listOfFlowers.Count);
                 beeScript.targetFlower = beeScript.listOfFlowers[randomDestination];
+                beeScript.targetFlowerScript = beeScript.targetFlower.GetComponent<FlowerDataScript>();
 
             } while (beeScript.targetFlower == beeScript.previousFlower);
 
@@ -187,16 +201,19 @@ public class Traveling : BeeStateClass
         animator.SetBool("OnFlower", false);
         beeScript.alreadyTweening = false;
 
-        //Set the destination if the flower exists
-        if (beeScript.targetFlower) agent.SetDestination(beeScript.targetFlower.transform.position);
+        //Set the destination if the flower exists and set as targeted
+        if (beeScript.targetFlower)
+        {
+            agent.SetDestination(beeScript.targetFlower.transform.position);
+        }
     }
 
 
     //Traveling Behavior
     public override void Update()
     {
-        //If the target flower is not null
-        if (beeScript.targetFlower != null)
+        //If the target flower is not null and no bees are posed
+        if (beeScript.targetFlower != null && !beeScript.targetFlowerScript.isBeePosed)
         {
             //Regulate the position and the height
             if (agent.remainingDistance > 0 && !agent.pathPending) RegulatePositionHeight();
@@ -249,6 +266,9 @@ public class Recollecting : BeeStateClass
         //Recollect some pollen from the flower
         if (beeScript.targetFlower != null)
         {
+            //Set in the flower that bee is posed
+            beeScript.targetFlower.GetComponent<FlowerDataScript>().isBeePosed = true;
+
             float recollectWait = Random.Range(2f, 4f);
             beeScript.StartCoroutine(beeScript.RecollectPollen(recollectWait));
         }
@@ -264,6 +284,9 @@ public class Recollecting : BeeStateClass
         }
         else //If can't recollect anymore (for example when time passed or flower deleted) get another flower target
         {
+            //Set in the flower that bee is not posed anymore
+            beeScript.targetFlower.GetComponent<FlowerDataScript>().isBeePosed = false;
+
             nextState = new Idle(bee, beeScript);
 
             //Exit the Recollecting state

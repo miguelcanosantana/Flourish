@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,13 @@ public class BeeAiScript : MonoBehaviour
     public int recollectionAmount;
     [HideInInspector] public List<GameObject> listOfFlowers = new List<GameObject>();
     [HideInInspector] public GameObject targetFlower;
+    [HideInInspector] public FlowerDataScript targetFlowerScript;
     [HideInInspector] public GameObject previousFlower;
     [HideInInspector] public bool allowRecollecting;
     [HideInInspector] public bool alreadyTweening;
     [HideInInspector] public bool canUpdateFlowers = true;
     [HideInInspector] public float loadedPollen = 0f;
+    [HideInInspector] public Sequence flySequence;
 
 
     //Start
@@ -46,6 +49,8 @@ public class BeeAiScript : MonoBehaviour
     public IEnumerator UpdateFlowersList()
     {
         canUpdateFlowers = false;
+
+        Debug.Log("Updated: " + Time.time);
 
         //Get all flowers
         List<GameObject> allFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
