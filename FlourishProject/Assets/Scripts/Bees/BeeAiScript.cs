@@ -50,8 +50,6 @@ public class BeeAiScript : MonoBehaviour
     {
         canUpdateFlowers = false;
 
-        Debug.Log("Updated: " + Time.time);
-
         //Get all flowers
         List<GameObject> allFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
 
