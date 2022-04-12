@@ -52,8 +52,8 @@ public class FlowerDataScript : MonoBehaviour
     //Update
     private void Update()
     {
-        //If can regenerate the pollen, do 1 unit and wait some time before doing it again
-        if (canRegeneratePollen && currentPollen < maxPollen) StartCoroutine(RegeneratePollen());
+        //If no bees are posed and can regenerate the pollen, do 1 unit and wait some time before doing it again
+        if (canRegeneratePollen && currentPollen < maxPollen && !isBeePosed) StartCoroutine(RegeneratePollen());
 
         UpdateActiveTime();
         //Debug.Log(timeActive);
