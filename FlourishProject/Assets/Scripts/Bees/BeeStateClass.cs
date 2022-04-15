@@ -87,8 +87,8 @@ public class BeeStateClass
         //Regulate rotation
         beeScript.beeContainerObject.transform.rotation = agent.transform.rotation;
 
-        //If not already tweening, regulate height
-        if (!beeScript.alreadyTweening)
+        //If not already tweening and there is no path pending, regulate height
+        if (!beeScript.alreadyTweening && !agent.pathPending && agent.remainingDistance > 0)
         {
             beeScript.alreadyTweening = true;
 
@@ -216,7 +216,7 @@ public class Traveling : BeeStateClass
         if (beeScript.targetFlower != null && !beeScript.targetFlowerScript.isBeePosed)
         {
             //Regulate the position and the height
-            if (agent.remainingDistance > 0 && !agent.pathPending) RegulatePositionHeight();
+            RegulatePositionHeight();
         }
         else //if the flower has been deleted, choose another target
         {
