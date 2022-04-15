@@ -19,8 +19,11 @@ public class FlowerDataScript : MonoBehaviour
     public int regeneratePollenRate;
 
     [Header("References")]
+    [SerializeField] private GameObject barObject;
     [SerializeField] private Image pollenBarBackground;
     [SerializeField] private Image pollenBarLevel;
+
+    private Camera playerCamera;
 
     //Variables
     [HideInInspector] public float age = 0; //1 second = 1 day
@@ -37,6 +40,9 @@ public class FlowerDataScript : MonoBehaviour
     {
         //Save the time when it was created
         timeWhenCreated = Time.timeSinceLevelLoad;
+
+        //Get the player camera
+        playerCamera = Camera.main;
 
         UpdatePollenUI();
     }
@@ -56,7 +62,16 @@ public class FlowerDataScript : MonoBehaviour
         if (canRegeneratePollen && currentPollen < maxPollen && !isBeePosed) StartCoroutine(RegeneratePollen());
 
         UpdateActiveTime();
+        UpdateUIPosition();
         //Debug.Log(timeActive);
+    }
+
+
+    //Update the position of the UI
+    private void UpdateUIPosition()
+    {
+        barObject.transform.LookAt(playerCamera.transform.position);
+        barObject.transform.Rotate(0, 180, 0);
     }
 
 
