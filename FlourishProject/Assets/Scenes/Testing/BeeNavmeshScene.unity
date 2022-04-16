@@ -14533,6 +14533,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Sunflower (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1935520199235722687, guid: c5c9e071bf291e9449d965bb1b951ddd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c9e071bf291e9449d965bb1b951ddd, type: 3}
 --- !u!4 &1717226045 stripped

@@ -212,13 +212,11 @@ public class Traveling : BeeStateClass
     //Traveling Behavior
     public override void Update()
     {
-        //If the target flower is not null and no bees are posed
-        if (beeScript.targetFlower != null && !beeScript.targetFlowerScript.isBeePosed)
-        {
-            //Regulate the position and the height
-            RegulatePositionHeight();
-        }
-        else //if the flower has been deleted, choose another target
+        //Regulate the position and the height
+        RegulatePositionHeight();
+
+        //If the target flower is null or the bee is posed, choose another target
+        if (beeScript.targetFlower == null || beeScript.targetFlowerScript.isBeePosed)
         {
             nextState = new Idle(bee, beeScript);
 
