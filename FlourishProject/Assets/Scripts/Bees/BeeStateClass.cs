@@ -149,8 +149,8 @@ public class Idle : BeeStateClass
         //Update flowers list on the bee if it can (Increases performance waiting a time each attempt)
         if (beeScript.canUpdateFlowers) beeScript.StartCoroutine(beeScript.UpdateFlowersList());
 
-        //Enter the Traveling state immediately if the list of flowers has at least 1
-        if (beeScript.listOfFlowers.Count > 0)
+        //Enter the Traveling state immediately if the list of flowers has at least 2
+        if (beeScript.listOfFlowers.Count >= 2)
         {
             //If the bee had a target flower if coming from a State, set it as the previous flower
             if (beeScript.targetFlower != null)
