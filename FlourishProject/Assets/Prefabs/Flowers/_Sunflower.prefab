@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flowerType: 1
   maxPollen: 70
-  regeneratePollenRate: 5
+  regeneratePollenRate: 1
   barObject: {fileID: 3357814862068306595}
   pollenBarBackground: {fileID: 9000049725381780300}
   pollenBarLevel: {fileID: 4051851160994795347}
