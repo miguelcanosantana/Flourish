@@ -4,6 +4,26 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
+//All the actions that can be performed form the gun
+public enum GunAction
+{
+    None,
+    Fire,
+    Suck
+}
+
+
+//All the item types that go along with a gun action
+public enum GunItemTypes
+{
+    None,
+    RegularBee,
+    SunFlower,
+    Tulip
+}
+
+
+
 public class PlayerControlScript : MonoBehaviour
 {
 
@@ -15,7 +35,9 @@ public class PlayerControlScript : MonoBehaviour
 
     private Vector2 movementInput = Vector2.zero;
     private Vector2 mouseInput = Vector2.zero;
+    private Vector2 scrollActionInput = Vector2.zero;
     private float cameraYRotation;
+    private GunAction gunAction;
 
 
     //References
@@ -83,6 +105,38 @@ public class PlayerControlScript : MonoBehaviour
     public void OnMoveMouseInput(InputAction.CallbackContext context)
     {
         mouseInput = context.ReadValue<Vector2>();
+    }
+
+
+    //Event => On left click, shoot
+    public void OnLeftShootInput(InputAction.CallbackContext context)
+    {
+        bool tempBool = context.ReadValueAsButton();
+
+        if (tempBool) gunAction = GunAction.Fire;
+        else gunAction = GunAction.None;
+
+        Debug.Log(gunAction);
+    }
+
+
+    //Event => On right click, suck
+    public void OnRightSuckInput(InputAction.CallbackContext context)
+    {
+        bool tempBool = context.ReadValueAsButton();
+
+        if (tempBool) gunAction = GunAction.Suck;
+        else gunAction = GunAction.None;
+
+        Debug.Log(gunAction);
+    }
+
+
+    //Event => When moving the scroll wheel or the d-pad, change between player actions
+    public void OnChangeActionInput(InputAction.CallbackContext context)
+    {
+        scrollActionInput = context.ReadValue<Vector2>();
+        if (context.phase == InputActionPhase.Started) Debug.Log(scrollActionInput);
     }
 
 }

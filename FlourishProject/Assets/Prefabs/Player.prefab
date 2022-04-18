@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5786841481228475698}
-  - component: {fileID: 1374418043}
   m_Layer: 0
   m_Name: _BeeGun
   m_TagString: Untagged
@@ -64,20 +63,6 @@ Transform:
   m_Father: {fileID: 3827941541375756780}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1374418043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3801232302204377441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b5a9830ff7d4a44b3e719bb628585f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  availableBees: 0
-  beeSpawnPoint: {fileID: 400626743327331239}
 --- !u!1 &3827941539604013529
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,9 +359,53 @@ MonoBehaviour:
     m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3827941541375756783}
+        m_TargetAssemblyTypeName: PlayerControlScript, Assembly-CSharp
+        m_MethodName: OnLeftShootInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
     m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3827941541375756783}
+        m_TargetAssemblyTypeName: PlayerControlScript, Assembly-CSharp
+        m_MethodName: OnRightSuckInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b600cf6e-93c5-4e6f-b9c6-54e1f62c20ce
+    m_ActionName: Player/SuckFlower/Bee[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3827941541375756783}
+        m_TargetAssemblyTypeName: PlayerControlScript, Assembly-CSharp
+        m_MethodName: OnChangeActionInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 094dccd7-7283-4887-bdb2-8606f349b24f
+    m_ActionName: Player/ChangeAction[/Mouse/scroll]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -394,8 +423,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e5f3cb434f76a4fad883c8dffc8fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  availableBees: 0
   speedMultiplier: 8
   mouseMultiplier: 1.25
+  beeSpawnPoint: {fileID: 400626743327331239}
   cameraContainer: {fileID: 3827941539604013529}
 --- !u!208 &236560835
 NavMeshObstacle:
