@@ -9,8 +9,10 @@ public class PlayerControlScript : MonoBehaviour
 
     //Variables
     [Header("Stats")]
+    public int availableBees;
     [SerializeField] private float speedMultiplier;
     [SerializeField] private float mouseMultiplier;
+
     private Vector2 movementInput = Vector2.zero;
     private Vector2 mouseInput = Vector2.zero;
     private float cameraYRotation;
@@ -18,6 +20,7 @@ public class PlayerControlScript : MonoBehaviour
 
     //References
     [Header("References")]
+    [SerializeField] private Transform beeSpawnPoint;
     [SerializeField] private GameObject cameraContainer;
     private CharacterController playerController;
     
