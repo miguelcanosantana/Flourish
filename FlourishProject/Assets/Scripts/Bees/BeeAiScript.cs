@@ -11,10 +11,13 @@ public class BeeAiScript : MonoBehaviour
     //References
     public GameObject beeContainerObject;
     public Animator animator;
+    public GameObject rangeChecker;
+    private RangeFlowerCheckScript rangeCheckScript;
     private NavMeshAgent agent;
     private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
 
     //Variables
+    public FlowerType flowerTypeMatch;
     public int recollectionAmount;
     [HideInInspector] public List<GameObject> listOfFlowers = new List<GameObject>();
     [HideInInspector] public GameObject targetFlower;
@@ -32,6 +35,7 @@ public class BeeAiScript : MonoBehaviour
     {
         //Get the components
         agent = GetComponent<NavMeshAgent>();
+        rangeCheckScript = rangeChecker.GetComponent<RangeFlowerCheckScript>();
 
         //Start the FSM in idle state
         currentState = new Idle(gameObject, this);
@@ -50,23 +54,8 @@ public class BeeAiScript : MonoBehaviour
     {
         canUpdateFlowers = false;
 
-        //Get all flowers
-        List<GameObject> allFlowers = GameObject.FindGameObjectsWithTag("Flower").ToList();
-
-        //Clear the previous flower list
-        listOfFlowers.Clear();
-
-        //Only put in list of flowers the flowers with pollen and with no bees posed
-        foreach (GameObject flower in allFlowers)
-        {
-            FlowerDataScript tempFlowerScript = flower.GetComponent<FlowerDataScript>();
-
-            //Check if bee is posed in the FSM instead here, causes editor freeze
-            if (tempFlowerScript.currentPollen > 0)// && !tempFlowerScript.isBeePosed)
-            {
-                listOfFlowers.Add(flower);
-            }
-        }
+        //Get the flowers from the range checker sphere trigger
+        listOfFlowers = rangeCheckScript.GetNearFlowersOfType(flowerTypeMatch);
 
         yield return new WaitForSeconds(0.5f);
         canUpdateFlowers = true;
