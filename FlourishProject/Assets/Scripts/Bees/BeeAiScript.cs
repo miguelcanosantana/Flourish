@@ -87,7 +87,7 @@ public class BeeAiScript : MonoBehaviour
 
         timerSinceLastPosed ++;
 
-        Debug.Log(timerSinceLastPosed);
+        //Debug.Log(timerSinceLastPosed);
 
         canUpdatePosedTimer = true;
     }

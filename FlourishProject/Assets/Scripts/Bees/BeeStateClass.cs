@@ -225,7 +225,7 @@ public class Traveling : BeeStateClass
         //If the bee is stuck and hasn't reached the flower, change target
         if (beeScript.timerSinceLastPosed > beeScript.maxTimeToPose)
         {
-            Debug.Log("Max Time Reached");
+            //Debug.Log("Max Time Reached");
 
             nextState = new Idle(bee, beeScript);
 

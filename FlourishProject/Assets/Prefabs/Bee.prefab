@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7443405224141524266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -254,6 +254,9 @@ MonoBehaviour:
   alreadyTweening: 0
   canUpdateFlowers: 1
   loadedPollen: 0
+  canUpdatePosedTimer: 1
+  timerSinceLastPosed: 0
+  maxTimeToPose: 0
 --- !u!1 &8673488259849679950
 GameObject:
   m_ObjectHideFlags: 0
