@@ -23,7 +23,7 @@ public class RangeFlowerCheckScript : MonoBehaviour
             if (flowerScript.flowerType == typeToMatch) matchingFlowers.Add(flower);
         }
 
-        Debug.Log(matchingFlowers.Count);
+        //Debug.Log(matchingFlowers.Count);
         return matchingFlowers;
     }
 

@@ -28,6 +28,9 @@ public class BeeAiScript : MonoBehaviour
     [HideInInspector] public bool canUpdateFlowers = true;
     [HideInInspector] public float loadedPollen = 0f;
     [HideInInspector] public Sequence flySequence;
+    [HideInInspector] public bool canUpdatePosedTimer = true;
+    [HideInInspector] public int timerSinceLastPosed = 0;
+    [HideInInspector] public float maxTimeToPose = 0f;
 
 
     //Start
@@ -72,6 +75,21 @@ public class BeeAiScript : MonoBehaviour
         loadedPollen += flowerScript.TryTakePollen(recollectionAmount);
 
         allowRecollecting = false;
+    }
+
+
+    //Coroutine for FSM => Update the timer since last posed 
+    public IEnumerator UpdateLastPosedTimer()
+    {
+        canUpdatePosedTimer = false;
+
+        yield return new WaitForSeconds(1f);
+
+        timerSinceLastPosed ++;
+
+        Debug.Log(timerSinceLastPosed);
+
+        canUpdatePosedTimer = true;
     }
 
 }

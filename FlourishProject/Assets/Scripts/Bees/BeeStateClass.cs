@@ -94,12 +94,13 @@ public class BeeStateClass
 
             float time = GetAgentDistance(agent) / agent.speed;
 
+            //Set the max time to pose
+            beeScript.maxTimeToPose = time + 2f;
+
             //Create a sequence and add the movement to it
             beeScript.flySequence = DOTween.Sequence();
             beeScript.flySequence.Append(beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, time));
             beeScript.flySequence.Play();
-
-            //beeScript.beeContainerObject.transform.DOMoveY(beeScript.targetFlower.transform.position.y, time);
         }
     }
 
@@ -140,6 +141,9 @@ public class Idle : BeeStateClass
 
         //Kill previously tweens
         beeScript.flySequence.Kill();
+        
+        //Reset the last time since posed
+        beeScript.timerSinceLastPosed = 0;
     }
 
 
@@ -215,6 +219,20 @@ public class Traveling : BeeStateClass
         //Regulate the position and the height
         RegulatePositionHeight();
 
+        //Update the time since last posed in 1 second interval
+        if (beeScript.canUpdatePosedTimer) beeScript.StartCoroutine(beeScript.UpdateLastPosedTimer());
+
+        //If the bee is stuck and hasn't reached the flower, change target
+        if (beeScript.timerSinceLastPosed > beeScript.maxTimeToPose)
+        {
+            Debug.Log("Max Time Reached");
+
+            nextState = new Idle(bee, beeScript);
+
+            //Exit the Traveling state
+            phase = Event.Exit;
+        }
+
         //If the target flower is null or the bee is posed, choose another target
         if (beeScript.targetFlower == null || beeScript.targetFlowerScript.isBeePosed)
         {
@@ -264,12 +282,18 @@ public class Recollecting : BeeStateClass
         //Recollect some pollen from the flower
         if (beeScript.targetFlower != null)
         {
+            //Reset the timer since last posed
+            beeScript.timerSinceLastPosed = 0;
+
             //Set in the flower that bee is posed
             beeScript.targetFlower.GetComponent<FlowerDataScript>().isBeePosed = true;
 
             float recollectWait = Random.Range(2f, 4f);
             beeScript.StartCoroutine(beeScript.RecollectPollen(recollectWait));
         }
+
+        //Reset the last time since posed
+        beeScript.timerSinceLastPosed = 0;
     }
 
 
