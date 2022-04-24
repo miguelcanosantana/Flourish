@@ -87,8 +87,7 @@ public class PlayerControlScript : MonoBehaviour
         transform.Rotate(0, mouseInput.x * mouseMultiplier, 0);
 
         //Rotate the camera along X axis using mouse Y position
-        //cameraYRotation += Mathf.Clamp(mouseInput.y, -60, 60);
-        cameraYRotation += mouseInput.y;
+        cameraYRotation += mouseInput.y * mouseMultiplier;
         cameraYRotation = Mathf.Clamp(cameraYRotation, -60, 60);
         cameraContainer.transform.localEulerAngles = new Vector3(-cameraYRotation, 0, 0);
     }
