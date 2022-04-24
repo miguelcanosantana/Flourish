@@ -13,6 +13,9 @@ public enum FlowerType
 
 public class FlowerScript : MonoBehaviour
 {
+    [Header("Flower ID")]
+    private int id;
+
     [Header("Stats")]
     public FlowerType flowerType = FlowerType.None;
     public int maxPollen;
