@@ -6,6 +6,7 @@ public class GameManagerScript : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;
+    [SerializeField] private GameObject flowersFolder;
 
     [Header("Prefabs")]
     [SerializeField] private GameObject testFlowerPrefab;
@@ -15,7 +16,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void Start()
     {
-        //Load the data from the PersistentScriptableObject
+        //Load the game data
         LoadGame();
     }
 
@@ -48,7 +49,7 @@ public class GameManagerScript : MonoBehaviour
             }
 
             //Get the flower script
-            FlowerScript tempFlowerScript = tempFlowerObject.GetComponent<FlowerScript>();
+            FlowerScript tempFlowerScript = tempFlowerObject.GetComponentInChildren<FlowerScript>();
 
             //Instantiate a flower with the following properties
 
@@ -58,6 +59,7 @@ public class GameManagerScript : MonoBehaviour
             //Transform
             tempFlowerObject.transform.position = flower.position;
             tempFlowerObject.transform.rotation = flower.rotation;
+            tempFlowerObject.transform.parent = flowersFolder.transform;
 
             //Stats
             tempFlowerScript.age = flower.age;
