@@ -27,7 +27,7 @@ public class SaveDataScriptable : PersistentScriptableObject
 
 
     //Save a new flower's data (and return it's guid), or if it already exists, update it
-    public string SaveFlower(string id, Vector3 position, Quaternion rotation, FlowerType type, int age, int pollen)
+    public void SaveFlower(string id, Vector3 position, Quaternion rotation, FlowerType type, int age, int pollen)
     {
         
         //Check if flower exists
@@ -41,20 +41,15 @@ public class SaveDataScriptable : PersistentScriptableObject
                 flower.pollen = pollen;
 
                 Save();
-
-                //Don't return a GUID
-                return "None";
+                return;
             }
         }
 
         //If the flower does not exist in the data, create a new one
         FlowerSaveClass flowerSave = new FlowerSaveClass();
 
-        //Generate a guid and convert it to string 
-        string guid = new System.Guid().ToString();
-
         //ID
-        flowerSave.id = guid;
+        flowerSave.id = id;
 
         //Transform
         flowerSave.position = position;
@@ -68,8 +63,7 @@ public class SaveDataScriptable : PersistentScriptableObject
         //Add to the list
         flowerSaves.Add(flowerSave);
 
-        //Return the flower GUID
-        return guid;
+        Save();
     }
 
 }

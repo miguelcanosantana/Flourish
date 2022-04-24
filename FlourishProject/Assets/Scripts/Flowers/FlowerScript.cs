@@ -22,6 +22,7 @@ public class FlowerScript : MonoBehaviour
     public int regeneratePollenRate;
 
     [Header("References")]
+    [SerializeField] private GameObject flowerParentObject;
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private GameObject barObject;
     [SerializeField] private Image pollenBarBackground;
@@ -83,6 +84,17 @@ public class FlowerScript : MonoBehaviour
         canSaveFlower = false;
 
         yield return new WaitForSeconds(10f);
+
+        //If flower id is None, Generate a guid and convert it to string
+        if (id == "None") id = new System.Guid().ToString();
+
+        saveData.SaveFlower(
+            id, 
+            flowerParentObject.transform.position, 
+            flowerParentObject.transform.rotation,
+            flowerType,
+            age,
+            currentPollen);
 
         canSaveFlower = true;
     }
