@@ -38,7 +38,6 @@ public class FlowerScript : MonoBehaviour
 
     private bool canRegeneratePollen = true;
     private bool canUpdateAge = true;
-    private bool canSaveFlower = true;
 
 
     //Start
@@ -61,9 +60,6 @@ public class FlowerScript : MonoBehaviour
 
         //Update the age of the flower (Every 1 second)
         if (canUpdateAge) StartCoroutine(UpdateAge());
-
-        //If the flower can be saved do it (Every 10 seconds)
-        if (canSaveFlower) StartCoroutine(SaveFlower());
     }
 
 
@@ -79,13 +75,9 @@ public class FlowerScript : MonoBehaviour
     }
 
 
-    //Coroutine => Save Flower every 10 seconds
-    private IEnumerator SaveFlower()
+    //Save Flower when called from GameManager
+    public void SaveFlower()
     {
-        canSaveFlower = false;
-
-        yield return new WaitForSeconds(10f);
-
         //If flower id is None, Generate a guid and convert it to string
         if (id == "None") id = Guid.NewGuid().ToString();
 
@@ -96,8 +88,6 @@ public class FlowerScript : MonoBehaviour
             flowerType,
             age,
             currentPollen);
-
-        canSaveFlower = true;
     }
 
 
