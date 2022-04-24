@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -86,7 +87,7 @@ public class FlowerScript : MonoBehaviour
         yield return new WaitForSeconds(10f);
 
         //If flower id is None, Generate a guid and convert it to string
-        if (id == "None") id = new System.Guid().ToString();
+        if (id == "None") id = Guid.NewGuid().ToString();
 
         saveData.SaveFlower(
             id, 
