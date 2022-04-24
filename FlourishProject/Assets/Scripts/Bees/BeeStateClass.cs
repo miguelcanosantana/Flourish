@@ -168,7 +168,7 @@ public class Idle : BeeStateClass
             {
                 int randomDestination = Random.Range(0, beeScript.listOfFlowers.Count);
                 beeScript.targetFlower = beeScript.listOfFlowers[randomDestination];
-                beeScript.targetFlowerScript = beeScript.targetFlower.GetComponent<FlowerDataScript>();
+                beeScript.targetFlowerScript = beeScript.targetFlower.GetComponent<FlowerScript>();
 
             } while (beeScript.targetFlower == beeScript.previousFlower);
 
@@ -286,7 +286,7 @@ public class Recollecting : BeeStateClass
             beeScript.timerSinceLastPosed = 0;
 
             //Set in the flower that bee is posed
-            beeScript.targetFlower.GetComponent<FlowerDataScript>().isBeePosed = true;
+            beeScript.targetFlower.GetComponent<FlowerScript>().isBeePosed = true;
 
             float recollectWait = Random.Range(2f, 4f);
             beeScript.StartCoroutine(beeScript.RecollectPollen(recollectWait));
@@ -307,7 +307,7 @@ public class Recollecting : BeeStateClass
         else //If can't recollect anymore (for example when time passed or flower deleted) get another flower target
         {
             //Set in the flower that bee is not posed anymore
-            beeScript.targetFlower.GetComponent<FlowerDataScript>().isBeePosed = false;
+            beeScript.targetFlower.GetComponent<FlowerScript>().isBeePosed = false;
 
             nextState = new Idle(bee, beeScript);
 

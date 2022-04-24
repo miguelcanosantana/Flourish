@@ -18,7 +18,7 @@ public class RangeFlowerCheckScript : MonoBehaviour
         //If flower matches, add it to the matching list
         foreach (GameObject flower in allFlowers)
         {
-            FlowerDataScript flowerScript = flower.GetComponent<FlowerDataScript>();
+            FlowerScript flowerScript = flower.GetComponent<FlowerScript>();
 
             if (flowerScript.flowerType == typeToMatch) matchingFlowers.Add(flower);
         }

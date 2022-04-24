@@ -11,7 +11,7 @@ public enum FlowerType
 }
 
 
-public class FlowerDataScript : MonoBehaviour
+public class FlowerScript : MonoBehaviour
 {
     [Header("Stats")]
     public FlowerType flowerType = FlowerType.None;

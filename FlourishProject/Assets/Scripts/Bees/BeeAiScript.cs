@@ -21,7 +21,7 @@ public class BeeAiScript : MonoBehaviour
     public int recollectionAmount;
     [HideInInspector] public List<GameObject> listOfFlowers = new List<GameObject>();
     [HideInInspector] public GameObject targetFlower;
-    [HideInInspector] public FlowerDataScript targetFlowerScript;
+    [HideInInspector] public FlowerScript targetFlowerScript;
     [HideInInspector] public GameObject previousFlower;
     [HideInInspector] public bool allowRecollecting;
     [HideInInspector] public bool alreadyTweening;
@@ -71,7 +71,7 @@ public class BeeAiScript : MonoBehaviour
         allowRecollecting = true;
 
         yield return new WaitForSeconds(time);
-        FlowerDataScript flowerScript = targetFlower.GetComponent<FlowerDataScript>();
+        FlowerScript flowerScript = targetFlower.GetComponent<FlowerScript>();
         loadedPollen += flowerScript.TryTakePollen(recollectionAmount);
 
         allowRecollecting = false;
