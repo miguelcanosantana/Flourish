@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1935520198244150599}
-  - component: {fileID: 1935520198244150592}
+  - component: {fileID: 2451387839366216458}
   - component: {fileID: 205790069891112740}
   - component: {fileID: 8073900701637779477}
   m_Layer: 0
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 1935520199235722681}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1935520198244150592
+--- !u!114 &2451387839366216458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,12 +43,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1935520198244150598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd50cfd0006a7e54b8d251aef89e37e2, type: 3}
+  m_Script: {fileID: 11500000, guid: bdb8a2ab6870c8d4ab8377f861ad9e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: None
   flowerType: 1
-  maxPollen: 70
+  maxPollen: 50
   regeneratePollenRate: 1
+  saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
   barObject: {fileID: 3357814862068306595}
   pollenBarBackground: {fileID: 9000049725381780300}
   pollenBarLevel: {fileID: 4051851160994795347}

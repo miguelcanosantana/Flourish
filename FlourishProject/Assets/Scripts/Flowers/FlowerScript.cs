@@ -14,7 +14,7 @@ public enum FlowerType
 public class FlowerScript : MonoBehaviour
 {
     [Header("Flower ID")]
-    private int id;
+    public string id = "None";
 
     [Header("Stats")]
     public FlowerType flowerType = FlowerType.None;
@@ -22,6 +22,7 @@ public class FlowerScript : MonoBehaviour
     public int regeneratePollenRate;
 
     [Header("References")]
+    [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private GameObject barObject;
     [SerializeField] private Image pollenBarBackground;
     [SerializeField] private Image pollenBarLevel;
@@ -29,32 +30,22 @@ public class FlowerScript : MonoBehaviour
     private Camera playerCamera;
 
     //Variables
-    [HideInInspector] public float age = 0; //1 second = 1 day
+    [HideInInspector] public int age = 0; //1 second = 1 day
     [HideInInspector] public int currentPollen = 0;
     [HideInInspector] public bool isBeePosed = false;
 
-    private float timeWhenCreated = 0f;
-    private float timeActive = 0f;
     private bool canRegeneratePollen = true;
+    private bool canUpdateAge = true;
+    private bool canSaveFlower = true;
 
 
     //Start
     private void Start()
     {
-        //Save the time when it was created
-        timeWhenCreated = Time.timeSinceLevelLoad;
-
         //Get the player camera
         playerCamera = Camera.main;
 
         UpdatePollenUI();
-    }
-
-
-    //Check the time since the level has loaded
-    private void UpdateActiveTime()
-    {
-        timeActive = Time.timeSinceLevelLoad - timeWhenCreated;
     }
 
 
@@ -64,9 +55,36 @@ public class FlowerScript : MonoBehaviour
         //If no bees are posed and can regenerate the pollen, do 1 unit and wait some time before doing it again
         if (canRegeneratePollen && currentPollen < maxPollen && !isBeePosed) StartCoroutine(RegeneratePollen());
 
-        UpdateActiveTime();
         UpdateUIPosition();
-        //Debug.Log(timeActive);
+
+        //Update the age of the flower (Every 1 second)
+        if (canUpdateAge) StartCoroutine(UpdateAge());
+
+        //If the flower can be saved do it (Every 10 seconds)
+        if (canSaveFlower) StartCoroutine(SaveFlower());
+    }
+
+
+    //Coroutine => Update Flower Age
+    private IEnumerator UpdateAge()
+    {
+        canUpdateAge = false;
+
+        yield return new WaitForSeconds(1f);
+        age++;
+
+        canUpdateAge = true;
+    }
+
+
+    //Coroutine => Save Flower every 10 seconds
+    private IEnumerator SaveFlower()
+    {
+        canSaveFlower = false;
+
+        yield return new WaitForSeconds(10f);
+
+        canSaveFlower = true;
     }
 
 
