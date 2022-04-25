@@ -12,75 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904443bf3224ed84c9e5e5ebbdf63999, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
-  playerPosition: {x: 0, y: 180, z: 0}
-  playerRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  playerPosition: {x: -10.993931, y: 1.672543, z: 1.4707426}
+  playerRotation: {x: 0, y: -0.6915128, z: 0, w: -0.7223642}
   playerPollen: 0
   playerHappiness: 0
   playerGunItems: []
-  flowerSaves:
-  - id: 83cc7fac-7f7f-49b1-a590-d4e4d66b9c1b
-    position: {x: -8.27404, y: 1.4093857, z: -3.896679}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 115
-    pollen: 50
-  - id: 65775ef6-9c7a-4082-a04f-ee7c8a39ed0d
-    position: {x: -4.224045, y: 0.29938507, z: -0.94667816}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 115
-    pollen: 50
-  - id: ca464719-9fa8-452a-b986-24c9180d002e
-    position: {x: -2.7840424, y: 0.6293869, z: -7.6166763}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 115
-    pollen: 47
-  - id: 06fb7c51-514e-4eff-bc4a-322e12eb85d2
-    position: {x: -6.734047, y: 0.29938507, z: 1.4433212}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 115
-    pollen: 50
-  - id: f6cd219f-344e-465f-aa38-5b7792862182
-    position: {x: -11.444038, y: 0.6693878, z: -7.1566772}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 115
-    pollen: 50
-  - id: 64c04134-8a3e-4f77-a7e0-4b96133418b1
-    position: {x: -8.27404, y: 1.4093857, z: -3.896679}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 99
-    pollen: 50
-  - id: a50c1795-71c8-41f1-a095-3784e9c2ddbe
-    position: {x: -4.224045, y: 0.29938507, z: -0.94667816}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 99
-    pollen: 50
-  - id: d3165be1-db4f-452f-b8d9-2b017ac956c1
-    position: {x: -2.7840424, y: 0.6293869, z: -7.6166763}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 99
-    pollen: 50
-  - id: 80795d5e-35a3-4cf8-8dbb-2c16b0e27416
-    position: {x: -6.734047, y: 0.29938507, z: 1.4433212}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 99
-    pollen: 50
-  - id: e3638827-38d3-4385-8715-8d40337371ee
-    position: {x: -11.444038, y: 0.6693878, z: -7.1566772}
-    rotation: {x: 0, y: 0, z: 0, w: 1}
-    type: 1
-    age: 99
-    pollen: 50
-  beeSaves:
-  - id: sdadfdfdsfdfsdfsfasdsaad
-    position: {x: -9.425613, y: 1.7787313, z: -5.7692924}
-    rotation: {x: 0, y: -0.69575644, z: 0, w: 0.7182778}
-    match: 1
-    recollectionAmount: 5
+  flowerSaves: []
+  beeSaves: []
