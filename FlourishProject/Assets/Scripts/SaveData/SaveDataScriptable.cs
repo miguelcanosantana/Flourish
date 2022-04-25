@@ -68,7 +68,7 @@ public class SaveDataScriptable : PersistentScriptableObject
     }
 
 
-    //Save a new flower's data (and return it's guid), or if it already exists, update it
+    //Save a new bee's data (and return it's guid), or if it already exists, update it
     public void SaveBee(string id, Vector3 position, Quaternion rotation, FlowerType match, int recollection)
     {
 
