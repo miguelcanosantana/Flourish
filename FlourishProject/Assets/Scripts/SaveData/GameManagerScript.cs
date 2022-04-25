@@ -62,9 +62,13 @@ public class GameManagerScript : MonoBehaviour
         //Load player
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
-        //Transform
-        playerObject.transform.position = saveData.playerPosition;
+        //Transform (Disable and re-enable character controller)
+        playerObject.GetComponent<CharacterController>().enabled = false;
+
+        playerObject.transform.localPosition = saveData.playerPosition;
         playerObject.transform.rotation = saveData.playerRotation;
+
+        playerObject.GetComponent<CharacterController>().enabled = true;
 
         //Stats
         playerPollen = saveData.playerPollen;
