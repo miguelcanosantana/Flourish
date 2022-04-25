@@ -5741,6 +5741,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8673488259849679951, guid: c9604ea148fad564e86deef8b2e1b796, type: 3}
   m_PrefabInstance: {fileID: 716783458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &724946781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 724946782}
+  m_Layer: 0
+  m_Name: _Bees
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &724946782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724946781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1310022180}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &729938069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10616,9 +10647,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
   flowersFolder: {fileID: 460108581}
+  beesFolder: {fileID: 724946781}
   testFlowerPrefab: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
   sunFlowerPrefab: {fileID: 1935520199235722687, guid: c5c9e071bf291e9449d965bb1b951ddd, type: 3}
   tulipPrefab: {fileID: 0}
+  regularBeePrefab: {fileID: 8673488259849679950, guid: c9604ea148fad564e86deef8b2e1b796, type: 3}
 --- !u!4 &1310022180
 Transform:
   m_ObjectHideFlags: 0
@@ -10632,6 +10665,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 460108582}
+  - {fileID: 724946782}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
