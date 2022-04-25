@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +9,10 @@ using UnityEngine.AI;
 
 public class BeeAiScript : MonoBehaviour
 {
-    //References
-    public GameObject beeContainerObject;
-    public Animator animator;
-    public GameObject rangeChecker;
-    private RangeFlowerCheckScript rangeCheckScript;
-    private NavMeshAgent agent;
-    private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
+    [Header("Bee ID")]
+    public string id = "None";
 
-    //Variables
+    [Header("Stats")]
     public FlowerType flowerTypeMatch;
     public int recollectionAmount;
     [HideInInspector] public List<GameObject> listOfFlowers = new List<GameObject>();
@@ -31,6 +27,15 @@ public class BeeAiScript : MonoBehaviour
     [HideInInspector] public bool canUpdatePosedTimer = true;
     [HideInInspector] public int timerSinceLastPosed = 0;
     [HideInInspector] public float maxTimeToPose = 0f;
+
+    [Header("References")]
+    [SerializeField] private SaveDataScriptable saveData;
+    public GameObject beeContainerObject;
+    public Animator animator;
+    public GameObject rangeChecker;
+    private RangeFlowerCheckScript rangeCheckScript;
+    private NavMeshAgent agent;
+    private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
 
 
     //Start
@@ -49,6 +54,21 @@ public class BeeAiScript : MonoBehaviour
     void Update()
     {
         currentState = currentState.Process();
+    }
+
+
+    //Save Bee when called from GameManager
+    public void SaveBee()
+    {
+        //If flower id is None, Generate a guid and convert it to string
+        if (id == "None") id = Guid.NewGuid().ToString();
+
+        saveData.SaveBee(
+            id,
+            agent.transform.position,
+            agent.transform.rotation,
+            flowerTypeMatch,
+            recollectionAmount);
     }
 
 

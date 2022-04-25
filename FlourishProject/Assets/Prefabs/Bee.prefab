@@ -241,9 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97ae30782262df24d886f416354af108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beeContainerObject: {fileID: 8673488259503158960}
-  animator: {fileID: 8673488260303581491}
-  rangeChecker: {fileID: 7443405224141524266}
+  id: None
   flowerTypeMatch: 1
   recollectionAmount: 5
   listOfFlowers: []
@@ -257,6 +255,10 @@ MonoBehaviour:
   canUpdatePosedTimer: 1
   timerSinceLastPosed: 0
   maxTimeToPose: 0
+  saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
+  beeContainerObject: {fileID: 8673488259503158960}
+  animator: {fileID: 8673488260303581491}
+  rangeChecker: {fileID: 7443405224141524266}
 --- !u!1 &8673488259849679950
 GameObject:
   m_ObjectHideFlags: 0

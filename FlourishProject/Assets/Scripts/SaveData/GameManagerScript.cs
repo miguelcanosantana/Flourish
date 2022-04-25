@@ -7,11 +7,16 @@ public class GameManagerScript : MonoBehaviour
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private GameObject flowersFolder;
+    [SerializeField] private GameObject beesFolder;
 
-    [Header("Prefabs")]
+
+    [Header("Flowers Prefabs")]
     [SerializeField] private GameObject testFlowerPrefab;
     [SerializeField] private GameObject sunFlowerPrefab;
     [SerializeField] private GameObject tulipPrefab;
+
+    [Header("Bees Prefabs")]
+    [SerializeField] private GameObject regularBeePrefab;
 
 
     private void Start()
@@ -64,6 +69,43 @@ public class GameManagerScript : MonoBehaviour
             //Stats
             tempFlowerScript.age = flower.age;
             tempFlowerScript.currentPollen = flower.pollen;
+        }
+
+        //Load bees
+        foreach (BeeSaveClass bee in saveData.beeSaves)
+        {
+            GameObject tempBeeObject = testFlowerPrefab;
+
+            //Instantiate a bee prefab depending on the Flower Match type
+            switch (bee.match)
+            {
+                case FlowerType.None:
+                    Debug.LogError("Retrieved bee must have a flower match type");
+                    break;
+
+                case FlowerType.Sunflower:
+                    tempBeeObject = Instantiate(regularBeePrefab);
+                    break;
+
+                case FlowerType.Tulip:
+                    break;
+            }
+
+            //Get the bee script
+            BeeAiScript tempBeeScript = tempBeeObject.GetComponentInChildren<BeeAiScript>();
+
+            //Instantiate a bee with the following properties
+
+            //ID
+            tempBeeScript.id = bee.id;
+
+            //Transform
+            tempBeeObject.transform.position = bee.position;
+            tempBeeObject.transform.rotation = bee.rotation;
+            tempBeeObject.transform.parent = beesFolder.transform;
+
+            //Stats
+            tempBeeScript.recollectionAmount = bee.recollectionAmount;
         }
     }
 
