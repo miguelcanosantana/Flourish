@@ -42,6 +42,7 @@ public class PlayerControlScript : MonoBehaviour
 
     //References
     [Header("References")]
+    [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private Transform beeSpawnPoint;
     [SerializeField] private GameObject cameraContainer;
     private CharacterController playerController;
@@ -90,6 +91,13 @@ public class PlayerControlScript : MonoBehaviour
         cameraYRotation += mouseInput.y * mouseMultiplier;
         cameraYRotation = Mathf.Clamp(cameraYRotation, -60, 60);
         cameraContainer.transform.localEulerAngles = new Vector3(-cameraYRotation, 0, 0);
+    }
+
+
+    //Save the player transform in the Persistent scriptable object
+    public void SavePlayerTransform()
+    {
+        saveData.SavePlayerTransform(transform.position, transform.rotation);
     }
 
 
