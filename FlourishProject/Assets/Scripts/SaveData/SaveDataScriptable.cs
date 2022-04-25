@@ -15,7 +15,7 @@ public class SaveDataScriptable : PersistentScriptableObject
     [Header("Player's Stats")]
     public int playerPollen = 0;
     public int playerHappiness = 0;
-    public List<GunItemClass> playerGunItems = new List<GunItemClass>();
+    public List<GunItemSaveClass> playerGunItems = new List<GunItemSaveClass>();
 
     [Header("Lists")]
     public List<FlowerSaveClass> flowerSaves = new List<FlowerSaveClass>();
@@ -45,9 +45,39 @@ public class SaveDataScriptable : PersistentScriptableObject
 
 
     //Save player gun items
-    public void SaveGunItems(GunItemType type, bool discovered, int ammount)
+    public void SaveGunItem(GunItemType type, bool discovered, int ammount)
     {
+        //Check if the type of that item already exists
+        foreach (GunItemSaveClass item in playerGunItems)
+        {
+            //If there is already a gun item of that type, add or subtract
+            if (item.itemType == type)
+            {
+                //Update info
+                item.hasBeenDiscovered = discovered;
 
+                //Add or subtract (Clamp for preventing negative items)
+                item.itemAmmount = Mathf.Clamp(item.itemAmmount + ammount, 0, 999);
+
+                Save();
+                return;
+            }
+        }
+
+        //If the item is not present in the items types list, add it
+        GunItemSaveClass gunItemSave = new GunItemSaveClass();
+
+        //ID (Using enum as ID to avoid duplicated item types)
+        gunItemSave.itemType = type;
+
+        //Stats
+        gunItemSave.hasBeenDiscovered = discovered;
+        gunItemSave.itemAmmount = ammount;
+
+        //Add to the list
+        playerGunItems.Add(gunItemSave);
+
+        Save();
     }
 
 

@@ -422,9 +422,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPollen: 0
   playerHappiness: 0
+  playerGunItems: []
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
   flowersFolder: {fileID: 460108581}
   beesFolder: {fileID: 724946781}
+  barItemPrefab: {fileID: 4699111298556434936, guid: 11883d56b0e50fe48a7153d98044f3dc, type: 3}
   testFlowerPrefab: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
   sunFlowerPrefab: {fileID: 1935520199235722687, guid: c5c9e071bf291e9449d965bb1b951ddd, type: 3}
   tulipPrefab: {fileID: 0}

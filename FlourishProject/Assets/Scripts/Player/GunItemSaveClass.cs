@@ -6,7 +6,7 @@ using UnityEngine;
 
 //Custom class made for saving it on the PersistentScriptableObject
 [Serializable]
-public class GunItemClass
+public class GunItemSaveClass
 {
     [Header("Enum ID")]
     public GunItemType itemType = GunItemType.None;

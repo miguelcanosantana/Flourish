@@ -7,11 +7,15 @@ public class GameManagerScript : MonoBehaviour
     [Header("Player Stats")]
     public int playerPollen = 0;
     public int playerHappiness = 0;
+    public List<GunItemSaveClass> playerGunItems = new List<GunItemSaveClass>();
 
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private GameObject flowersFolder;
     [SerializeField] private GameObject beesFolder;
+
+    [Header("Item prefabs")]
+    [SerializeField] private GameObject barItemPrefab;
 
     [Header("Flowers Prefabs")]
     [SerializeField] private GameObject testFlowerPrefab;
@@ -45,6 +49,12 @@ public class GameManagerScript : MonoBehaviour
         //Stats
         playerPollen = saveData.playerPollen;
         playerHappiness = saveData.playerHappiness;
+
+        //Gun items
+        foreach (GunItemSaveClass item in playerGunItems)
+        {
+
+        }
 
         //Load flowers
         foreach (FlowerSaveClass flower in saveData.flowerSaves)
