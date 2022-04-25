@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
+    [Header("Player Stats")]
+    public int playerPollen = 0;
+    public int playerHappiness = 0;
+
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private GameObject flowersFolder;
     [SerializeField] private GameObject beesFolder;
-
 
     [Header("Flowers Prefabs")]
     [SerializeField] private GameObject testFlowerPrefab;
@@ -31,6 +34,17 @@ public class GameManagerScript : MonoBehaviour
     {
         //Load the data from the PersistentScriptableObject
         saveData.Load();
+
+        //Load player
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        //Transform
+        playerObject.transform.position = saveData.playerPosition;
+        playerObject.transform.rotation = saveData.playerRotation;
+
+        //Stats
+        playerPollen = saveData.playerPollen;
+        playerHappiness = saveData.playerHappiness;
 
         //Load flowers
         foreach (FlowerSaveClass flower in saveData.flowerSaves)

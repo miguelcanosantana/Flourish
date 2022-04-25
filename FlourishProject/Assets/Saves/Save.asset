@@ -76,8 +76,8 @@ MonoBehaviour:
     age: 24
     pollen: 1
   beeSaves:
-  - id: fcvdfbdfbfdbfbdbdffb
-    position: {x: 0, y: 1, z: 0}
+  - id: sdadfdfdsfdfsdfsfasdsaad
+    position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
     match: 1
-    recollectionAmount: 0
+    recollectionAmount: 5

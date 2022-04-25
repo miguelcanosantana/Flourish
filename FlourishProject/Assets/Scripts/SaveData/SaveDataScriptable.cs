@@ -12,17 +12,33 @@ public class SaveDataScriptable : PersistentScriptableObject
     public Vector3 playerPosition = Vector3.zero;
     public Quaternion playerRotation = Quaternion.identity;
 
+    [Header("Player's Stats")]
+    public int playerPollen = 0;
+    public int playerHappiness = 0;
 
     [Header("Lists")]
     public List<FlowerSaveClass> flowerSaves = new List<FlowerSaveClass>();
     public List<BeeSaveClass> beeSaves = new List<BeeSaveClass>();
 
 
-    //Save data methods with override
+    //Save player Transform
     public void SavePlayerTransform(Vector3 position, Quaternion rotation)
     {
         playerPosition = position;
         playerRotation = rotation;
+
+        Save();
+    }
+
+
+    //Save player stats
+    public void SavePlayerStats(int pollen, int happiness)
+    {
+
+        //Stats
+        playerPollen = pollen;
+        playerHappiness = happiness;
+
         Save();
     }
 
