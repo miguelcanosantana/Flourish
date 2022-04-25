@@ -15,6 +15,7 @@ public class SaveDataScriptable : PersistentScriptableObject
     [Header("Player's Stats")]
     public int playerPollen = 0;
     public int playerHappiness = 0;
+    public List<GunItemClass> playerGunItems = new List<GunItemClass>();
 
     [Header("Lists")]
     public List<FlowerSaveClass> flowerSaves = new List<FlowerSaveClass>();
@@ -40,6 +41,13 @@ public class SaveDataScriptable : PersistentScriptableObject
         playerHappiness = happiness;
 
         Save();
+    }
+
+
+    //Save player gun items
+    public void SaveGunItems(GunItemType type, bool discovered, int ammount)
+    {
+
     }
 
 

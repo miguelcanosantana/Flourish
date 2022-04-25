@@ -14,7 +14,7 @@ public enum GunAction
 
 
 //All the item types that go along with a gun action
-public enum GunItemTypes
+public enum GunItemType
 {
     None,
     RegularBee,
