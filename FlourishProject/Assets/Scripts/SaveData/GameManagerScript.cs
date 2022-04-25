@@ -135,14 +135,29 @@ public class GameManagerScript : MonoBehaviour
 
 
     //Save the player, the flowers and the bees data
-    public void SaveGame()
+    public void SaveEntireGame()
     {
+        //Get the player and save it's transform
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        PlayerControlScript playerControlScript = playerObject.GetComponent<PlayerControlScript>();
+
+        //playerControlScript.
+
+
         //Get all the flowers and save them 1 by 1
         FlowerScript[] flowerScripts = FindObjectsOfType<FlowerScript>();
 
         foreach (FlowerScript flower in flowerScripts)
         {
             flower.SaveFlower();
+        }
+
+        //Get all the bees and save them 1 by 1
+        BeeAiScript[] beeAiScripts = FindObjectsOfType<BeeAiScript>();
+
+        foreach (BeeAiScript bee in beeAiScripts)
+        {
+            bee.SaveBee();
         }
     }
 }
