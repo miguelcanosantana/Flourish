@@ -569,17 +569,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 472751686, guid: 51a902ea48890dd46ae939964d282d0b, type: 3}
-      propertyPath: m_ClearFlags
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 42260889524077742, guid: 51a902ea48890dd46ae939964d282d0b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3827941539604013531, guid: 51a902ea48890dd46ae939964d282d0b, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 183
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 3827941541375756771, guid: 51a902ea48890dd46ae939964d282d0b, type: 3}
       propertyPath: m_Name
@@ -631,19 +623,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5748316199173879758, guid: 51a902ea48890dd46ae939964d282d0b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5748316199173879758, guid: 51a902ea48890dd46ae939964d282d0b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5748316199173879758, guid: 51a902ea48890dd46ae939964d282d0b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 62.5
       objectReference: {fileID: 0}
     - target: {fileID: 5748316199173879758, guid: 51a902ea48890dd46ae939964d282d0b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51a902ea48890dd46ae939964d282d0b, type: 3}
