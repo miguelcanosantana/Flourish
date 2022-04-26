@@ -576,7 +576,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -874,9 +874,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e5f3cb434f76a4fad883c8dffc8fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableBees: 0
   speedMultiplier: 8
   mouseMultiplier: 1.25
+  shootRate: 0.25
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
   beeSpawnPoint: {fileID: 400626743327331239}
   cameraContainer: {fileID: 3827941539604013529}

@@ -29,24 +29,26 @@ public class PlayerControlScript : MonoBehaviour
 
     //Variables
     [Header("Stats")]
-    public int availableBees;
     [SerializeField] private float speedMultiplier;
     [SerializeField] private float mouseMultiplier;
-
-    private Vector2 movementInput = Vector2.zero;
-    private Vector2 mouseInput = Vector2.zero;
-    private Vector2 scrollActionInput = Vector2.zero;
-    private float cameraYRotation;
-    private GunAction gunAction;
-
+    [SerializeField] private float shootRate;
 
     //References
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private Transform beeSpawnPoint;
     [SerializeField] private GameObject cameraContainer;
+    [SerializeField] private GameObject seedPrefab;
     private CharacterController playerController;
-    
+
+    //Variables
+    private Vector2 movementInput = Vector2.zero;
+    private Vector2 mouseInput = Vector2.zero;
+    private Vector2 scrollActionInput = Vector2.zero;
+    private float cameraYRotation;
+    private GunAction gunAction;
+    private bool canShoot = true;
+
 
     //Start is called before the first frame update
     void Start()
@@ -63,6 +65,22 @@ public class PlayerControlScript : MonoBehaviour
     {
         Move();
         Rotate();
+
+        //Shoot if allowed
+        if (canShoot && gunAction == GunAction.Fire) StartCoroutine(Shoot());
+    }
+
+
+    //Coroutine => Shoot if the player can do it
+    private IEnumerator Shoot()
+    {
+        canShoot = false;
+
+        Debug.Log("PEW");
+
+        yield return new WaitForSeconds(shootRate);
+
+        canShoot = true;
     }
 
 
@@ -123,7 +141,7 @@ public class PlayerControlScript : MonoBehaviour
         if (tempBool) gunAction = GunAction.Fire;
         else gunAction = GunAction.None;
 
-        Debug.Log(gunAction);
+        //Debug.Log(gunAction);
     }
 
 
@@ -135,7 +153,7 @@ public class PlayerControlScript : MonoBehaviour
         if (tempBool) gunAction = GunAction.Suck;
         else gunAction = GunAction.None;
 
-        Debug.Log(gunAction);
+        //Debug.Log(gunAction);
     }
 
 
