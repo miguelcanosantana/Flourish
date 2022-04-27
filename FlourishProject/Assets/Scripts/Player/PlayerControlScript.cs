@@ -41,6 +41,7 @@ public class PlayerControlScript : MonoBehaviour
     [SerializeField] private GameObject seedPrefab;
     private GameObject seedsFolder;
     private CharacterController playerController;
+    private GameManagerScript gameManagerScript;
 
     //Variables
     private Vector2 movementInput = Vector2.zero;
@@ -50,6 +51,7 @@ public class PlayerControlScript : MonoBehaviour
     private GunAction gunAction;
     private bool canShoot = true;
     private List<GameObject> seedsPool = new List<GameObject>();
+    private int currentItemBarPosition = 0;
 
 
     //Start is called before the first frame update
@@ -62,6 +64,7 @@ public class PlayerControlScript : MonoBehaviour
 
         //Get components
         playerController = GetComponent<CharacterController>();
+        gameManagerScript = FindObjectOfType<GameManagerScript>();
     }
 
 
@@ -186,7 +189,21 @@ public class PlayerControlScript : MonoBehaviour
     public void OnChangeActionInput(InputAction.CallbackContext context)
     {
         scrollActionInput = context.ReadValue<Vector2>();
-        if (context.phase == InputActionPhase.Started) Debug.Log(scrollActionInput);
+        if (context.phase == InputActionPhase.Started)
+        {
+            //Increase position
+            if (scrollActionInput.x > 0 || scrollActionInput.y > 0) currentItemBarPosition ++;
+
+            //Decrease position
+            if (scrollActionInput.x < 0 || scrollActionInput.y < 0) currentItemBarPosition --;
+
+            //Travel backwards / forwards depending on the items count
+            int itemsCount = gameManagerScript.playerGunItems.Count;
+
+            if (currentItemBarPosition > itemsCount) currentItemBarPosition = 0;
+            if (currentItemBarPosition < 0) currentItemBarPosition = itemsCount;
+        }
+            
     }
 
 }

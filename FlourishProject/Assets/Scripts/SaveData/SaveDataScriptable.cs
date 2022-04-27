@@ -45,7 +45,7 @@ public class SaveDataScriptable : PersistentScriptableObject
 
 
     //Save player gun items
-    public void SaveGunItem(GunItemType type, bool discovered, int ammount)
+    public void SaveGunItem(GunItemType type, bool hasAmount, int ammount)
     {
         //Check if the type of that item already exists
         foreach (GunItemSaveClass item in playerGunItems)
@@ -54,10 +54,10 @@ public class SaveDataScriptable : PersistentScriptableObject
             if (item.itemType == type)
             {
                 //Update info
-                item.hasBeenDiscovered = discovered;
+                item.hasAmount = hasAmount;
 
                 //Save item amount
-                item.itemAmmount = Mathf.Clamp(ammount, 0, 999);
+                item.itemAmount = Mathf.Clamp(ammount, 0, 999);
 
                 Save();
                 return;
@@ -71,8 +71,8 @@ public class SaveDataScriptable : PersistentScriptableObject
         gunItemSave.itemType = type;
 
         //Stats
-        gunItemSave.hasBeenDiscovered = discovered;
-        gunItemSave.itemAmmount = ammount;
+        gunItemSave.hasAmount = hasAmount;
+        gunItemSave.itemAmount = ammount;
 
         //Add to the list
         playerGunItems.Add(gunItemSave);

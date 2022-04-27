@@ -12,6 +12,6 @@ public class GunItemSaveClass
     public GunItemType itemType = GunItemType.None;
 
     [Header("Stats")]
-    public bool hasBeenDiscovered = false;
-    public int itemAmmount = 0;
+    public bool hasAmount = false;
+    public int itemAmount = 0;
 }

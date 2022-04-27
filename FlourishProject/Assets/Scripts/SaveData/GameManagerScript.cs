@@ -30,6 +30,10 @@ public class GameManagerScript : MonoBehaviour
     {
         //Load the game data
         //LoadGame();
+
+        //Create empty item
+        GunItemSaveClass saveClass = new GunItemSaveClass();
+        playerGunItems
     }
 
 
