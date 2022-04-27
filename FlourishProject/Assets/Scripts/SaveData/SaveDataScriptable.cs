@@ -56,8 +56,8 @@ public class SaveDataScriptable : PersistentScriptableObject
                 //Update info
                 item.hasBeenDiscovered = discovered;
 
-                //Add or subtract (Clamp for preventing negative items)
-                item.itemAmmount = Mathf.Clamp(item.itemAmmount + ammount, 0, 999);
+                //Save item amount
+                item.itemAmmount = Mathf.Clamp(ammount, 0, 999);
 
                 Save();
                 return;
