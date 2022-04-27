@@ -36,9 +36,10 @@ public class PlayerControlScript : MonoBehaviour
     //References
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;
-    [SerializeField] private Transform beeSpawnPoint;
+    [SerializeField] private Transform gunSpawnPoint;
     [SerializeField] private GameObject cameraContainer;
     [SerializeField] private GameObject seedPrefab;
+    private GameObject seedsFolder;
     private CharacterController playerController;
 
     //Variables
@@ -48,12 +49,16 @@ public class PlayerControlScript : MonoBehaviour
     private float cameraYRotation;
     private GunAction gunAction;
     private bool canShoot = true;
+    private List<GameObject> seedsPool = new List<GameObject>();
 
 
     //Start is called before the first frame update
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
+
+        //Get objects
+        seedsFolder = GameObject.FindGameObjectWithTag("SeedsFolder");
 
         //Get components
         playerController = GetComponent<CharacterController>();
@@ -77,6 +82,26 @@ public class PlayerControlScript : MonoBehaviour
         canShoot = false;
 
         Debug.Log("PEW");
+
+
+
+        //Shoot a seed (from the pool or a new one)
+        //if (seedsPool.Count > 0)
+        //{
+        //    seedsPool[0].SetActive(true);
+        //}
+        //else
+        //{
+        //    GameObject tempSeed = Instantiate(seedPrefab);
+        //}
+
+        //Instantiate a new seed
+        GameObject tempSeed = Instantiate(seedPrefab, gunSpawnPoint.transform);
+        tempSeed.transform.parent = seedsFolder.transform;
+
+        //Give force to the seed
+        tempSeed.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 25, ForceMode.Impulse);
+
 
         yield return new WaitForSeconds(shootRate);
 

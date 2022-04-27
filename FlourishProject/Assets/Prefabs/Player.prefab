@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3827941541375756780}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &449953592
 MonoBehaviour:
@@ -261,7 +261,7 @@ RectTransform:
   - {fileID: 480897722}
   - {fileID: 42260889524077742}
   m_Father: {fileID: 3827941541375756780}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -458,9 +458,9 @@ GameObject:
   m_Component:
   - component: {fileID: 400626743327331239}
   m_Layer: 0
-  m_Name: _BeeSpawnPoint
+  m_Name: _SpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -472,7 +472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439854991675754000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.50000036, y: -0.39999998, z: 1.1999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -502,14 +502,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3801232302204377441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400626743327331239}
-  m_Father: {fileID: 3827941541375756780}
-  m_RootOrder: 2
+  m_Father: {fileID: 3827941539604013540}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3827941539604013529
 GameObject:
@@ -542,6 +542,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 472751685}
+  - {fileID: 5786841481228475698}
   m_Father: {fileID: 3827941541375756780}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -728,7 +729,6 @@ Transform:
   m_Children:
   - {fileID: 3827941541015903955}
   - {fileID: 3827941539604013540}
-  - {fileID: 5786841481228475698}
   - {fileID: 1170778841}
   - {fileID: 449953593}
   m_Father: {fileID: 0}
@@ -878,8 +878,9 @@ MonoBehaviour:
   mouseMultiplier: 1.25
   shootRate: 0.25
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
-  beeSpawnPoint: {fileID: 400626743327331239}
+  gunSpawnPoint: {fileID: 400626743327331239}
   cameraContainer: {fileID: 3827941539604013529}
+  seedPrefab: {fileID: 4936857072392864267, guid: f34c55b6b6f139c4bb4886ebe3436397, type: 3}
 --- !u!208 &236560835
 NavMeshObstacle:
   m_ObjectHideFlags: 0
