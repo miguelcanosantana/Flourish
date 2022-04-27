@@ -198,7 +198,7 @@ public class PlayerControlScript : MonoBehaviour
             if (scrollActionInput.x < 0 || scrollActionInput.y < 0) currentItemBarPosition --;
 
             //Travel backwards / forwards depending on the items count
-            int itemsCount = saveData.playerGunItems.Count;
+            int itemsCount = gameManagerScript.playerGunItems.Count;
 
             if (currentItemBarPosition > itemsCount) currentItemBarPosition = 0;
             if (currentItemBarPosition < 0) currentItemBarPosition = itemsCount;
