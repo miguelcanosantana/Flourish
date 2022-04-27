@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1935520198244150599}
   - component: {fileID: 2451387839366216458}
   - component: {fileID: 205790069891112740}
-  - component: {fileID: 8073900701637779477}
+  - component: {fileID: 722457112136397679}
   m_Layer: 8
   m_Name: _FlowerLogicAndPose
   m_TagString: Flower
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935520198244150598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.3, z: 0.5}
+  m_LocalPosition: {x: 0, y: 2.3999999, z: 0.64999986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,8 +75,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!136 &8073900701637779477
-CapsuleCollider:
+--- !u!65 &722457112136397679
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -85,10 +85,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.25
-  m_Height: 5
-  m_Direction: 1
-  m_Center: {x: 0, y: -1.41, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1935520199235722687
 GameObject:
   m_ObjectHideFlags: 0
