@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seedFlowerType: 1
-  testFlowerPrefab: {fileID: 0}
+  testFlowerPrefab: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
   sunFlowerPrefab: {fileID: 1935520199235722687, guid: c5c9e071bf291e9449d965bb1b951ddd, type: 3}
   tulipPrefab: {fileID: 0}
 --- !u!54 &5986147504478630201
@@ -59,8 +59,8 @@ Rigidbody:
   m_GameObject: {fileID: 4936857072392864267}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 2
+  m_Drag: 2.15
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1

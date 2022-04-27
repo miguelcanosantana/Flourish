@@ -43,27 +43,19 @@ public class FlowerScript : MonoBehaviour
 
 
     //Start
-    private IEnumerator Start()
+    private void Start()
     {
         //Get the player camera
         playerCamera = Camera.main;
-
-        //Set flower size to 0 if hasn't been loaded
-        if (!hasBeenLoaded) flowerParentObject.transform.localScale = Vector3.zero;
 
         UpdatePollenUI();
 
         //Animate flower with easing if hasn't been loaded
         if (!hasBeenLoaded)
         {
-            //Wait before growing animation
-            yield return new WaitForSeconds(0.1f);
-
-            //Do the animation
+            flowerParentObject.transform.localScale = Vector3.zero;
             flowerParentObject.transform.DOScale(1f, 0.55f).SetEase(Ease.OutExpo);
         }
-
-        yield return null;
     }
 
 
