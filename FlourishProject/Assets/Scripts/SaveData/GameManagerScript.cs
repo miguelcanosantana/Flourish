@@ -119,11 +119,13 @@ public class GameManagerScript : MonoBehaviour
         playerPollen = saveData.playerPollen;
         playerHappiness = saveData.playerHappiness;
 
-        //Gun items
-        foreach (GunItemSaveClass item in playerGunItems)
+        //Load Gun items
+        foreach (GunItemSaveClass item in saveData.playerGunItems)
         {
-
+            playerGunItems.Add(item);
         }
+
+        RefreshBarUI();
 
         //Load flowers
         foreach (FlowerSaveClass flower in saveData.flowerSaves)
@@ -214,6 +216,12 @@ public class GameManagerScript : MonoBehaviour
         PlayerControlScript playerControlScript = playerObject.GetComponent<PlayerControlScript>();
 
         playerControlScript.SavePlayerTransform();
+
+        //Get all the gun items and save them 1 by 1
+        foreach (GunItemSaveClass item in playerGunItems)
+        {
+            saveData.SaveGunItem(item.itemType, item.hasAmount, item.itemAmount);
+        }
 
         //Get all the flowers and save them 1 by 1
         FlowerScript[] flowerScripts = FindObjectsOfType<FlowerScript>();
