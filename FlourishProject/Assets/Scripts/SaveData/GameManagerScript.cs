@@ -31,9 +31,14 @@ public class GameManagerScript : MonoBehaviour
         //Load the game data
         //LoadGame();
 
-        //Create empty item
-        GunItemSaveClass saveClass = new GunItemSaveClass();
-        playerGunItems
+        //Create empty item if the list is 0 (First time playing)
+        if (playerGunItems.Count == 0)
+        {
+            GunItemSaveClass emptyItem = new GunItemSaveClass();
+            playerGunItems.Add(emptyItem);
+
+            saveData.SaveGunItem(emptyItem.itemType, emptyItem.hasAmount, emptyItem.itemAmount);
+        }
     }
 
 
