@@ -12,7 +12,6 @@ public class GameManagerScript : MonoBehaviour
     [Header("Player Stats")]
     public int playerPollen = 0;
     public int playerHappiness = 0;
-    public List<GunItemSaveClass> playerGunItems = new List<GunItemSaveClass>();
 
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;
@@ -35,13 +34,13 @@ public class GameManagerScript : MonoBehaviour
     private void Start()
     {
         //Load the game data
-        //LoadGame();
+        LoadGame();
 
         //Create empty item if the list is 0 (First time playing)
-        if (playerGunItems.Count == 0)
+        if (saveData.playerGunItems.Count == 0)
         {
             GunItemSaveClass emptyItem = new GunItemSaveClass();
-            playerGunItems.Add(emptyItem);
+            saveData.playerGunItems.Add(emptyItem);
 
             saveData.SaveGunItem(emptyItem.itemType, emptyItem.hasAmount, emptyItem.itemAmount);
             RefreshBarUI();
@@ -59,7 +58,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         //Create all bar items again
-        foreach (GunItemSaveClass itemSave in playerGunItems)
+        foreach (GunItemSaveClass itemSave in saveData.playerGunItems)
         {
             GameObject tempItem = Instantiate(barItemPrefab, itemsBarContent.transform, false);
 
@@ -120,7 +119,7 @@ public class GameManagerScript : MonoBehaviour
         playerHappiness = saveData.playerHappiness;
 
         //Gun items
-        foreach (GunItemSaveClass item in playerGunItems)
+        foreach (GunItemSaveClass item in saveData.playerGunItems)
         {
 
         }
