@@ -117,6 +117,9 @@ public class GameManagerScript : MonoBehaviour
             //Stats
             tempFlowerScript.age = flower.age;
             tempFlowerScript.currentPollen = flower.pollen;
+
+            //Set as loaded
+            tempFlowerScript.hasBeenLoaded = true;
         }
 
         //Load bees

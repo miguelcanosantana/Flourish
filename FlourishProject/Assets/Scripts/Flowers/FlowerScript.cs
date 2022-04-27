@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,6 +33,7 @@ public class FlowerScript : MonoBehaviour
     private Camera playerCamera;
 
     //Variables
+    [HideInInspector] public bool hasBeenLoaded = false;
     [HideInInspector] public int age = 0; //1 second = 1 day
     [HideInInspector] public int currentPollen = 0;
     [HideInInspector] public bool isBeePosed = false;
@@ -41,18 +43,35 @@ public class FlowerScript : MonoBehaviour
 
 
     //Start
-    private void Start()
+    private IEnumerator Start()
     {
         //Get the player camera
         playerCamera = Camera.main;
 
+        //Set flower size to 0 if hasn't been loaded
+        if (!hasBeenLoaded) flowerParentObject.transform.localScale = Vector3.zero;
+
         UpdatePollenUI();
+
+        //Animate flower with easing if hasn't been loaded
+        if (!hasBeenLoaded)
+        {
+            //Wait before growing animation
+            yield return new WaitForSeconds(0.1f);
+
+            //Do the animation
+            flowerParentObject.transform.DOScale(1f, 0.55f).SetEase(Ease.OutExpo);
+        }
+
+        yield return null;
     }
 
 
     //Update
     private void Update()
     {
+        Debug.Log("IDSKJHfdSHJIH");
+
         //If no bees are posed and can regenerate the pollen, do 1 unit and wait some time before doing it again
         if (canRegeneratePollen && currentPollen < maxPollen && !isBeePosed) StartCoroutine(RegeneratePollen());
 
