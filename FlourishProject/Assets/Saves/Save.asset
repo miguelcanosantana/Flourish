@@ -12,10 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904443bf3224ed84c9e5e5ebbdf63999, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
-  playerPosition: {x: -10.993931, y: 1.672543, z: 1.4707426}
-  playerRotation: {x: 0, y: -0.6915128, z: 0, w: -0.7223642}
+  playerPosition: {x: -17.588198, y: 1.0799998, z: 2.965582}
+  playerRotation: {x: 0, y: 0.8549119, z: 0, w: 0.51877326}
   playerPollen: 0
   playerHappiness: 0
-  playerGunItems: []
-  flowerSaves: []
+  playerGunItems:
+  - itemType: 0
+    hasAmount: 0
+    itemAmount: 0
+  flowerSaves:
+  - id: d238af4c-55e2-41ee-a589-8e2ff0e2f056
+    position: {x: -15.41703, y: -0.0114507675, z: 0.19496536}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    type: 1
+    age: 5
+    pollen: 5
+  - id: 69f50b39-ff0a-47b0-9e6e-c0769d437126
+    position: {x: -20.236012, y: 0.023710728, z: 0.05583763}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    type: 1
+    age: 8
+    pollen: 8
+  - id: be50b9ad-670f-4409-8148-4d1e3e453259
+    position: {x: -14.304554, y: 0.19531393, z: 0.6925335}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    type: 1
+    age: 0
+    pollen: 0
+  - id: 358626cf-8829-4fcb-b3b0-137f659a61e3
+    position: {x: -14.565168, y: 0.19264555, z: 3.9755793}
+    rotation: {x: -0, y: -0, z: -0, w: 1}
+    type: 1
+    age: 3
+    pollen: 3
   beeSaves: []

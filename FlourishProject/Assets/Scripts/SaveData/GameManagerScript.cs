@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System.Linq;
 
 public class GameManagerScript : MonoBehaviour
 {
+    [Header("Stats")]
+    public int maxAmountPerItem = 60;
+
     [Header("Player Stats")]
     public int playerPollen = 0;
     public int playerHappiness = 0;
@@ -13,6 +18,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private GameObject flowersFolder;
     [SerializeField] private GameObject beesFolder;
+    [SerializeField] private GameObject itemsBarContent;
 
     [Header("Item prefabs")]
     [SerializeField] private GameObject barItemPrefab;
@@ -38,6 +44,36 @@ public class GameManagerScript : MonoBehaviour
             playerGunItems.Add(emptyItem);
 
             saveData.SaveGunItem(emptyItem.itemType, emptyItem.hasAmount, emptyItem.itemAmount);
+            RefreshBarUI();
+        }
+    }
+
+
+    //Refresh Items bar UI
+    private void RefreshBarUI()
+    {
+        //Delete all previous items
+        foreach (Transform child in itemsBarContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        //Create all bar items again
+        foreach (GunItemSaveClass itemSave in playerGunItems)
+        {
+            GameObject tempItem = Instantiate(barItemPrefab, itemsBarContent.transform, false);
+
+            //Get the text mesh pro components
+            TextMeshProUGUI quantityText = tempItem.transform.Find("QuantityText").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI maxText = tempItem.transform.Find("MaxText").GetComponent<TextMeshProUGUI>();
+
+            //Match the amount text with the class data
+            if (itemSave.hasAmount) quantityText.text = itemSave.itemAmount.ToString("00");
+            else quantityText.text = "";
+
+            //Set the max amount with the class data
+            if (itemSave.hasAmount) maxText.text = "/" + maxAmountPerItem.ToString("00");
+            else maxText.text = "";
         }
     }
 
