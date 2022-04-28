@@ -42,6 +42,7 @@ public class PlayerControlScript : MonoBehaviour
     private GameObject seedsFolder;
     private CharacterController playerController;
     private GameManagerScript gameManagerScript;
+    private GunItemSaveClass currentItem;
 
     //Variables
     private Vector2 movementInput = Vector2.zero;
@@ -200,10 +201,12 @@ public class PlayerControlScript : MonoBehaviour
             //Travel backwards / forwards depending on the items count
             int itemsCount = gameManagerScript.playerGunItems.Count;
 
-            if (currentItemBarPosition > itemsCount) currentItemBarPosition = 0;
-            if (currentItemBarPosition < 0) currentItemBarPosition = itemsCount;
+            if (currentItemBarPosition >= itemsCount) currentItemBarPosition = 0;
+            if (currentItemBarPosition < 0) currentItemBarPosition = itemsCount - 1;
 
-            Debug.Log(currentItemBarPosition);
+            //Set the current item
+            currentItem = gameManagerScript.playerGunItems[currentItemBarPosition];
+            Debug.Log(currentItem.itemType.ToString());
         }
             
     }
