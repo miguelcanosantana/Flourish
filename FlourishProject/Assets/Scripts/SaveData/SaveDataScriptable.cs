@@ -15,9 +15,9 @@ public class SaveDataScriptable : PersistentScriptableObject
     [Header("Player's Stats")]
     public int playerPollen = 0;
     public int playerHappiness = 0;
-    public List<GunItemSaveClass> playerGunItems = new List<GunItemSaveClass>();
-
+    
     [Header("Lists")]
+    public List<GunItemSaveClass> playerGunItems = new List<GunItemSaveClass>();
     public List<FlowerSaveClass> flowerSaves = new List<FlowerSaveClass>();
     public List<BeeSaveClass> beeSaves = new List<BeeSaveClass>();
 
