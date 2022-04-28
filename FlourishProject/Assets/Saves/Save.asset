@@ -23,9 +23,6 @@ MonoBehaviour:
   - itemType: 1
     hasAmount: 1
     itemAmount: 50
-  - itemType: 1
-    hasAmount: 1
-    itemAmount: 50
   - itemType: 2
     hasAmount: 1
     itemAmount: 0

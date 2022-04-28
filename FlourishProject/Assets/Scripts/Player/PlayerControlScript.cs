@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -207,6 +208,10 @@ public class PlayerControlScript : MonoBehaviour
             //Set the current item
             currentItem = gameManagerScript.playerGunItems[currentItemBarPosition];
             Debug.Log(currentItem.itemType.ToString());
+
+            //Move the selected item frame to the current item
+            GameObject currentItemObject = gameManagerScript.itemsBarContent.transform.GetChild(currentItemBarPosition).gameObject;
+            gameManagerScript.selectedItemFrame.transform.DOMove(currentItemObject.transform.position, 0.25f).SetEase(Ease.OutExpo);
         }
             
     }

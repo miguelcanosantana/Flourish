@@ -15,10 +15,11 @@ public class GameManagerScript : MonoBehaviour
     public List<GunItemSaveClass> playerGunItems = new List<GunItemSaveClass>();
 
     [Header("References")]
+    public GameObject itemsBarContent;
+    public GameObject selectedItemFrame;
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private GameObject flowersFolder;
     [SerializeField] private GameObject beesFolder;
-    [SerializeField] private GameObject itemsBarContent;
 
     [Header("Item prefabs")]
     [SerializeField] private GameObject barItemPrefab;
