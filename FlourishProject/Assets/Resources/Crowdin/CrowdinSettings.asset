@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf9742e6cb374ff095ea3ab535a9052, type: 3}
+  m_Name: CrowdinSettings
+  m_EditorClassIdentifier: 
+  organizationDomain: 
+  token: f1e84510b60f25b92733b6456c04c2290ba58812a623a5297d2fd79e6e8e1c8f9a2e363510f5693f
+  projectId: 512740
+  projectIndexInList: 0
+  languageData:
+    sourceLanguage: en
+    targetLanguage: 
+    languageItems:
+    - langType: es-ES
+      collumPos: 2
+      twoLettersCode: es
+      locale: es-ES
+    - langType: de
+      collumPos: 3
+      twoLettersCode: de
+      locale: de-DE
