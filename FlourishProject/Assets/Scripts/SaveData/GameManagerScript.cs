@@ -51,7 +51,7 @@ public class GameManagerScript : MonoBehaviour
 
 
     //Refresh Items bar UI
-    private void RefreshBarUI()
+    public void RefreshBarUI()
     {
         //Delete all previous items
         foreach (Transform child in itemsBarContent.transform)

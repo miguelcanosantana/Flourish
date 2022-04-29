@@ -88,8 +88,6 @@ public class PlayerControlScript : MonoBehaviour
 
         //Debug.Log("PEW");
 
-
-
         //Shoot a seed (from the pool or a new one)
         //if (seedsPool.Count > 0)
         //{
@@ -100,12 +98,43 @@ public class PlayerControlScript : MonoBehaviour
         //    GameObject tempSeed = Instantiate(seedPrefab);
         //}
 
-        //Instantiate a new seed
-        GameObject tempSeed = Instantiate(seedPrefab, gunSpawnPoint.transform);
-        tempSeed.transform.parent = seedsFolder.transform;
+        //If the current item is not null, has amount and is > 0, shoot it
+        if (currentItem != null && currentItem.hasAmount && currentItem.itemAmount > 0)
+        {
+            //Remove item and update ui
+            currentItem.itemAmount --;
+            gameManagerScript.RefreshBarUI();
 
-        //Give force to the seed
-        tempSeed.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 25, ForceMode.Impulse);
+            //If the current type is a plant, launch a seed
+            if (currentItem.itemType == GunItemType.SunFlower || currentItem.itemType == GunItemType.Tulip)
+            {
+                //Instantiate a new seed
+                GameObject tempSeed = Instantiate(seedPrefab, gunSpawnPoint.transform);
+                tempSeed.transform.parent = seedsFolder.transform;
+
+                //Set the seed type
+                SeedScript seedScript = tempSeed.GetComponent<SeedScript>();
+
+                //Convert gunType to flowerType
+                switch (currentItem.itemType)
+                {
+                    case GunItemType.SunFlower:
+                        seedScript.seedFlowerType = FlowerType.Sunflower;
+                        break;
+
+                    case GunItemType.Tulip:
+                        seedScript.seedFlowerType = FlowerType.None;
+                        break;
+                }
+
+                //Give force to the seed
+                tempSeed.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 25, ForceMode.Impulse);
+            }
+        }
+
+
+
+
 
 
         yield return new WaitForSeconds(shootRate);
