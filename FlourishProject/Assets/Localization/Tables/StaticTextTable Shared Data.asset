@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: StaticTextTable
   m_TableCollectionNameGuidString: 38f821eb0152a8b4bbdbfd59201452d7
-  m_Entries: []
+  m_Entries:
+  - m_Id: 220273025867776
+    m_Key: FlowerBarCanvas/Canvas (Environment)/FlowerBarCanvas/Background/PollenText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
