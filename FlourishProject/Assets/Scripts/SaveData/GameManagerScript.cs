@@ -12,7 +12,7 @@ public class GameManagerScript : MonoBehaviour
     [Header("Player Stats")]
     public int playerPollen = 0;
     public int playerHappiness = 0;
-    public List<GunItemSaveClass> playerGunItems = new List<GunItemSaveClass>();
+    public List<GunItemInfoClass> playerGunItems = new List<GunItemInfoClass>();
 
     [Header("References")]
     public GameObject itemsBarContent;
@@ -41,7 +41,7 @@ public class GameManagerScript : MonoBehaviour
         //Create empty item if the list is 0 (First time playing)
         if (playerGunItems.Count == 0)
         {
-            GunItemSaveClass emptyItem = new GunItemSaveClass();
+            GunItemInfoClass emptyItem = new GunItemInfoClass();
             playerGunItems.Add(emptyItem);
 
             saveData.SaveGunItem(emptyItem.itemType, emptyItem.hasAmount, emptyItem.itemAmount);
@@ -60,7 +60,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         //Create all bar items again
-        foreach (GunItemSaveClass itemSave in playerGunItems)
+        foreach (GunItemInfoClass item in playerGunItems)
         {
             GameObject tempItem = Instantiate(barItemPrefab, itemsBarContent.transform, false);
 
@@ -69,11 +69,11 @@ public class GameManagerScript : MonoBehaviour
             TextMeshProUGUI maxText = tempItem.transform.Find("MaxText").GetComponent<TextMeshProUGUI>();
 
             //Match the amount text with the class data
-            if (itemSave.hasAmount) quantityText.text = itemSave.itemAmount.ToString("00");
+            if (item.hasAmount) quantityText.text = item.itemAmount.ToString("00");
             else quantityText.text = "";
 
             //Set the max amount with the class data
-            if (itemSave.hasAmount) maxText.text = "/" + maxAmountPerItem.ToString("00");
+            if (item.hasAmount) maxText.text = "/" + maxAmountPerItem.ToString("00");
             else maxText.text = "";
         }
     }
@@ -121,9 +121,15 @@ public class GameManagerScript : MonoBehaviour
         playerHappiness = saveData.playerHappiness;
 
         //Load Gun items
-        foreach (GunItemSaveClass item in saveData.playerGunItems)
+        foreach (GunItemSaveClass itemSave in saveData.playerGunItems)
         {
-            playerGunItems.Add(item);
+            GunItemInfoClass tempItem = new GunItemInfoClass();
+
+            tempItem.itemType = itemSave.itemType;
+            tempItem.hasAmount = itemSave.hasAmount;
+            tempItem.itemAmount = itemSave.itemAmount;
+
+            playerGunItems.Add(tempItem);
         }
 
         RefreshBarUI();
@@ -219,7 +225,7 @@ public class GameManagerScript : MonoBehaviour
         playerControlScript.SavePlayerTransform();
 
         //Get all the gun items and save them 1 by 1
-        foreach (GunItemSaveClass item in playerGunItems)
+        foreach (GunItemInfoClass item in playerGunItems)
         {
             saveData.SaveGunItem(item.itemType, item.hasAmount, item.itemAmount);
         }

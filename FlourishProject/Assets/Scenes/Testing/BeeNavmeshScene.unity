@@ -751,7 +751,6 @@ MonoBehaviour:
   maxAmountPerItem: 60
   playerPollen: 0
   playerHappiness: 0
-  playerGunItems: []
   itemsBarContent: {fileID: 9127725}
   selectedItemFrame: {fileID: 1256112277}
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}

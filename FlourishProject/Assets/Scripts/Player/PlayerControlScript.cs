@@ -43,7 +43,7 @@ public class PlayerControlScript : MonoBehaviour
     private GameObject seedsFolder;
     private CharacterController playerController;
     private GameManagerScript gameManagerScript;
-    private GunItemSaveClass currentItem;
+    private GunItemInfoClass currentItem;
 
     //Variables
     private Vector2 movementInput = Vector2.zero;
