@@ -24,9 +24,9 @@ public class SeedScript : MonoBehaviour
 
 
     //Plant a flower of the seed type
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collider.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             GameObject flowerToInstantiate = testFlowerPrefab;
 
@@ -43,13 +43,6 @@ public class SeedScript : MonoBehaviour
             GameObject tempFlower = Instantiate(flowerToInstantiate, transform.position, Quaternion.identity);
             tempFlower.transform.parent = flowersFolder.transform;
 
-            //Deactivate now, stop the coroutine
-            StopCoroutine(MakeInactiveOverTime());
-            gameObject.SetActive(false);
-        }
-        //Deactivate seed object if the collider is not the flower
-        else if (!collider.CompareTag("Flower"))
-        {
             //Deactivate now, stop the coroutine
             StopCoroutine(MakeInactiveOverTime());
             gameObject.SetActive(false);
