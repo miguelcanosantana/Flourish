@@ -6,6 +6,7 @@ public class SeedScript : MonoBehaviour
 {
     [Header("Stats")]
     public FlowerType seedFlowerType;
+    public bool coroutineDebouncer;
 
     [Header("References")]
     public GameObject testFlowerPrefab;
@@ -41,6 +42,29 @@ public class SeedScript : MonoBehaviour
 
             GameObject tempFlower = Instantiate(flowerToInstantiate, transform.position, Quaternion.identity);
             tempFlower.transform.parent = flowersFolder.transform;
+
+            //Deactivate now, stop the coroutine
+            StopCoroutine(MakeInactiveOverTime());
+            gameObject.SetActive(false);
         }
+        //Deactivate seed object if the collider is not the flower
+        else if (!collider.CompareTag("Flower"))
+        {
+            //Deactivate now, stop the coroutine
+            StopCoroutine(MakeInactiveOverTime());
+            gameObject.SetActive(false);
+        }
+    }
+
+
+    //Coroutine => Make the seed inactive over the time when it has been launched
+    public IEnumerator MakeInactiveOverTime()
+    {
+        coroutineDebouncer = true;
+
+        yield return new WaitForSeconds(5f);
+        gameObject.SetActive(false);
+
+        coroutineDebouncer = false;
     }
 }

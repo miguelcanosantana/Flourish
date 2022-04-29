@@ -52,7 +52,7 @@ public class PlayerControlScript : MonoBehaviour
     private float cameraYRotation;
     private GunAction gunAction;
     private bool canShoot = true;
-    private List<GameObject> seedsPool = new List<GameObject>();
+    private List<GameObject> inactiveSeedsPool = new List<GameObject>();
     private int currentItemBarPosition = 0;
 
 
@@ -108,9 +108,35 @@ public class PlayerControlScript : MonoBehaviour
             //If the current type is a plant, launch a seed
             if (currentItem.itemType == GunItemType.SunFlower || currentItem.itemType == GunItemType.Tulip)
             {
+                //Add to the pool all the seeds that are not active
+                foreach (Transform seed in seedsFolder.transform)
+                {
+                    //If the seed is not already on the pool and it's inactive, add it
+                    if (!inactiveSeedsPool.Contains(seed.gameObject) && !seed.gameObject.activeSelf)
+                    {
+                        inactiveSeedsPool.Add(seed.gameObject);
+                    }
+                }
+
+                GameObject tempSeed;
+
+                //Recover, reset and make active a seed from the pool
+                if (inactiveSeedsPool.Count > 0)
+                {
+                    tempSeed = inactiveSeedsPool[0];
+                    tempSeed.transform.position = gunSpawnPoint.transform.position;
+                    tempSeed.transform.rotation = gunSpawnPoint.transform.rotation;
+                    tempSeed.SetActive(true);
+
+                    //Remove from the inactive pool
+                    inactiveSeedsPool.Remove(tempSeed);
+                }
                 //Instantiate a new seed
-                GameObject tempSeed = Instantiate(seedPrefab, gunSpawnPoint.transform);
-                tempSeed.transform.parent = seedsFolder.transform;
+                else
+                {
+                    tempSeed = Instantiate(seedPrefab, gunSpawnPoint.transform);
+                    tempSeed.transform.parent = seedsFolder.transform;
+                }
 
                 //Set the seed type
                 SeedScript seedScript = tempSeed.GetComponent<SeedScript>();
@@ -128,7 +154,13 @@ public class PlayerControlScript : MonoBehaviour
                 }
 
                 //Give force to the seed
-                tempSeed.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 25, ForceMode.Impulse);
+                Rigidbody rigidbody = tempSeed.GetComponent<Rigidbody>();
+                rigidbody.velocity = Vector3.zero;
+                rigidbody.angularVelocity = Vector3.zero;
+                rigidbody.AddRelativeForce(Vector3.forward * 25, ForceMode.Impulse);
+
+                //Make it inactive over the time if the debouncer is not active
+                if (!seedScript.coroutineDebouncer) StartCoroutine(seedScript.MakeInactiveOverTime());
             }
         }
 
