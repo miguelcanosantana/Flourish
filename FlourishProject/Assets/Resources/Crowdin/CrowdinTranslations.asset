@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CrowdinTranslations
   m_EditorClassIdentifier: 
   translationStrings:
-  - key: test
+  - key: FlowerBarCanvas/Canvas (Environment)/FlowerBarCanvas/Background/PollenText
     exportedFromTable: StaticTextTable
-    sourceSting: test
+    sourceSting: Pollen
     translations: []
   translationImages: []
