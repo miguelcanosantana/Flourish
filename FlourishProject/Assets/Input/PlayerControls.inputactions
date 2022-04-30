@@ -240,6 +240,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "AlternativeToDPad",
+                    "id": "3b11f3da-8c2b-4920-b4a5-821517ae2fc3",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeAction",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "a606c32c-05a4-4c08-961e-bc068abfdeb3",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ChangeAction",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "e31b22dd-6c1c-4a23-bd35-33b88319373e",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ChangeAction",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "efad3127-d26f-4bd0-bc75-99ced7c4299f",
                     "path": "<Mouse>/scroll",
