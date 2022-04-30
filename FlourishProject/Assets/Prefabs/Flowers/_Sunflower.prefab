@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935520198244150598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.3999999, z: 0.64999986}
+  m_LocalPosition: {x: 0, y: 2.987, z: 1.014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -464,6 +464,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1935520199235722681}
     m_Modifications:
+    - target: {fileID: 1326853514146311283, guid: b3eadc38f9a83824b8c3df15ace5b768, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2884583898440246683, guid: b3eadc38f9a83824b8c3df15ace5b768, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -534,7 +538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2884583898440246683, guid: b3eadc38f9a83824b8c3df15ace5b768, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2
+      value: 0.74999994
       objectReference: {fileID: 0}
     - target: {fileID: 2884583898440246683, guid: b3eadc38f9a83824b8c3df15ace5b768, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -603,15 +607,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f20d5289a69d82c4898ac203cca8713a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.125
+      value: 0.145
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f20d5289a69d82c4898ac203cca8713a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.125
+      value: 0.145
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f20d5289a69d82c4898ac203cca8713a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.125
+      value: 0.145
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f20d5289a69d82c4898ac203cca8713a, type: 3}
       propertyPath: m_LocalPosition.x
