@@ -51,6 +51,7 @@ MonoBehaviour:
   maxPollen: 50
   regeneratePollenRate: 1
   flowerParentObject: {fileID: 1935520199235722687}
+  flowerPetals: {fileID: 1635648078956065847}
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
   barObject: {fileID: 3357814862068306595}
   pollenBarBackground: {fileID: 9000049725381780300}
@@ -768,6 +769,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1635648078956065847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 895833827955718225, guid: f20d5289a69d82c4898ac203cca8713a, type: 3}
+  m_PrefabInstance: {fileID: 1935520199162580070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2114123506228702093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f20d5289a69d82c4898ac203cca8713a, type: 3}

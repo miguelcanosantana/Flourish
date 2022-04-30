@@ -25,6 +25,7 @@ public class FlowerScript : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject flowerParentObject;
+    [SerializeField] private GameObject flowerPetals;
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private GameObject barObject;
     [SerializeField] private Image pollenBarBackground;
@@ -54,7 +55,9 @@ public class FlowerScript : MonoBehaviour
         if (!hasBeenLoaded)
         {
             flowerParentObject.transform.localScale = Vector3.zero;
+            flowerPetals.transform.localScale = Vector3.zero;
             flowerParentObject.transform.DOScale(1f, 0.55f).SetEase(Ease.OutExpo);
+            flowerPetals.transform.DOScale(1f, 3f).SetEase(Ease.OutExpo);
         }
     }
 
