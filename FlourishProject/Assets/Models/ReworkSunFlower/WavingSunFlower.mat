@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WavingGrass
+  m_Name: WavingSunFlower
   m_Shader: {fileID: 4800000, guid: d44b3e33633671d438f06b0dd906d737, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b00a2afc512791c4a98ecf9f5ea0d37a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTexture:
@@ -34,17 +34,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _MBAmplitude: 12.05
-    - _MBAmplitudeOffset: 7.36
+    - _MBAmplitude: 1.5
+    - _MBAmplitudeOffset: 2
     - _MBDefaultBending: 0
-    - _MBFrequency: 1.84
+    - _MBFrequency: 1.11
     - _MBFrequencyOffset: 0
     - _MBMaxHeight: 10
     - _MBPhase: 1
-    - _MBWindDir: 128
+    - _MBWindDir: 29
     - _MBWindDirOffset: 20
-    - _Metallic: 0
-    - _Smoothness: 0
+    - _Metallic: 0.05
+    - _Smoothness: 0.087
     - __dirty: 1
     m_Colors:
     - _NoisePannerSpeed: {r: 0.05, g: 0.03, b: 0, a: 0}

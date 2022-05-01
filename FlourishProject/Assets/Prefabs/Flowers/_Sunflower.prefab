@@ -690,6 +690,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -957961811703738075, guid: f20d5289a69d82c4898ac203cca8713a, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -957961811703738075, guid: f20d5289a69d82c4898ac203cca8713a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 249d884a1ef7b3a478214a1ef8dd2e7d, type: 2}
     - target: {fileID: -789747167029433414, guid: f20d5289a69d82c4898ac203cca8713a, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -757,7 +765,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593483221593551159}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5f787d4fa1eab674a8cfa678f3f1afb3, type: 2}
   m_CullingMode: 0
