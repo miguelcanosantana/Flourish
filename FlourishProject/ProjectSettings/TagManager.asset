@@ -9,6 +9,7 @@ TagManager:
   - Bee
   - FlowersFolder
   - SeedsFolder
+  - BeesFolder
   layers:
   - Default
   - TransparentFX

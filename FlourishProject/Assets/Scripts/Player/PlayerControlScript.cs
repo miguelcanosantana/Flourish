@@ -40,10 +40,15 @@ public class PlayerControlScript : MonoBehaviour
     [SerializeField] private Transform gunSpawnPoint;
     [SerializeField] private GameObject cameraContainer;
     [SerializeField] private GameObject seedPrefab;
+    [SerializeField] private GameObject regularBeePrefab;
+    [SerializeField] private GameObject purpleBeePrefab;
     private GameObject seedsFolder;
+    private GameObject beesFolder;
     private CharacterController playerController;
     private GameManagerScript gameManagerScript;
     private GunItemInfoClass currentItem;
+    private GameObject tempSeed;
+    private GameObject tempBee;
 
     //Variables
     private Vector2 movementInput = Vector2.zero;
@@ -53,7 +58,6 @@ public class PlayerControlScript : MonoBehaviour
     private GunAction gunAction;
     private bool canShoot = true;
     private int currentItemBarPosition = 0;
-    private GameObject tempSeed;
 
 
     //Start is called before the first frame update
@@ -63,6 +67,7 @@ public class PlayerControlScript : MonoBehaviour
 
         //Get folders
         seedsFolder = GameObject.FindGameObjectWithTag("SeedsFolder");
+        beesFolder = GameObject.FindGameObjectWithTag("BeesFolder");
 
         //Get components
         playerController = GetComponent<CharacterController>();
@@ -86,8 +91,6 @@ public class PlayerControlScript : MonoBehaviour
     {
         canShoot = false;
 
-        //Debug.Log("PEW");
-
         //If the current item is not null, has amount and is > 0, shoot it
         if (currentItem != null && currentItem.hasAmount && currentItem.itemAmount > 0)
         {
@@ -96,12 +99,38 @@ public class PlayerControlScript : MonoBehaviour
             gameManagerScript.RefreshBarUI();
 
             //If the current type is a bee, launch the bee
+            if (currentItem.itemType == GunItemType.RegularBee || currentItem.itemType == GunItemType.PurpleBee)
+            {
+
+                //Instantiate a new bee depending on it's type
+                switch (currentItem.itemType)
+                {
+                    case GunItemType.RegularBee:
+                        tempBee = Instantiate(regularBeePrefab, gunSpawnPoint.transform);
+                        break;
+
+                    case GunItemType.PurpleBee:
+                        tempBee = Instantiate(purpleBeePrefab, gunSpawnPoint.transform);
+                        break;
+                }
+                
+                tempBee.transform.parent = beesFolder.transform;
+
+                //Give force to the seed
+                //Rigidbody rigidbody = tempSeed.GetComponent<Rigidbody>();
+                //rigidbody.velocity = Vector3.zero;
+                //rigidbody.angularVelocity = Vector3.zero;
+                //rigidbody.AddRelativeForce(Vector3.forward * 25, ForceMode.Impulse);
+
+                //Reset seed
+                tempBee = null;
+            }
 
 
             //If the current type is a plant, launch a seed
             if (currentItem.itemType == GunItemType.SunFlower || currentItem.itemType == GunItemType.Tulip)
             {
-                //try to get an inactive seed, if no luck, instantiate a new one
+                //Try to get an inactive seed, if no luck, instantiate a new one
                 foreach (Transform seed in seedsFolder.transform)
                 {
                     if (seed.gameObject.activeSelf == false)
@@ -120,7 +149,6 @@ public class PlayerControlScript : MonoBehaviour
                 //Recover an existing seed
                 else
                 {
-                    Debug.Log("using existing seed");
                     tempSeed.transform.position = gunSpawnPoint.transform.position;
                     tempSeed.transform.rotation = gunSpawnPoint.transform.rotation;
                     tempSeed.SetActive(true);

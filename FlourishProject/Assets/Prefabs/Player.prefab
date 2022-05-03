@@ -761,6 +761,8 @@ MonoBehaviour:
   gunSpawnPoint: {fileID: 400626743327331239}
   cameraContainer: {fileID: 3827941539604013529}
   seedPrefab: {fileID: 4936857072392864267, guid: f34c55b6b6f139c4bb4886ebe3436397, type: 3}
+  regularBeePrefab: {fileID: 8673488259849679950, guid: c9604ea148fad564e86deef8b2e1b796, type: 3}
+  purpleBeePrefab: {fileID: 8673488259849679950, guid: 21cb33b5ddee68a41aaeac7a59454c22, type: 3}
 --- !u!208 &236560835
 NavMeshObstacle:
   m_ObjectHideFlags: 0
