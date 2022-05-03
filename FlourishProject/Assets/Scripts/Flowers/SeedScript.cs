@@ -6,7 +6,6 @@ public class SeedScript : MonoBehaviour
 {
     [Header("Stats")]
     public FlowerType seedFlowerType;
-    public bool coroutineDebouncer;
 
     [Header("References")]
     public GameObject testFlowerPrefab;
@@ -14,12 +13,21 @@ public class SeedScript : MonoBehaviour
     public GameObject tulipPrefab;
 
     private GameObject flowersFolder;
+    private Transform playerTrasform;
 
 
     private void Start()
     {
-        //Get the flowers folder
+        //Get the objects
         flowersFolder = GameObject.FindGameObjectWithTag("FlowersFolder");
+        playerTrasform = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+
+    //Check object distance from the player, if it's too far (Fell of the world, disable it)
+    private void Update()
+    {
+        if (Vector3.Distance(transform.position, playerTrasform.position) > 30) gameObject.SetActive(false);
     }
 
 
@@ -43,21 +51,8 @@ public class SeedScript : MonoBehaviour
             GameObject tempFlower = Instantiate(flowerToInstantiate, transform.position, Quaternion.identity);
             tempFlower.transform.parent = flowersFolder.transform;
 
-            //Deactivate now, stop the coroutine
-            StopCoroutine(MakeInactiveOverTime());
+            //Deactivate
             gameObject.SetActive(false);
         }
-    }
-
-
-    //Coroutine => Make the seed inactive over the time when it has been launched
-    public IEnumerator MakeInactiveOverTime()
-    {
-        coroutineDebouncer = true;
-
-        yield return new WaitForSeconds(5f);
-        gameObject.SetActive(false);
-
-        coroutineDebouncer = false;
     }
 }

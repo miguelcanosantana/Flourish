@@ -52,8 +52,8 @@ public class PlayerControlScript : MonoBehaviour
     private float cameraYRotation;
     private GunAction gunAction;
     private bool canShoot = true;
-    private List<GameObject> inactiveSeedsPool = new List<GameObject>();
     private int currentItemBarPosition = 0;
+    private GameObject tempSeed;
 
 
     //Start is called before the first frame update
@@ -61,7 +61,7 @@ public class PlayerControlScript : MonoBehaviour
     {
         //Cursor.lockState = CursorLockMode.Locked;
 
-        //Get objects
+        //Get folders
         seedsFolder = GameObject.FindGameObjectWithTag("SeedsFolder");
 
         //Get components
@@ -88,16 +88,6 @@ public class PlayerControlScript : MonoBehaviour
 
         //Debug.Log("PEW");
 
-        //Shoot a seed (from the pool or a new one)
-        //if (seedsPool.Count > 0)
-        //{
-        //    seedsPool[0].SetActive(true);
-        //}
-        //else
-        //{
-        //    GameObject tempSeed = Instantiate(seedPrefab);
-        //}
-
         //If the current item is not null, has amount and is > 0, shoot it
         if (currentItem != null && currentItem.hasAmount && currentItem.itemAmount > 0)
         {
@@ -108,34 +98,30 @@ public class PlayerControlScript : MonoBehaviour
             //If the current type is a plant, launch a seed
             if (currentItem.itemType == GunItemType.SunFlower || currentItem.itemType == GunItemType.Tulip)
             {
-                //Add to the pool all the seeds that are not active
+
+                //try to get an inactive seed, if no luck, instantiate a new one
                 foreach (Transform seed in seedsFolder.transform)
                 {
-                    //If the seed is not already on the pool and it's inactive, add it
-                    if (!inactiveSeedsPool.Contains(seed.gameObject) && !seed.gameObject.activeSelf)
+                    if (seed.gameObject.activeSelf == false)
                     {
-                        inactiveSeedsPool.Add(seed.gameObject);
+                        tempSeed = seed.gameObject;
+                        break;
                     }
                 }
 
-                GameObject tempSeed;
-
-                //Recover, reset and make active a seed from the pool
-                if (inactiveSeedsPool.Count > 0)
-                {
-                    tempSeed = inactiveSeedsPool[0];
-                    tempSeed.transform.position = gunSpawnPoint.transform.position;
-                    tempSeed.transform.rotation = gunSpawnPoint.transform.rotation;
-                    tempSeed.SetActive(true);
-
-                    //Remove from the inactive pool
-                    inactiveSeedsPool.Remove(tempSeed);
-                }
-                //Instantiate a new seed
-                else
+                //If the seed is null, instantiate a new one
+                if (tempSeed == null)
                 {
                     tempSeed = Instantiate(seedPrefab, gunSpawnPoint.transform);
                     tempSeed.transform.parent = seedsFolder.transform;
+                }
+                //Recover an existing seed
+                else
+                {
+                    Debug.Log("using existing seed");
+                    tempSeed.transform.position = gunSpawnPoint.transform.position;
+                    tempSeed.transform.rotation = gunSpawnPoint.transform.rotation;
+                    tempSeed.SetActive(true);
                 }
 
                 //Set the seed type
@@ -159,15 +145,10 @@ public class PlayerControlScript : MonoBehaviour
                 rigidbody.angularVelocity = Vector3.zero;
                 rigidbody.AddRelativeForce(Vector3.forward * 25, ForceMode.Impulse);
 
-                //Make it inactive over the time if the debouncer is not active
-                if (!seedScript.coroutineDebouncer) StartCoroutine(seedScript.MakeInactiveOverTime());
+                //Reset seed
+                tempSeed = null;
             }
         }
-
-
-
-
-
 
         yield return new WaitForSeconds(shootRate);
 
