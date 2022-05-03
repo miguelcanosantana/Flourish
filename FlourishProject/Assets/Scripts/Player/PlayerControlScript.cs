@@ -20,9 +20,9 @@ public enum GunItemType
     None,
     RegularBee,
     SunFlower,
+    PurpleBee,
     Tulip
 }
-
 
 
 public class PlayerControlScript : MonoBehaviour
@@ -95,10 +95,12 @@ public class PlayerControlScript : MonoBehaviour
             currentItem.itemAmount --;
             gameManagerScript.RefreshBarUI();
 
+            //If the current type is a bee, launch the bee
+
+
             //If the current type is a plant, launch a seed
             if (currentItem.itemType == GunItemType.SunFlower || currentItem.itemType == GunItemType.Tulip)
             {
-
                 //try to get an inactive seed, if no luck, instantiate a new one
                 foreach (Transform seed in seedsFolder.transform)
                 {
