@@ -27,6 +27,8 @@ public class BeeAiScript : MonoBehaviour
     [HideInInspector] public bool canUpdatePosedTimer = true;
     [HideInInspector] public int timerSinceLastPosed = 0;
     [HideInInspector] public float maxTimeToPose = 0f;
+    [HideInInspector] public bool isLost = false;
+    [HideInInspector] public float timeLost = 0f;    
 
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;

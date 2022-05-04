@@ -13,7 +13,7 @@ using DG.Tweening;
 public class BeeStateClass
 {
     //States the be can do
-    public enum State { Idle, Traveling, Recollecting};
+    public enum State { Idle, Traveling, Recollecting, LostDestroy};
 
     //The phase the state is in, each state has 3 phases
     public enum Event { Enter, Update, Exit };
@@ -156,6 +156,10 @@ public class Idle : BeeStateClass
         //Enter the Traveling state immediately if the list of flowers has at least 2
         if (beeScript.listOfFlowers.Count >= 2)
         {
+            //Set as not lost and set it's time to 0
+            beeScript.isLost = false;
+            beeScript.timeLost = 0;
+
             //If the bee had a target flower if coming from a State, set it as the previous flower
             if (beeScript.targetFlower != null)
             {
@@ -177,6 +181,27 @@ public class Idle : BeeStateClass
             //Exit the Idle state
             phase = Event.Exit;
         }
+        //If the bee has no flowers near, get lost
+        else
+        {
+            beeScript.isLost = true;
+        }
+
+        //Increase lost time
+        if (beeScript.isLost)
+        {
+            beeScript.timeLost += Time.deltaTime;
+
+            if (beeScript.timeLost > 5f)
+            {
+                //Exit this state and enter LostDestroy state
+                nextState = new LostDestroy(bee, beeScript);
+
+                //Exit the Idle state
+                phase = Event.Exit;
+            }
+        }
+
     }
 
 
@@ -318,6 +343,39 @@ public class Recollecting : BeeStateClass
 
 
     //Exit the Recollecting state and reset it
+    public override void Exit()
+    {
+        base.Exit();
+    }
+}
+
+
+//LostDestroy state
+public class LostDestroy : BeeStateClass
+{
+    //LostDestroy's constructor (Take the bee from the base class)
+    public LostDestroy(GameObject beeObject, BeeAiScript script) : base(beeObject, script)
+    {
+        stateName = State.LostDestroy;
+    }
+
+
+    //Enter the LostDestroy
+    public override void Enter()
+    {
+        base.Enter();
+        Debug.Log("DESTROY BEEEEEEZZZZZ");
+        //beeScript.Destroy(beeScript);
+    }
+
+
+    //LostDestroy Behavior
+    public override void Update()
+    {
+    }
+
+
+    //Exit the LostDestroy state and destroy this object
     public override void Exit()
     {
         base.Exit();
