@@ -1,4 +1,10 @@
 {
+  "GlobalObjectId_V1-2-149c638bd81fa554c9c5b5b259d9d7c4-304414207-0": {
+    "GameObjectId": "GlobalObjectId_V1-2-149c638bd81fa554c9c5b5b259d9d7c4-304414207-0",
+    "CommentText": "Ui",
+    "AssetGUID": "149c638bd81fa554c9c5b5b259d9d7c4",
+    "UniqueItemID": "GlobalObjectId_V1-2-149c638bd81fa554c9c5b5b259d9d7c4-304414207-0"
+  },
   "GlobalObjectId_V1-2-149c638bd81fa554c9c5b5b259d9d7c4-881565645-0": {
     "GameObjectId": "GlobalObjectId_V1-2-149c638bd81fa554c9c5b5b259d9d7c4-881565645-0",
     "CommentText": "Won't get destroyed until \neverything loads.",
