@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: MainMenu/MainMenuCanvas/ExitButton/ExitText
     m_Metadata:
       m_Items: []
+  - m_Id: 2376597050351616
+    m_Key: MainMenu/MainMenuCanvas/ConfigButton/ConfigText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
