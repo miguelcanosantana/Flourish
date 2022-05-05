@@ -249,5 +249,8 @@ public class GameManagerScript : MonoBehaviour
         {
             bee.SaveBee();
         }
+
+        //Set as there is a save
+        PlayerPrefs.SetInt("anySavesPresent", 1);
     }
 }
