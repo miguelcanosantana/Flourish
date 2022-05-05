@@ -16,6 +16,9 @@ MonoBehaviour:
   playerRotation: {x: 0, y: 0, z: 0, w: 1}
   playerPollen: 0
   playerHappiness: 0
-  playerGunItems: []
+  playerGunItems:
+  - itemType: 0
+    hasAmount: 0
+    itemAmount: 0
   flowerSaves: []
   beeSaves: []
