@@ -46,8 +46,6 @@ public class MainMenuScript : MonoBehaviour
             continueButton.interactable = false;
             continueText.color = disabledTextColor;
         }
-
-
     }
 
 
