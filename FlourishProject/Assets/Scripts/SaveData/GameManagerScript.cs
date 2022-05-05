@@ -214,8 +214,8 @@ public class GameManagerScript : MonoBehaviour
         }
 
         //Destroy the loading screen
-        LoadScreenScript loadScreenScript = GameObject.FindObjectOfType<LoadScreenScript>();
-        StartCoroutine(loadScreenScript.DestroyCanvas());
+        LoadScreenScript loadScreenScript = FindObjectOfType<LoadScreenScript>();
+        if (loadScreenScript != null) StartCoroutine(loadScreenScript.DestroyCanvas());
     }
 
 
