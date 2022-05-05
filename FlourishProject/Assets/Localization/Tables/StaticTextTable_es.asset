@@ -22,6 +22,18 @@ MonoBehaviour:
     m_Localized: Polen
     m_Metadata:
       m_Items: []
+  - m_Id: 2359841510514688
+    m_Localized: Nueva Partida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2361766071099392
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2369727023669248
+    m_Localized: Salir
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

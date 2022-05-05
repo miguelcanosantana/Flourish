@@ -19,6 +19,18 @@ MonoBehaviour:
     m_Key: FlowerBarCanvas/Canvas (Environment)/FlowerBarCanvas/Background/PollenText
     m_Metadata:
       m_Items: []
+  - m_Id: 2359841510514688
+    m_Key: MainMenu/MainMenuCanvas/NewStartButton/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2361766071099392
+    m_Key: MainMenu/MainMenuCanvas/ContinueButton/ContinueText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2369727023669248
+    m_Key: MainMenu/MainMenuCanvas/ExitButton/ExitText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

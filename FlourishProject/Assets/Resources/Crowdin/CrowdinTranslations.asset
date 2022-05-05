@@ -17,4 +17,16 @@ MonoBehaviour:
     exportedFromTable: StaticTextTable
     sourceSting: Pollen
     translations: []
+  - key: MainMenu/MainMenuCanvas/NewStartButton/Text (TMP)
+    exportedFromTable: StaticTextTable
+    sourceSting: New game
+    translations: []
+  - key: MainMenu/MainMenuCanvas/ContinueButton/ContinueText
+    exportedFromTable: StaticTextTable
+    sourceSting: Continue
+    translations: []
+  - key: MainMenu/MainMenuCanvas/ExitButton/ExitText
+    exportedFromTable: StaticTextTable
+    sourceSting: Exit
+    translations: []
   translationImages: []
