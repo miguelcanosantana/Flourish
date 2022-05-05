@@ -36,7 +36,7 @@ public class GameManagerScript : MonoBehaviour
     private void Start()
     {
         //Load the game data
-        //LoadGame();
+        LoadGame();
 
         //Create empty item if the list is 0 (First time playing)
         if (playerGunItems.Count == 0)
@@ -212,6 +212,10 @@ public class GameManagerScript : MonoBehaviour
             //Stats
             tempBeeScript.recollectionAmount = bee.recollectionAmount;
         }
+
+        //Destroy the loading screen
+        LoadScreenScript loadScreenScript = GameObject.FindObjectOfType<LoadScreenScript>();
+        StartCoroutine(loadScreenScript.DestroyCanvas());
     }
 
 

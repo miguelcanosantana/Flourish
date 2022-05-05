@@ -16,7 +16,7 @@ public class LoadScreenScript : MonoBehaviour
     //Destroy the canvas after a while
     public IEnumerator DestroyCanvas()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(0f);
         Destroy(gameObject);
     }
 }
