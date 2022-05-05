@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: Settings
     m_Metadata:
       m_Items: []
+  - m_Id: 2443680601726976
+    m_Localized: Loading...  <color=#00000000>.</color>
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

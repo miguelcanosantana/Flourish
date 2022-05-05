@@ -29,4 +29,12 @@ MonoBehaviour:
     exportedFromTable: StaticTextTable
     sourceSting: Exit
     translations: []
+  - key: MainMenu/MainMenuCanvas/ConfigButton/ConfigText
+    exportedFromTable: StaticTextTable
+    sourceSting: Settings
+    translations: []
+  - key: MainMenu/LoadCanvas/LoadingText
+    exportedFromTable: StaticTextTable
+    sourceSting: Loading...  <color=#00000000>.</color>
+    translations: []
   translationImages: []

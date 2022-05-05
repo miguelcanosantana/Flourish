@@ -35,6 +35,10 @@ MonoBehaviour:
     m_Key: MainMenu/MainMenuCanvas/ConfigButton/ConfigText
     m_Metadata:
       m_Items: []
+  - m_Id: 2443680601726976
+    m_Key: MainMenu/LoadCanvas/LoadingText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
