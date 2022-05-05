@@ -61,7 +61,7 @@ public class MainMenuScript : MonoBehaviour
     public void OnNewClick()
     {
         //Reset the data, copy the new save to the used save
-        dataSave = emptyDataSave;
+        dataSave.CopyFromXToSave(emptyDataSave, dataSave);
         dataSave.Save();
 
         //Set as there are no saves

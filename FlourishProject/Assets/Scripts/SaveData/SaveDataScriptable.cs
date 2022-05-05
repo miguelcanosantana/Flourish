@@ -22,6 +22,25 @@ public class SaveDataScriptable : PersistentScriptableObject
     public List<BeeSaveClass> beeSaves = new List<BeeSaveClass>();
 
 
+
+    //Copy all of the content in one save to the main save, and store it
+    public void CopyFromXToSave(SaveDataScriptable xSave, SaveDataScriptable mainSave)
+    {
+        //xSave.Load();
+        //mainSave.Load();
+
+        mainSave.playerPosition = xSave.playerPosition;
+        mainSave.playerRotation = xSave.playerRotation;
+        mainSave.playerPollen = xSave.playerPollen;
+        mainSave.playerHappiness = xSave.playerHappiness;
+        mainSave.playerGunItems = xSave.playerGunItems;
+        mainSave.flowerSaves = xSave.flowerSaves;
+        mainSave.beeSaves = xSave.beeSaves;
+
+        Save();
+    }
+
+
     //Save player Transform
     public void SavePlayerTransform(Vector3 position, Quaternion rotation)
     {
