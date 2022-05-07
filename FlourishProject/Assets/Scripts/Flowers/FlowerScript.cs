@@ -108,6 +108,7 @@ public class FlowerScript : MonoBehaviour
     {
         barObject.transform.LookAt(playerCamera.transform.position);
         barObject.transform.Rotate(0, 180, 0);
+        barObject.transform.rotation = Quaternion.Euler(0, barObject.transform.rotation.eulerAngles.y, 0);
     }
 
 
