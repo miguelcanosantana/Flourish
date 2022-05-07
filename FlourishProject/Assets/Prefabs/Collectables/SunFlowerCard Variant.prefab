@@ -15,18 +15,6 @@ PrefabInstance:
       propertyPath: m_text
       value: Sun
       objectReference: {fileID: 0}
-    - target: {fileID: 5924713823997199868, guid: b9f9e2f3a9024a446b25c0e52d255592, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5924713823997199868, guid: b9f9e2f3a9024a446b25c0e52d255592, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5924713823997199868, guid: b9f9e2f3a9024a446b25c0e52d255592, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5924713824563585842, guid: b9f9e2f3a9024a446b25c0e52d255592, type: 3}
       propertyPath: m_Name
       value: SunFlowerCard
