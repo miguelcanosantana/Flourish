@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.UI;
+
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -31,6 +33,12 @@ public class GameManagerScript : MonoBehaviour
 
     [Header("Bees Prefabs")]
     [SerializeField] private GameObject regularBeePrefab;
+
+    [Header("Items Sprites")]
+    [SerializeField] private Sprite sunFlowerSprite;
+    [SerializeField] private Sprite regularBeeSprite;
+    [SerializeField] private Sprite tulipSprite;
+    [SerializeField] private Sprite purpleBeeSprite;
 
 
     private void Start()
@@ -75,6 +83,25 @@ public class GameManagerScript : MonoBehaviour
             //Set the max amount with the class data
             if (item.hasAmount) maxText.text = "/" + maxAmountPerItem.ToString("00");
             else maxText.text = "";
+
+            //Get the item image component
+            Image itemImage = tempItem.transform.Find("ItemImage").GetComponent<Image>();
+
+            //Set the corresponding image
+            switch (item.itemType)
+            {
+                case GunItemType.None:
+                    break;
+                case GunItemType.RegularBee:
+                    break;
+                case GunItemType.SunFlower:
+                    itemImage.sprite = sunFlowerSprite;
+                    break;
+                case GunItemType.PurpleBee:
+                    break;
+                case GunItemType.Tulip:
+                    break;
+            }
         }
     }
 

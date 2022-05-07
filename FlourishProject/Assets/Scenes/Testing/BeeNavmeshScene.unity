@@ -762,6 +762,10 @@ MonoBehaviour:
   sunFlowerPrefab: {fileID: 1935520199235722687, guid: c5c9e071bf291e9449d965bb1b951ddd, type: 3}
   tulipPrefab: {fileID: 0}
   regularBeePrefab: {fileID: 8673488259849679950, guid: c9604ea148fad564e86deef8b2e1b796, type: 3}
+  sunFlowerSprite: {fileID: 21300000, guid: 1d5a0e17efefe914c92b6d62587cefab, type: 3}
+  regularBeeSprite: {fileID: 0}
+  tulipSprite: {fileID: 0}
+  purpleBeeSprite: {fileID: 0}
 --- !u!4 &1310022180
 Transform:
   m_ObjectHideFlags: 0
