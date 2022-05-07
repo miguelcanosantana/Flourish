@@ -10,6 +10,7 @@ TagManager:
   - FlowersFolder
   - SeedsFolder
   - BeesFolder
+  - CardCollectable
   layers:
   - Default
   - TransparentFX
