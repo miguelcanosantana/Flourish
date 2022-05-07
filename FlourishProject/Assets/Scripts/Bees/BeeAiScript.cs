@@ -7,6 +7,15 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
+//Enum with all the bee faces expressions
+public enum BeeExpression
+{
+    None,
+    Smile,
+    Lost,
+}
+
+
 public class BeeAiScript : MonoBehaviour
 {
     [Header("Bee ID")]
@@ -28,7 +37,8 @@ public class BeeAiScript : MonoBehaviour
     [HideInInspector] public int timerSinceLastPosed = 0;
     [HideInInspector] public float maxTimeToPose = 0f;
     [HideInInspector] public bool isLost = false;
-    [HideInInspector] public float timeLost = 0f;    
+    [HideInInspector] public float timeLost = 0f;
+    private BeeExpression currentFace = BeeExpression.None;
 
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;
@@ -38,6 +48,11 @@ public class BeeAiScript : MonoBehaviour
     private RangeFlowerCheckScript rangeCheckScript;
     private NavMeshAgent agent;
     private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
+    private SkinnedMeshRenderer skinMeshRender;
+
+    [Header("Face Textures")]
+    [SerializeField] private Material smileFace;
+    [SerializeField] private Material confusedFace;
 
 
     //Start
@@ -46,6 +61,7 @@ public class BeeAiScript : MonoBehaviour
         //Get the components
         agent = GetComponent<NavMeshAgent>();
         rangeCheckScript = rangeChecker.GetComponent<RangeFlowerCheckScript>();
+        skinMeshRender = beeContainerObject.GetComponentInChildren<SkinnedMeshRenderer>();
 
         //Start the FSM in idle state
         currentState = new Idle(gameObject, this);
@@ -56,6 +72,26 @@ public class BeeAiScript : MonoBehaviour
     void Update()
     {
         currentState = currentState.Process();
+    }
+
+
+    //Set the bee face expression
+    public void SetExpression(BeeExpression expression)
+    {
+        //Select a material depending on the expression (materials need to be set all at once, otherwise they won't work)
+        switch (expression)
+        {
+            case BeeExpression.None:
+                break;
+
+            case BeeExpression.Smile:
+                skinMeshRender.materials = new Material[]{ skinMeshRender.materials[0], smileFace};
+                break;
+
+            case BeeExpression.Lost:
+                skinMeshRender.materials = new Material[] { skinMeshRender.materials[0], confusedFace };
+                break;
+        }
     }
 
 

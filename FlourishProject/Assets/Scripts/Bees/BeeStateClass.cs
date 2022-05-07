@@ -159,6 +159,7 @@ public class Idle : BeeStateClass
             //Set as not lost and set it's time to 0
             beeScript.isLost = false;
             beeScript.timeLost = 0;
+            beeScript.SetExpression(BeeExpression.Smile);
 
             //If the bee had a target flower if coming from a State, set it as the previous flower
             if (beeScript.targetFlower != null)
@@ -185,6 +186,7 @@ public class Idle : BeeStateClass
         else
         {
             beeScript.isLost = true;
+            beeScript.SetExpression(BeeExpression.Lost);
         }
 
         //Increase lost time

@@ -92,13 +92,17 @@ public class GameManagerScript : MonoBehaviour
             {
                 case GunItemType.None:
                     break;
+
                 case GunItemType.RegularBee:
                     break;
+
                 case GunItemType.SunFlower:
                     itemImage.sprite = sunFlowerSprite;
                     break;
+
                 case GunItemType.PurpleBee:
                     break;
+
                 case GunItemType.Tulip:
                     break;
             }

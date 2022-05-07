@@ -255,10 +255,14 @@ MonoBehaviour:
   canUpdatePosedTimer: 1
   timerSinceLastPosed: 0
   maxTimeToPose: 0
+  isLost: 0
+  timeLost: 0
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
   beeContainerObject: {fileID: 8673488259503158960}
   animator: {fileID: 6920548229279031048}
   rangeChecker: {fileID: 7443405224141524266}
+  smileFace: {fileID: 2100000, guid: 6a555d5b6f72a9c42a1cbe942e9de4d6, type: 2}
+  confusedFace: {fileID: 2100000, guid: 586fdd6fda0026c4c92ff63ac5ba58c6, type: 2}
 --- !u!1 &8673488259849679950
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +362,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: acc05d239a6fca54d916956be184c869, type: 3}
       propertyPath: m_Name
       value: Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541547550487494039, guid: acc05d239a6fca54d916956be184c869, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541547550487494039, guid: acc05d239a6fca54d916956be184c869, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc05d239a6fca54d916956be184c869, type: 3}

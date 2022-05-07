@@ -279,7 +279,7 @@ public class PlayerControlScript : MonoBehaviour
 
             //Set the current item
             currentItem = gameManagerScript.playerGunItems[currentItemBarPosition];
-            Debug.Log(currentItem.itemType.ToString());
+            //Debug.Log(currentItem.itemType.ToString());
 
             //Move the selected item frame to the current item
             GameObject currentItemObject = gameManagerScript.itemsBarContent.transform.GetChild(currentItemBarPosition).gameObject;
