@@ -751,6 +751,7 @@ MonoBehaviour:
   maxAmountPerItem: 60
   playerPollen: 0
   playerHappiness: 0
+  playerGunItems: []
   itemsBarContent: {fileID: 9127725}
   selectedItemFrame: {fileID: 1256112277}
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
@@ -1074,7 +1075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5924713824563585845, guid: b9f9e2f3a9024a446b25c0e52d255592, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.04
+      value: 1.6399999
       objectReference: {fileID: 0}
     - target: {fileID: 5924713824563585845, guid: b9f9e2f3a9024a446b25c0e52d255592, type: 3}
       propertyPath: m_LocalPosition.z
