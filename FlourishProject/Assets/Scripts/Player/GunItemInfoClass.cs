@@ -5,6 +5,7 @@ using UnityEngine;
 
 
 //Copy class made for having 2 different classes, this one to use, GunItemsSaveClass to save the info
+[Serializable] //Added this so it appears on the inspector
 public class GunItemInfoClass
 {
     [Header("Enum ID")]
