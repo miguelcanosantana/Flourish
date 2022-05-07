@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 8
-  mouseMultiplier: 1.25
+  mouseMultiplier: 1
   shootRate: 0.25
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
   gunSpawnPoint: {fileID: 400626743327331239}
