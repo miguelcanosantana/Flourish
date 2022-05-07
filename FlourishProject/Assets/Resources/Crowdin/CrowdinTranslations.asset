@@ -37,4 +37,8 @@ MonoBehaviour:
     exportedFromTable: StaticTextTable
     sourceSting: Loading...  <color=#00000000>.</color>
     translations: []
+  - key: BeeNavmeshScene/SunFlowerCard/CardCanvas/NameText
+    exportedFromTable: StaticTextTable
+    sourceSting: Sunflower
+    translations: []
   translationImages: []
