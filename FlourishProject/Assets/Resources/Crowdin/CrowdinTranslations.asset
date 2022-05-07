@@ -41,4 +41,8 @@ MonoBehaviour:
     exportedFromTable: StaticTextTable
     sourceSting: Sunflower
     translations: []
+  - key: RegularBeeCard Variant/RegularBeeCard Variant/CardCanvas/NameText
+    exportedFromTable: StaticTextTable
+    sourceSting: Bee
+    translations: []
   translationImages: []

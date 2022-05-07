@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: BeeNavmeshScene/SunFlowerCard/CardCanvas/NameText
     m_Metadata:
       m_Items: []
+  - m_Id: 3230947255640064
+    m_Key: RegularBeeCard Variant/RegularBeeCard Variant/CardCanvas/NameText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
