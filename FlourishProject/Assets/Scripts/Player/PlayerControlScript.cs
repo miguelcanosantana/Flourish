@@ -165,7 +165,7 @@ public class PlayerControlScript : MonoBehaviour
                         break;
 
                     case GunItemType.Tulip:
-                        seedScript.seedFlowerType = FlowerType.None;
+                        seedScript.seedFlowerType = FlowerType.Tulip;
                         break;
                 }
 
