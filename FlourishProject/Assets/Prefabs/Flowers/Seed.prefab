@@ -47,10 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seedFlowerType: 1
-  coroutineDebouncer: 0
   testFlowerPrefab: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
   sunFlowerPrefab: {fileID: 1935520199235722687, guid: c5c9e071bf291e9449d965bb1b951ddd, type: 3}
-  tulipPrefab: {fileID: 0}
+  tulipPrefab: {fileID: 8817038849507918884, guid: a0f1a924fba05ca4d8e80e1f967bc34c, type: 3}
 --- !u!54 &5986147504478630201
 Rigidbody:
   m_ObjectHideFlags: 0
