@@ -12,25 +12,242 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904443bf3224ed84c9e5e5ebbdf63999, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
-  playerPosition: {x: 0.18962045, y: 1.0799998, z: 0.18962045}
-  playerRotation: {x: 0, y: -0.528068, z: 0, w: 0.84920216}
+  playerPosition: {x: -5.3400564, y: 2.9925375, z: 15.968634}
+  playerRotation: {x: 0, y: -0.80385673, z: 0, w: 0.594823}
   playerPollen: 0
   playerHappiness: 0
   playerGunItems:
   - itemType: 0
     hasAmount: 0
     itemAmount: 0
+  - itemType: 2
+    hasAmount: 1
+    itemAmount: 0
+  - itemType: 1
+    hasAmount: 1
+    itemAmount: 0
+  - itemType: 3
+    hasAmount: 1
+    itemAmount: 44
+  - itemType: 4
+    hasAmount: 1
+    itemAmount: 28
   flowerSaves:
-  - id: dfsdfsdfdfsdfsdfdsf
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - id: bb58b1d3-39ab-4bd9-a364-359d11842434
+    position: {x: -1.8163843, y: 0.28189325, z: 4.1369734}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
     type: 1
-    age: 0
+    age: 133
     pollen: 0
-  - id: dfsdfsdfdfsdfsdfdsffdgdg
-    position: {x: 0, y: 0, z: 0}
-    rotation: {x: 0, y: 0, z: 0, w: 0}
+  - id: b584012e-7387-4031-a686-963e72c4a894
+    position: {x: 2.2519255, y: 0.16225147, z: 3.4997644}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
     type: 1
-    age: 0
+    age: 135
     pollen: 0
-  beeSaves: []
+  - id: eb83c985-8221-460d-84d8-54153df66a3f
+    position: {x: 6.3852606, y: 0.67669153, z: 0.5097761}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 1
+    age: 135
+    pollen: 0
+  - id: cbc27420-9c4d-46b4-b53e-c1e545a90263
+    position: {x: 9.46173, y: 0.7698612, z: 2.7992468}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 1
+    age: 136
+    pollen: 0
+  - id: d6aa115b-4768-48c7-9be0-e750df7d8084
+    position: {x: 12.18422, y: 0.8812356, z: 4.1213055}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 1
+    age: 136
+    pollen: 0
+  - id: 9174e5d5-35a3-4a42-bfdf-6da183802233
+    position: {x: -2.6609, y: 3.1557221, z: 17.607069}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 14
+    pollen: 14
+  - id: c7b2ae88-31e1-4027-b106-1e49a351cd90
+    position: {x: -4.73548, y: 2.2128615, z: 16.814016}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 15
+    pollen: 15
+  - id: 51dfee0a-1094-42fe-9181-87dd97175909
+    position: {x: -9.255719, y: 2.5340323, z: 9.649391}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 17
+    pollen: 16
+  - id: b120c6e2-a316-4cdb-a560-a72417eb88f2
+    position: {x: -10.644945, y: 2.1079497, z: 12.170853}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 17
+    pollen: 11
+  - id: f025315b-7a0f-4c73-ae8d-9f3d9006b4ea
+    position: {x: -13.322794, y: 0.99893665, z: 14.5338745}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 18
+    pollen: 18
+  - id: 602077e4-0a91-4c9d-a0ae-e68e02fb56d6
+    position: {x: -10.86767, y: 0.3550434, z: 18.229082}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 19
+    pollen: 19
+  - id: 3e227668-9a94-49e4-a383-93f74d87e166
+    position: {x: -0.259943, y: 4.214867, z: 15.742823}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 20
+    pollen: 20
+  - id: ac0dc015-e0c3-41c7-a681-91ba26f23046
+    position: {x: 0.45207405, y: 3.832581, z: 14.217926}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 21
+    pollen: 20
+  - id: fdad2477-b262-4fb6-89cd-10050e3b46bc
+    position: {x: 6.8560133, y: 1.3784747, z: 11.386135}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 21
+    pollen: 21
+  - id: a9ecd5ef-9eed-4a06-ab05-efc2de245d06
+    position: {x: -4.5671105, y: 0.5422344, z: 3.0742254}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 23
+    pollen: 23
+  - id: d363140a-f360-4cf6-a115-26a6b103fb91
+    position: {x: -6.6176815, y: 1.5159717, z: 5.6483917}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 24
+    pollen: 24
+  - id: 527b69c3-f571-4d0a-beff-238a2515410b
+    position: {x: -9.615057, y: 1.9423399, z: 6.1934795}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 24
+    pollen: 24
+  - id: 25adc24d-ffef-40d1-b1d3-45306b5c9601
+    position: {x: -6.27063, y: 1.2932363, z: 4.983327}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 25
+    pollen: 25
+  - id: 5764eb2b-61a9-4298-91e2-4382d078ae84
+    position: {x: -8.098225, y: 2.4384513, z: 8.85915}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 27
+    pollen: 27
+  - id: a739ecd4-67f7-4ead-ba1f-3fe5b65d17f8
+    position: {x: 11.858108, y: 4.3882184, z: 12.823582}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 29
+    pollen: 29
+  - id: 0274ea78-8eca-4623-b491-142a7ca8b8e2
+    position: {x: 16.38855, y: 5.2343087, z: 10.955059}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 30
+    pollen: 30
+  - id: f7c31627-88d1-4164-af67-7f3419cdb62f
+    position: {x: 7.4382696, y: 0.6258817, z: 2.478857}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 31
+    pollen: 31
+  - id: aebfb97d-5714-471b-9506-a76bb629c192
+    position: {x: 10.500426, y: 0.70105124, z: 4.5522404}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 31
+    pollen: 31
+  - id: 9ae5bf2a-0825-4b12-b2e5-eb6616a7752d
+    position: {x: 10.2676325, y: 2.7288542, z: 10.66955}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 31
+    pollen: 31
+  - id: 7b3eef5f-2a86-43d3-8866-e9180c3f2a33
+    position: {x: 3.2698622, y: 0.16913557, z: 4.2271175}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 32
+    pollen: 32
+  - id: 1d829a29-1eef-4e1a-8e86-701413ac5d60
+    position: {x: 1.1216793, y: 0.30910015, z: 6.6000443}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 33
+    pollen: 33
+  - id: 98f5114e-cd70-4613-a623-5dba50a5a45c
+    position: {x: 2.9113455, y: 2.6530805, z: 12.396492}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    type: 2
+    age: 35
+    pollen: 35
+  beeSaves:
+  - id: 7b921de4-c0fd-40fe-a5d5-33a754d04c76
+    position: {x: 6.855891, y: 1.0673833, z: 1.1978893}
+    rotation: {x: -1.323489e-23, y: -0.944004, z: 0, w: 0.3299342}
+    match: 1
+    recollectionAmount: 5
+  - id: 98c8f8f3-a58b-44ee-94c3-6e6d6b695797
+    position: {x: 9.452342, y: 1.0449195, z: 3.8144321}
+    rotation: {x: 0, y: -0.91141343, z: -1.323489e-23, w: -0.41149202}
+    match: 1
+    recollectionAmount: 5
+  - id: 8c9bbd18-ed0f-4c72-809f-300ee68d6e4e
+    position: {x: 12.8206625, y: 2.0315356, z: 6.327463}
+    rotation: {x: 0, y: 0.7962458, z: -2.646978e-23, w: 0.6049733}
+    match: 1
+    recollectionAmount: 5
+  - id: db73feee-ffb6-484a-bd4e-0fe15f95a80b
+    position: {x: 2.3102617, y: 0.5500002, z: 4.508013}
+    rotation: {x: -9.529121e-22, y: -0.13491422, z: 8.4703295e-22, w: -0.9908573}
+    match: 1
+    recollectionAmount: 5
+  - id: 4ad50d47-016a-4035-90f4-40fc1a585d50
+    position: {x: -2.3689814, y: 0.9305773, z: 5.646488}
+    rotation: {x: 9.926167e-24, y: -0.91684735, z: 6.617445e-24, w: 0.39923805}
+    match: 1
+    recollectionAmount: 5
+  - id: ea559551-cb42-430b-a14b-9c1bdc51e886
+    position: {x: -6.7658997, y: 1.8267722, z: 16.078285}
+    rotation: {x: 0.000000007450581, y: -0.7746563, z: 0.000000002561137, w: 0.63238263}
+    match: 2
+    recollectionAmount: 5
+  - id: 59ea1648-d06b-459d-bfb1-e85ad5d8d2c7
+    position: {x: 2.5368233, y: 3.6731944, z: 13.400002}
+    rotation: {x: 2.3283064e-10, y: -0.26289612, z: 0, w: -0.96482414}
+    match: 2
+    recollectionAmount: 5
+  - id: 7b2e48eb-abfc-4891-8cf9-9d12904f214c
+    position: {x: 0.5999994, y: 4.899613, z: 16.340382}
+    rotation: {x: -0.000000016763806, y: 0.36218888, z: 0, w: -0.93210477}
+    match: 2
+    recollectionAmount: 5
+  - id: 0cb9fdfb-d47f-4c4f-86db-e668731c787c
+    position: {x: 0.6000004, y: 4.570969, z: 15.094208}
+    rotation: {x: 0, y: 0.13960478, z: -0.0000000013969839, w: 0.9902073}
+    match: 2
+    recollectionAmount: 5
+  - id: d7d9ce2a-b183-4c33-b673-de69bf4aa1b4
+    position: {x: -9.25572, y: 2.889299, z: 9.649391}
+    rotation: {x: 8.2945917e-10, y: -0.7578131, z: -4.656613e-10, w: 0.6524717}
+    match: 2
+    recollectionAmount: 5
+  - id: 7311b967-d157-4576-8279-45eca5903269
+    position: {x: -8.726196, y: 2.130423, z: 13.633167}
+    rotation: {x: 0.0000000018626451, y: -0.25477797, z: 0.0000000037252903, w: -0.96699965}
+    match: 2
+    recollectionAmount: 5

@@ -760,7 +760,7 @@ MonoBehaviour:
   barItemPrefab: {fileID: 4699111298556434936, guid: 11883d56b0e50fe48a7153d98044f3dc, type: 3}
   testFlowerPrefab: {fileID: 110143847300346717, guid: ce324338d07bfea469a6d57fa4c88c8c, type: 3}
   sunFlowerPrefab: {fileID: 1935520199235722687, guid: c5c9e071bf291e9449d965bb1b951ddd, type: 3}
-  tulipPrefab: {fileID: 0}
+  tulipPrefab: {fileID: 8817038849507918884, guid: a0f1a924fba05ca4d8e80e1f967bc34c, type: 3}
   regularBeePrefab: {fileID: 8673488259849679950, guid: c9604ea148fad564e86deef8b2e1b796, type: 3}
   sunFlowerSprite: {fileID: 21300000, guid: 1d5a0e17efefe914c92b6d62587cefab, type: 3}
   regularBeeSprite: {fileID: 0}

@@ -33,6 +33,7 @@ public class GameManagerScript : MonoBehaviour
 
     [Header("Bees Prefabs")]
     [SerializeField] private GameObject regularBeePrefab;
+    [SerializeField] private GameObject purpleBeePrefab;
 
     [Header("Items Sprites")]
     [SerializeField] private Sprite sunFlowerSprite;
@@ -224,6 +225,7 @@ public class GameManagerScript : MonoBehaviour
                     break;
 
                 case FlowerType.Tulip:
+                    tempBeeObject = Instantiate(purpleBeePrefab);
                     break;
             }
 
