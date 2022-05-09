@@ -38,6 +38,7 @@ public class PlayerControlScript : MonoBehaviour
     [Header("References")]
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private Transform gunSpawnPoint;
+    [SerializeField] private GameObject tornadoObject;
     [SerializeField] private GameObject cameraContainer;
     [SerializeField] private GameObject seedPrefab;
     [SerializeField] private GameObject regularBeePrefab;
@@ -80,8 +81,24 @@ public class PlayerControlScript : MonoBehaviour
         Move();
         Rotate();
 
-        //Shoot if allowed
-        if (canShoot && gunAction == GunAction.Fire) StartCoroutine(Shoot());
+        //Do an action depending on the shoot action
+        switch (gunAction)
+        {
+            case GunAction.None:
+                tornadoObject.SetActive(false);
+                break;
+
+            //Shoot if allowed
+            case GunAction.Fire:
+                tornadoObject.SetActive(false);
+                if (canShoot && gunAction == GunAction.Fire) StartCoroutine(Shoot());
+                break;
+
+            //Suck
+            case GunAction.Suck:
+                tornadoObject.SetActive(true);
+                break;
+        }
     }
 
 

@@ -792,6 +792,7 @@ MonoBehaviour:
   shootRate: 0.25
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
   gunSpawnPoint: {fileID: 400626743327331239}
+  tornadoObject: {fileID: 886212341}
   cameraContainer: {fileID: 3827941539604013529}
   seedPrefab: {fileID: 4936857072392864267, guid: f34c55b6b6f139c4bb4886ebe3436397, type: 3}
   regularBeePrefab: {fileID: 8673488259849679950, guid: c9604ea148fad564e86deef8b2e1b796, type: 3}
