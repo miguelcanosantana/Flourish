@@ -62,9 +62,12 @@ public class CardCollectableScript : MonoBehaviour
     private IEnumerator AddCard()
     {
         animator.SetTrigger("touched");
+
         yield return new WaitForSeconds(1.2f);
+
         gameManagerScript.playerGunItems.Add(itemToAdd);
         gameManagerScript.RefreshBarUI();
+
         Destroy(gameObject);
     }
 }
