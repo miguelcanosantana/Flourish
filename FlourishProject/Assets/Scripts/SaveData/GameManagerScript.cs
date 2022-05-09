@@ -95,6 +95,7 @@ public class GameManagerScript : MonoBehaviour
                     break;
 
                 case GunItemType.RegularBee:
+                    itemImage.sprite = regularBeeSprite;
                     break;
 
                 case GunItemType.SunFlower:
@@ -102,9 +103,11 @@ public class GameManagerScript : MonoBehaviour
                     break;
 
                 case GunItemType.PurpleBee:
+                    itemImage.sprite = purpleBeeSprite;
                     break;
 
                 case GunItemType.Tulip:
+                    itemImage.sprite = tulipSprite;
                     break;
             }
         }
