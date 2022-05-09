@@ -49,6 +49,7 @@ public class BeeAiScript : MonoBehaviour
     private NavMeshAgent agent;
     private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
     private SkinnedMeshRenderer skinMeshRender;
+    private GameObject beeParentObject;
 
     [Header("Face Textures")]
     [SerializeField] private Material smileFace;
@@ -62,6 +63,7 @@ public class BeeAiScript : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         rangeCheckScript = rangeChecker.GetComponent<RangeFlowerCheckScript>();
         skinMeshRender = beeContainerObject.GetComponentInChildren<SkinnedMeshRenderer>();
+        beeParentObject = beeContainerObject.transform.parent.gameObject;
 
         //Start the FSM in idle state
         currentState = new Idle(gameObject, this);
@@ -148,6 +150,17 @@ public class BeeAiScript : MonoBehaviour
         //Debug.Log(timerSinceLastPosed);
 
         canUpdatePosedTimer = true;
+    }
+
+
+    //Destroy the bee
+    public IEnumerator DestroyBee()
+    {
+        beeContainerObject.transform.DOScale(0f, 1f).SetEase(Ease.InOutSine);
+
+        yield return new WaitForSeconds(1f);
+
+        Destroy(beeParentObject);
     }
 
 }

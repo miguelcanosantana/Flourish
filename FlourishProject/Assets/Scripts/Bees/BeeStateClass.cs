@@ -366,8 +366,7 @@ public class LostDestroy : BeeStateClass
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("DESTROY BEEEEEEZZZZZ");
-        //beeScript.Destroy(beeScript);
+        beeScript.StartCoroutine(beeScript.DestroyBee());
     }
 
 
