@@ -54,6 +54,7 @@ public class FlowerScript : MonoBehaviour
         //Animate flower with easing if hasn't been loaded
         if (!hasBeenLoaded)
         {
+            //Do animation
             flowerParentObject.transform.localScale = Vector3.zero;
             flowerPetals.transform.localScale = Vector3.zero;
             flowerParentObject.transform.DOScale(1f, 0.55f).SetEase(Ease.OutExpo);
