@@ -275,6 +275,9 @@ public class GameManagerScript : MonoBehaviour
 
         playerControlScript.SavePlayerTransform();
 
+        //Save player stats
+        saveData.SavePlayerStats(playerPollen, playerHappiness);
+
         //Get all the gun items and save them 1 by 1
         foreach (GunItemInfoClass item in playerGunItems)
         {
