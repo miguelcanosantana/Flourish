@@ -121,7 +121,7 @@ public class PlayerControlScript : MonoBehaviour
                 //rigidbody.angularVelocity = Vector3.zero;
                 //rigidbody.AddRelativeForce(Vector3.forward * 25, ForceMode.Impulse);
 
-                //Reset seed
+                //Reset bee
                 tempBee = null;
             }
 
