@@ -57,7 +57,6 @@ public class PlayerControlScript : MonoBehaviour
     private float cameraYRotation;
     private GunAction gunAction;
     private bool canShoot = true;
-    private int currentItemBarPosition = 0;
 
 
     //Start is called before the first frame update
@@ -266,24 +265,23 @@ public class PlayerControlScript : MonoBehaviour
         if (context.phase == InputActionPhase.Started)
         {
             //Increase position
-            if (scrollActionInput.x > 0 || scrollActionInput.y > 0) currentItemBarPosition ++;
+            if (scrollActionInput.x > 0 || scrollActionInput.y > 0) gameManagerScript.currentItemBarPosition ++;
 
             //Decrease position
-            if (scrollActionInput.x < 0 || scrollActionInput.y < 0) currentItemBarPosition --;
+            if (scrollActionInput.x < 0 || scrollActionInput.y < 0) gameManagerScript.currentItemBarPosition--;
 
             //Travel backwards / forwards depending on the items count
             int itemsCount = gameManagerScript.playerGunItems.Count;
 
-            if (currentItemBarPosition >= itemsCount) currentItemBarPosition = 0;
-            if (currentItemBarPosition < 0) currentItemBarPosition = itemsCount - 1;
+            if (gameManagerScript.currentItemBarPosition >= itemsCount) gameManagerScript.currentItemBarPosition = 0;
+            if (gameManagerScript.currentItemBarPosition < 0) gameManagerScript.currentItemBarPosition = itemsCount - 1;
 
             //Set the current item
-            currentItem = gameManagerScript.playerGunItems[currentItemBarPosition];
+            currentItem = gameManagerScript.playerGunItems[gameManagerScript.currentItemBarPosition];
             //Debug.Log(currentItem.itemType.ToString());
 
             //Move the selected item frame to the current item
-            GameObject currentItemObject = gameManagerScript.itemsBarContent.transform.GetChild(currentItemBarPosition).gameObject;
-            gameManagerScript.selectedItemFrame.transform.DOMove(currentItemObject.transform.position, 0.25f).SetEase(Ease.OutExpo);
+            gameManagerScript.MoveSelectedFrame(0.25f);
         }
             
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityEngine.UI;
-
+using DG.Tweening;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -41,6 +41,9 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private Sprite tulipSprite;
     [SerializeField] private Sprite purpleBeeSprite;
 
+    //Variables
+    [HideInInspector] public int currentItemBarPosition = 0;
+
 
     private void Start()
     {
@@ -56,6 +59,14 @@ public class GameManagerScript : MonoBehaviour
             saveData.SaveGunItem(emptyItem.itemType, emptyItem.hasAmount, emptyItem.itemAmount);
             RefreshBarUI();
         }
+    }
+
+
+    //Move the selected item frame to the current item
+    public void MoveSelectedFrame(float moveTime)
+    {
+        GameObject currentItemObject = itemsBarContent.transform.GetChild(currentItemBarPosition).gameObject;
+        selectedItemFrame.transform.DOMove(currentItemObject.transform.position, moveTime).SetEase(Ease.OutExpo);
     }
 
 
