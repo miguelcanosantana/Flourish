@@ -47,6 +47,14 @@ MonoBehaviour:
     m_Key: RegularBeeCard Variant/RegularBeeCard Variant/CardCanvas/NameText
     m_Metadata:
       m_Items: []
+  - m_Id: 3678734514511872
+    m_Key: BeeNavmeshScene/PurpleBeeCard/CardCanvas/NameText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3679663892586496
+    m_Key: BeeNavmeshScene/TulipCard/CardCanvas/NameText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

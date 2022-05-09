@@ -50,6 +50,14 @@ MonoBehaviour:
     m_Localized: Bee
     m_Metadata:
       m_Items: []
+  - m_Id: 3678734514511872
+    m_Localized: Purple Bee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3679663892586496
+    m_Localized: Tulip
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

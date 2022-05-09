@@ -50,6 +50,14 @@ MonoBehaviour:
     m_Localized: Abeja
     m_Metadata:
       m_Items: []
+  - m_Id: 3678734514511872
+    m_Localized: "Abeja P\xFArpura"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3679663892586496
+    m_Localized: "Tulip\xE1n"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
