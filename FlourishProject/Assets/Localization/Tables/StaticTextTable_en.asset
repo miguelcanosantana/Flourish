@@ -58,6 +58,14 @@ MonoBehaviour:
     m_Localized: Tulip
     m_Metadata:
       m_Items: []
+  - m_Id: 3711688162795520
+    m_Localized: 'Pollen:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3711830962069504
+    m_Localized: 'Happiness:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
