@@ -11,6 +11,8 @@ public class TornadoScript : MonoBehaviour
     //When objects enter the tornado add them to the list
     private void OnTriggerEnter(Collider collider)
     {
+        Debug.Log("TTTEEEST");
+
         //If the object is not already on the list and it's a bee, add it
         if (!objectsBeingSucked.Contains(collider.gameObject) && collider.gameObject.CompareTag("Bee"))
         {
