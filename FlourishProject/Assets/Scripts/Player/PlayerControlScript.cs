@@ -77,6 +77,7 @@ public class PlayerControlScript : MonoBehaviour
     }
 
 
+    //Calculate the happiness levels and refresh upper bar ui
     public void CalculateHappiness()
     {
         int totalItems = nearBees.Count + nearFlowers.Count;
