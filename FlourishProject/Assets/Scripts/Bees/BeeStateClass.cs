@@ -246,6 +246,8 @@ public class Traveling : BeeStateClass
         if (beeScript.isBeingSucked)
         {
             agent.angularSpeed = 0f;
+            agent.speed = 0f;
+            agent.acceleration = 0f;
 
             nextState = new Idle(bee, beeScript);
 

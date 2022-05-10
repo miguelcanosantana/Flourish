@@ -50,10 +50,10 @@ public class BeeAiScript : MonoBehaviour
     public Animator animator;
     public GameObject rangeChecker;
     private RangeFlowerCheckScript rangeCheckScript;
-    private NavMeshAgent agent;
     private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
     private SkinnedMeshRenderer skinMeshRender;
     [HideInInspector] public GameObject beeParentObject;
+    [HideInInspector] public NavMeshAgent agent;
 
     [Header("Face Textures")]
     [SerializeField] private Material smileFace;

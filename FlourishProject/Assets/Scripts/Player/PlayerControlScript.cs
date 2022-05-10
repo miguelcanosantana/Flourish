@@ -86,7 +86,7 @@ public class PlayerControlScript : MonoBehaviour
         if (nearBees.Count > nearFlowers.Count) ratio = (float) nearFlowers.Count / (float) nearBees.Count;
         if (nearBees.Count < nearFlowers.Count) ratio = (float) nearBees.Count / (float) nearFlowers.Count;
 
-        Debug.Log(ratio);
+        //Debug.Log(ratio);
 
         //Get the total items and multiply them by the ratio
         int totalItems = nearBees.Count + nearFlowers.Count;

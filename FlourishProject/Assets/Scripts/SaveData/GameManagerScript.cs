@@ -63,6 +63,13 @@ public class GameManagerScript : MonoBehaviour
     }
 
 
+    //
+    public void AddBeeToBar()
+    {
+
+    }
+
+
     //Move the selected item frame to the current item
     public void MoveSelectedFrame(float moveTime)
     {
