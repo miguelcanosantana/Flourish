@@ -50,6 +50,8 @@ public class PlayerControlScript : MonoBehaviour
     private GunItemInfoClass currentItem;
     private GameObject tempSeed;
     private GameObject tempBee;
+    private List<GameObject> nearBees = new List<GameObject>();
+    private List<GameObject> nearFlowers = new List<GameObject>();
 
     //Variables
     private Vector2 movementInput = Vector2.zero;
@@ -72,6 +74,52 @@ public class PlayerControlScript : MonoBehaviour
         //Get components
         playerController = GetComponent<CharacterController>();
         gameManagerScript = FindObjectOfType<GameManagerScript>();
+    }
+
+
+    public void CalculateHappiness()
+    {
+        int totalItems = nearBees.Count + nearFlowers.Count;
+        gameManagerScript.playerHappiness = totalItems;
+        gameManagerScript.RefreshUpperUi();
+    }
+
+
+    //When objects enter the player range add them to the list
+    private void OnTriggerEnter(Collider collider)
+    {
+        CalculateHappiness();
+
+        //If the object is not already on the list and it's a bee, add it
+        if (!nearBees.Contains(collider.gameObject) && (collider.gameObject.CompareTag("Bee")))
+        {
+            nearBees.Add(collider.gameObject);
+        }
+
+        //If the object is not already on the list and it's a flower, add it
+        if (!nearFlowers.Contains(collider.gameObject) && (collider.gameObject.CompareTag("Flower")))
+        {
+            nearFlowers.Add(collider.gameObject);
+        }
+    }
+
+
+    //When objects exit the player range remove them from the list
+    private void OnTriggerExit(Collider collider)
+    {
+        CalculateHappiness();
+
+        //If on the list and it's a bee, remove it
+        if (nearBees.Contains(collider.gameObject))
+        {
+            nearBees.Remove(collider.gameObject);
+        }
+
+        //If on the list and it's a flower, remove it
+        if (nearFlowers.Contains(collider.gameObject))
+        {
+            nearFlowers.Remove(collider.gameObject);
+        }
     }
 
 

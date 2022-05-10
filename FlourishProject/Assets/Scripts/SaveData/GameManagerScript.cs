@@ -22,6 +22,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private SaveDataScriptable saveData;
     [SerializeField] private GameObject flowersFolder;
     [SerializeField] private GameObject beesFolder;
+    [SerializeField] private TextMeshProUGUI happinessText;
 
     [Header("Item prefabs")]
     [SerializeField] private GameObject barItemPrefab;
@@ -67,6 +68,13 @@ public class GameManagerScript : MonoBehaviour
     {
         GameObject currentItemObject = itemsBarContent.transform.GetChild(currentItemBarPosition).gameObject;
         selectedItemFrame.transform.DOMove(currentItemObject.transform.position, moveTime).SetEase(Ease.OutExpo);
+    }
+
+
+    //Refresh the upper screen UI
+    public void RefreshUpperUi()
+    {
+        happinessText.text = playerHappiness.ToString("000");
     }
 
 
