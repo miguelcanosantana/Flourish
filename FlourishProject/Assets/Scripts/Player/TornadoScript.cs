@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 
 public class TornadoScript : MonoBehaviour
 {
@@ -47,7 +49,10 @@ public class TornadoScript : MonoBehaviour
                 BeeAiScript beeScript = suckObject.transform.parent.Find("BeeAgent").GetComponent<BeeAiScript>();
 
                 beeScript.isBeingSucked = true;
-                beeAgentObject.transform.position = Vector3.MoveTowards(beeAgentObject.transform.position, suckPoint.position, Time.deltaTime * 5f);
+                beeAgentObject.transform.LookAt(suckPoint.position);
+                beeAgentObject.transform.DOMove(suckPoint.position, 0.5f);
+                //beeAgentObject.transform.position += Vector3.forward * Time.deltaTime * 5f;
+                //beeAgentObject.transform.position = Vector3.MoveTowards(beeAgentObject.transform.position, suckPoint.position, Time.deltaTime * 5f);
             }
         }
     }

@@ -245,10 +245,19 @@ public class Traveling : BeeStateClass
         //If the bee is being sucked, exit to idle state
         if (beeScript.isBeingSucked)
         {
+            agent.angularSpeed = 0f;
+
             nextState = new Idle(bee, beeScript);
 
             //Exit the Traveling state
             phase = Event.Exit;
+        }
+        //Restore the properties
+        else
+        {
+            agent.angularSpeed = beeScript.angularSpeedBackup;
+            agent.speed = beeScript.speedBackup;
+            agent.acceleration = beeScript.accelerationBackup;
         }
 
         //Regulate the position and the height

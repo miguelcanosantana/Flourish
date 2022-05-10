@@ -39,6 +39,9 @@ public class BeeAiScript : MonoBehaviour
     [HideInInspector] public bool isLost = false;
     [HideInInspector] public float timeLost = 0f;
     [HideInInspector] public bool isBeingSucked = false;
+    [HideInInspector] public float angularSpeedBackup = 0f;
+    [HideInInspector] public float speedBackup = 0f;
+    [HideInInspector] public float accelerationBackup = 0f;
     private BeeExpression currentFace = BeeExpression.None;
 
     [Header("References")]
@@ -65,6 +68,11 @@ public class BeeAiScript : MonoBehaviour
         rangeCheckScript = rangeChecker.GetComponent<RangeFlowerCheckScript>();
         skinMeshRender = beeContainerObject.GetComponentInChildren<SkinnedMeshRenderer>();
         beeParentObject = beeContainerObject.transform.parent.gameObject;
+
+        //Get these properties
+        angularSpeedBackup = agent.angularSpeed;
+        speedBackup = agent.speed;
+        accelerationBackup = agent.acceleration;
 
         //Start the FSM in idle state
         currentState = new Idle(gameObject, this);
