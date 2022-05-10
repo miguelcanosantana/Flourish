@@ -80,8 +80,17 @@ public class PlayerControlScript : MonoBehaviour
     //Calculate the happiness levels and refresh upper bar ui
     public void CalculateHappiness()
     {
+        //Calculate the ratio, if there are more bees, divide by bees, if there are more flowers, divide by flowers
+        //Ratio assures there's an equal amount of bees and flowers
+        float ratio = 1f;
+        if (nearBees.Count > nearFlowers.Count) ratio = (float) nearFlowers.Count / (float) nearBees.Count;
+        if (nearBees.Count < nearFlowers.Count) ratio = (float) nearBees.Count / (float) nearFlowers.Count;
+
+        Debug.Log(ratio);
+
+        //Get the total items and multiply them by the ratio
         int totalItems = nearBees.Count + nearFlowers.Count;
-        gameManagerScript.playerHappiness = totalItems;
+        gameManagerScript.playerHappiness = (int) (totalItems * ratio);
         gameManagerScript.RefreshUpperUi();
     }
 
