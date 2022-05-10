@@ -77,7 +77,6 @@ public class BeeStateClass
     //Regulate the position, the rotation and the height of the bee
     public void RegulatePositionHeight()
     {
-
         //Regulate position
         beeScript.beeContainerObject.transform.position = new Vector3(
             agent.transform.position.x,
@@ -245,21 +244,10 @@ public class Traveling : BeeStateClass
         //If the bee is being sucked, exit to idle state
         if (beeScript.isBeingSucked)
         {
-            agent.angularSpeed = 0f;
-            agent.speed = 0f;
-            agent.acceleration = 0f;
-
             nextState = new Idle(bee, beeScript);
 
             //Exit the Traveling state
             phase = Event.Exit;
-        }
-        //Restore the properties
-        else
-        {
-            agent.angularSpeed = beeScript.angularSpeedBackup;
-            agent.speed = beeScript.speedBackup;
-            agent.acceleration = beeScript.accelerationBackup;
         }
 
         //Regulate the position and the height

@@ -98,11 +98,13 @@ public class TornadoScript : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         //Add bee to the items bar
-        gameManagerScript.AddBeeToBar();
+        gameManagerScript.AddBeeToBar(beeFlowerMatch, beePollen);
 
         //Destroy it
         if (beeObject != null)
         {
+            //beeScript.DOKill();
+
             GameObject parentObject = beeObject.transform.parent.gameObject;
             Destroy(parentObject);
         }

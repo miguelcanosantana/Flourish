@@ -69,10 +69,44 @@ public class GameManagerScript : MonoBehaviour
     }
 
 
-    //
-    public void AddBeeToBar()
+    //Add a bee to an existing card, or if it doesn't exists, create a new one
+    public void AddBeeToBar(FlowerType flowerToMatch, int pollen)
     {
+        //Convert from bee type to gun item type
+        GunItemType tempItemType = GunItemType.None;
 
+        switch (flowerToMatch)
+        {
+            case FlowerType.Sunflower:
+                tempItemType = GunItemType.RegularBee;
+                break;
+
+            case FlowerType.Tulip:
+                tempItemType = GunItemType.PurpleBee;
+                break;
+        }
+
+        //Check if a card with the item exists
+        foreach (GunItemInfoClass item in playerGunItems)
+        {
+            //Add the bee to the existing card and return
+            if (item.itemType == tempItemType)
+            {
+                item.itemAmount ++;
+                RefreshBarUI();
+                return;
+            }
+        }
+
+        //If the item doesn't exists, create the new one
+        GunItemInfoClass tempItem = new GunItemInfoClass
+        {
+            itemType = tempItemType,
+            hasAmount = true,
+            itemAmount = 1
+        };
+
+        RefreshBarUI();
     }
 
 
