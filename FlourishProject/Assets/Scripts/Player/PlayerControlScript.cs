@@ -90,7 +90,7 @@ public class PlayerControlScript : MonoBehaviour
 
         //Get the total items and multiply them by the ratio
         int totalItems = nearBees.Count + nearFlowers.Count;
-        gameManagerScript.playerHappiness = (int) (totalItems * ratio);
+        gameManagerScript.playerHappiness = Mathf.Clamp((int)(totalItems * ratio), 0, 100);
         gameManagerScript.RefreshUpperUi();
     }
 
