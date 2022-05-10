@@ -238,7 +238,8 @@ GameObject:
   - component: {fileID: 886212342}
   - component: {fileID: 1374418044}
   - component: {fileID: 1867677832}
-  - component: {fileID: 1867677833}
+  - component: {fileID: 9013799339697646654}
+  - component: {fileID: 8402662131808642569}
   m_Layer: 0
   m_Name: _Tornado
   m_TagString: Untagged
@@ -259,6 +260,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 543450651858766353}
+  - {fileID: 1673915755}
   m_Father: {fileID: 5786841481228475698}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -274,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78f6263d3cd3a34eadbb1ff643324ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suckPoint: {fileID: 1673915755}
 --- !u!54 &1867677832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -290,8 +293,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1867677833
-MeshCollider:
+--- !u!135 &9013799339697646654
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -300,10 +303,23 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2534964839176971238, guid: 8623e10c21d5a0941b2d9af306caf0d3, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Center: {x: 0, y: 0, z: 3.4}
+--- !u!136 &8402662131808642569
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886212341}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.45
+  m_Height: 2.25
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 2}
 --- !u!1 &1170778837
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +421,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &1673915754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1673915755}
+  m_Layer: 0
+  m_Name: SuckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1673915755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673915754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 886212342}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &439854991675754000
 GameObject:
   m_ObjectHideFlags: 0

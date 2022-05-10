@@ -38,6 +38,7 @@ public class BeeAiScript : MonoBehaviour
     [HideInInspector] public float maxTimeToPose = 0f;
     [HideInInspector] public bool isLost = false;
     [HideInInspector] public float timeLost = 0f;
+    [HideInInspector] public bool isBeingSucked = false;
     private BeeExpression currentFace = BeeExpression.None;
 
     [Header("References")]
@@ -49,7 +50,7 @@ public class BeeAiScript : MonoBehaviour
     private NavMeshAgent agent;
     private BeeStateClass currentState; //The current state in the FSM (Finite State Machine)
     private SkinnedMeshRenderer skinMeshRender;
-    private GameObject beeParentObject;
+    [HideInInspector] public GameObject beeParentObject;
 
     [Header("Face Textures")]
     [SerializeField] private Material smileFace;

@@ -132,7 +132,6 @@ public class Idle : BeeStateClass
         stateName = State.Idle;
     }
 
-
     //Enter the Idle
     public override void Enter()
     {
@@ -243,6 +242,15 @@ public class Traveling : BeeStateClass
     //Traveling Behavior
     public override void Update()
     {
+        //If the bee is being sucked, exit to idle state
+        if (beeScript.isBeingSucked)
+        {
+            nextState = new Idle(bee, beeScript);
+
+            //Exit the Traveling state
+            phase = Event.Exit;
+        }
+
         //Regulate the position and the height
         RegulatePositionHeight();
 
@@ -252,8 +260,6 @@ public class Traveling : BeeStateClass
         //If the bee is stuck and hasn't reached the flower, change target
         if (beeScript.timerSinceLastPosed > beeScript.maxTimeToPose)
         {
-            //Debug.Log("Max Time Reached");
-
             nextState = new Idle(bee, beeScript);
 
             //Exit the Traveling state
