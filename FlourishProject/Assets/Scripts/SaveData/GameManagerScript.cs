@@ -63,6 +63,12 @@ public class GameManagerScript : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        MoveSelectedFrame(0f);
+    }
+
+
     //
     public void AddBeeToBar()
     {
@@ -74,7 +80,11 @@ public class GameManagerScript : MonoBehaviour
     public void MoveSelectedFrame(float moveTime)
     {
         GameObject currentItemObject = itemsBarContent.transform.GetChild(currentItemBarPosition).gameObject;
-        selectedItemFrame.transform.DOMove(currentItemObject.transform.position, moveTime).SetEase(Ease.OutExpo);
+        //TODO Fix this instead using the solution in the Update method
+        //selectedItemFrame.transform.DOMove(currentItemObject.transform.position, moveTime).SetEase(Ease.OutExpo);
+
+        //TODO Workaround
+        selectedItemFrame.transform.position = currentItemObject.transform.position;
     }
 
 
