@@ -16,11 +16,10 @@ public class MainMenuScript : MonoBehaviour
     [Header("References")]
     [SerializeField] private Button continueButton;
     [SerializeField] private TextMeshProUGUI continueText;
+    [SerializeField] private TextMeshProUGUI versionText;
     [SerializeField] private SaveDataScriptable dataSave;
     [SerializeField] private SaveDataScriptable emptyDataSave;
     [SerializeField] private GameObject loadScreen;
-
-    private Button[] allButtons;
 
     //Variables
     private int areThereSaves = 0; //0 is false, 1 is true
@@ -29,9 +28,8 @@ public class MainMenuScript : MonoBehaviour
     //Blur the continue button if there is no a started game
     private void Start()
     {
-        //Get all the buttons (Including the inactive ones)
-        allButtons = FindObjectsOfType<Button>(true).ToArray();
-        //allButtons = GameObject.FindObjectsOfType<GameObject>(true).Where(x => x.CompareTag("Button")).ToArray();
+        //Set the version text
+        versionText.text = "V." + Application.version;
 
         //If the key exists, get if there is a previous game
         if (PlayerPrefs.HasKey("anySavesPresent")) areThereSaves = PlayerPrefs.GetInt("anySavesPresent");
