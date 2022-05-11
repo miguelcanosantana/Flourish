@@ -112,7 +112,7 @@ public class TornadoScript : MonoBehaviour
             Destroy(parentObject);
         }
 
-        Debug.Log(Time.time);
+        Debug.Log("Bee Pollen: " + beePollen);
 
         canSuck = true;
     }

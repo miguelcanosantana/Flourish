@@ -23,6 +23,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject flowersFolder;
     [SerializeField] private GameObject beesFolder;
     [SerializeField] private TextMeshProUGUI happinessText;
+    [SerializeField] private TextMeshProUGUI pollenText;
 
     [Header("Item prefabs")]
     [SerializeField] private GameObject barItemPrefab;
@@ -60,6 +61,8 @@ public class GameManagerScript : MonoBehaviour
             saveData.SaveGunItem(emptyItem.itemType, emptyItem.hasAmount, emptyItem.itemAmount);
             RefreshBarUI();
         }
+
+        RefreshUpperUi();
     }
 
 
@@ -94,6 +97,11 @@ public class GameManagerScript : MonoBehaviour
             {
                 item.itemAmount ++;
                 RefreshBarUI();
+
+                //Add the pollen to the bar
+                playerPollen += pollen;
+                RefreshUpperUi();
+
                 return;
             }
         }
@@ -107,6 +115,10 @@ public class GameManagerScript : MonoBehaviour
         };
 
         RefreshBarUI();
+
+        //Add the pollen to the bar
+        playerPollen += pollen;
+        RefreshUpperUi();
     }
 
 
@@ -126,6 +138,7 @@ public class GameManagerScript : MonoBehaviour
     public void RefreshUpperUi()
     {
         happinessText.text = playerHappiness.ToString("000");
+        pollenText.text = playerPollen.ToString("0000000");
     }
 
 
