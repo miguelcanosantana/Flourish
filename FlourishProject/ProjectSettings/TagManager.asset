@@ -11,6 +11,7 @@ TagManager:
   - SeedsFolder
   - BeesFolder
   - CardCollectable
+  - Tree
   layers:
   - Default
   - TransparentFX
