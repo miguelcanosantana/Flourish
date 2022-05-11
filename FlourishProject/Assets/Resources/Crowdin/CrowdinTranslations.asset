@@ -61,4 +61,12 @@ MonoBehaviour:
     exportedFromTable: StaticTextTable
     sourceSting: 'Happiness:'
     translations: []
+  - key: MainWorld/_Player/PauseMenuCanvas/MenuBackground/GoToMenuButton/MenuText
+    exportedFromTable: StaticTextTable
+    sourceSting: Back to menu
+    translations: []
+  - key: MainWorld/_Player/PauseMenuCanvas/MenuBackground/ResumeButton/ResumeText
+    exportedFromTable: StaticTextTable
+    sourceSting: Resume
+    translations: []
   translationImages: []

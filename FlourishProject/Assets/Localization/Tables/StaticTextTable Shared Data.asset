@@ -63,6 +63,14 @@ MonoBehaviour:
     m_Key: BeeNavmeshScene/_GameManager/BarCanvas/StatsPanel/HappinessPanel/HappinessText
     m_Metadata:
       m_Items: []
+  - m_Id: 4522561131372544
+    m_Key: MainWorld/_Player/PauseMenuCanvas/MenuBackground/GoToMenuButton/MenuText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4526315696152576
+    m_Key: MainWorld/_Player/PauseMenuCanvas/MenuBackground/ResumeButton/ResumeText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
