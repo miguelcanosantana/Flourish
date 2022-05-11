@@ -24,31 +24,22 @@ public class OperationsManagerScript : MonoBehaviour
         }
     }
 
-    //Stick trees to the floor
-    [EButton("Floor stick trees")]
-    public void FloorStick()
+
+    //Sizes the trees randomly
+    [EButton("Random trees size")]
+    public void RandomSize()
     {
-
-        //Get the terrain and it's Y position
-        if (terrain == null) terrain = FindObjectOfType<Terrain>();
-
-        int terrainYPos = (int) terrain.transform.position.y;
-
         GameObject[] allTrees = GameObject.FindGameObjectsWithTag("Tree");
+
+        float variation = 4f;
 
         foreach (GameObject tree in allTrees)
         {
+            float scaleX = Random.Range(transform.localScale.x - variation, transform.localScale.x + variation);
+            float scaleY = Random.Range(transform.localScale.y - variation, transform.localScale.y + variation);
+            float scaleZ = Random.Range(transform.localScale.z - variation, transform.localScale.z + variation);
 
-            for (int i = terrainYPos + 200; i > terrainYPos - 200; i--)
-            {
-                tree.transform.position = new Vector3(tree.transform.position.x, i, tree.transform.position.z);
-
-                if (Physics.Raycast(tree.transform.position, -Vector3.up, 0.1f)) break;
-            }
-
-
-            //float randomAngle = Random.Range(0, 360);
-            //tree.transform.Rotate(Vector3.up, randomAngle);
+            tree.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
         }
     }
 }
