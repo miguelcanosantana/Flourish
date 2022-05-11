@@ -1,3 +1,4 @@
 https://nicrom.itch.io/low-poly-wind-shader
 https://fonts.google.com/specimen/Patrick+Hand?category=Serif,Handwriting#standard-styles
 https://fonts.google.com/specimen/Mali?category=Serif,Handwriting#standard-styles
+https://assetstore.unity.com/packages/vfx/shaders/free-skybox-extended-shader-107400

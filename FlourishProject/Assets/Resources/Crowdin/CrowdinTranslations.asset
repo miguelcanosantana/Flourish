@@ -69,4 +69,24 @@ MonoBehaviour:
     exportedFromTable: StaticTextTable
     sourceSting: Resume
     translations: []
+  - key: Player/Player/PauseMenuCanvas/MenuBackground/SaveButton/SaveText
+    exportedFromTable: StaticTextTable
+    sourceSting: Save Progress
+    translations: []
+  - key: MainWorld/Secret/Text (TMP)
+    exportedFromTable: StaticTextTable
+    sourceSting: Just a normal wall...
+    translations: []
+  - key: MainWorld/CanYouSeMeeSecret/Text (TMP)
+    exportedFromTable: StaticTextTable
+    sourceSting: Can you see me?
+    translations: []
+  - key: MainWorld/HangingSecret/Text (TMP)
+    exportedFromTable: StaticTextTable
+    sourceSting: Hanging...
+    translations: []
+  - key: MainWorld/EvidentSecret/Text (TMP)
+    exportedFromTable: StaticTextTable
+    sourceSting: Evident secret...
+    translations: []
   translationImages: []
