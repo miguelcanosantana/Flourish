@@ -2488,6 +2488,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2823869937603050243, guid: 5957879ee614ab04e9cef2f4560ef202, type: 3}
+      propertyPath: itemToAdd.itemAmount
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2823869937603050245, guid: 5957879ee614ab04e9cef2f4560ef202, type: 3}
       propertyPath: m_Name
       value: RegularBeeCard
@@ -2545,6 +2549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9205661604694593611, guid: 09d9c4c65f27c3945bc4eec70e94382b, type: 3}
+      propertyPath: itemToAdd.itemAmount
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 9205661604694593613, guid: 09d9c4c65f27c3945bc4eec70e94382b, type: 3}
       propertyPath: m_Name
       value: PurpleBeeCard
@@ -2561,6 +2569,10 @@ PrefabInstance:
     - target: {fileID: 4134901726912635448, guid: aae96d24a198ac748b563271aa16a07c, type: 3}
       propertyPath: m_Name
       value: SunFlowerCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134901726912635454, guid: aae96d24a198ac748b563271aa16a07c, type: 3}
+      propertyPath: itemToAdd.itemAmount
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4134901726912635455, guid: aae96d24a198ac748b563271aa16a07c, type: 3}
       propertyPath: m_RootOrder
@@ -2670,6 +2682,10 @@ PrefabInstance:
     - target: {fileID: 5171602032348164628, guid: 2ec577acfb431f24f8581ab0eb917016, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171602032348164629, guid: 2ec577acfb431f24f8581ab0eb917016, type: 3}
+      propertyPath: itemToAdd.itemAmount
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec577acfb431f24f8581ab0eb917016, type: 3}
