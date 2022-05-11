@@ -74,15 +74,6 @@ public class GameManagerScript : MonoBehaviour
     }
 
 
-    //Pause or Resume the game
-    public void TogglePauseGame(bool state)
-    {
-
-        isGamePaused = state;
-
-    }
-
-
     //Add a bee to an existing card, or if it doesn't exists, create a new one
     public void AddBeeToBar(FlowerType flowerToMatch, int pollen)
     {

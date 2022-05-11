@@ -78,6 +78,21 @@ public class PlayerControlScript : MonoBehaviour
     }
 
 
+    //Event => When pressing escape key or gamepad select, rotate the player's camera
+    public void OnEscapeMenuPress(InputAction.CallbackContext context)
+    {
+        //Toggle if the game is paused or not
+        gameManagerScript.isGamePaused = !gameManagerScript.isGamePaused;
+
+        //Set active if the game is paused
+        menuBackground.SetActive(gameManagerScript.isGamePaused);
+    }
+
+
+    //Event => OnClickSave
+
+
+
     //Calculate the happiness levels and refresh upper bar ui
     public void CalculateHappiness()
     {
