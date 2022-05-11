@@ -65,7 +65,7 @@ public class PlayerControlScript : MonoBehaviour
     //Start is called before the first frame update
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
         //Get folders
         seedsFolder = GameObject.FindGameObjectWithTag("SeedsFolder");
