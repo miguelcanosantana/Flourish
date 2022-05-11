@@ -78,19 +78,68 @@ public class PlayerControlScript : MonoBehaviour
     }
 
 
-    //Event => When pressing escape key or gamepad select, rotate the player's camera
+    //Event => Call ToggleEscapeMenu()
     public void OnEscapeMenuPress(InputAction.CallbackContext context)
+    {
+        ToggleEscapeMenu();
+    }
+
+
+    //Event => When pressing escape key or gamepad select or the resume button
+    public void ToggleEscapeMenu()
     {
         //Toggle if the game is paused or not
         gameManagerScript.isGamePaused = !gameManagerScript.isGamePaused;
 
         //Set active if the game is paused
         menuBackground.SetActive(gameManagerScript.isGamePaused);
+
+        //Pause the time if the menu is paused
+        if (gameManagerScript.isGamePaused)
+        {
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        //Resume the game
+        else
+        {
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
 
     //Event => OnClickSave
 
+
+    //Update is called once per frame
+    void Update()
+    {
+        //Return if the game is paused
+        if (gameManagerScript.isGamePaused) return;
+
+        Move();
+        Rotate();
+
+        //Do an action depending on the shoot action
+        switch (gunAction)
+        {
+            case GunAction.None:
+                tornadoObject.SetActive(false);
+                break;
+
+            //Shoot if allowed
+            case GunAction.Fire:
+                tornadoObject.SetActive(false);
+                if (canShoot && gunAction == GunAction.Fire) StartCoroutine(Shoot());
+                break;
+
+            //Suck
+            case GunAction.Suck:
+                tornadoObject.SetActive(true);
+                break;
+        }
+    }
 
 
     //Calculate the happiness levels and refresh upper bar ui
@@ -99,8 +148,8 @@ public class PlayerControlScript : MonoBehaviour
         //Calculate the ratio, if there are more bees, divide by bees, if there are more flowers, divide by flowers
         //Ratio assures there's an equal amount of bees and flowers
         float ratio = 1f;
-        if (nearBees.Count > nearFlowers.Count) ratio = (float) nearFlowers.Count / (float) nearBees.Count;
-        if (nearBees.Count < nearFlowers.Count) ratio = (float) nearBees.Count / (float) nearFlowers.Count;
+        if (nearBees.Count > nearFlowers.Count) ratio = (float)nearFlowers.Count / (float)nearBees.Count;
+        if (nearBees.Count < nearFlowers.Count) ratio = (float)nearBees.Count / (float)nearFlowers.Count;
 
         //Debug.Log(ratio);
 
@@ -145,33 +194,6 @@ public class PlayerControlScript : MonoBehaviour
         if (nearFlowers.Contains(collider.gameObject))
         {
             nearFlowers.Remove(collider.gameObject);
-        }
-    }
-
-
-    //Update is called once per frame
-    void Update()
-    {
-        Move();
-        Rotate();
-
-        //Do an action depending on the shoot action
-        switch (gunAction)
-        {
-            case GunAction.None:
-                tornadoObject.SetActive(false);
-                break;
-
-            //Shoot if allowed
-            case GunAction.Fire:
-                tornadoObject.SetActive(false);
-                if (canShoot && gunAction == GunAction.Fire) StartCoroutine(Shoot());
-                break;
-
-            //Suck
-            case GunAction.Suck:
-                tornadoObject.SetActive(true);
-                break;
         }
     }
 
