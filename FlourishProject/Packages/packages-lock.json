@@ -1,14 +1,5 @@
 {
   "dependencies": {
-    "com.crowdin.unity-plugin": {
-      "version": "0.1.4",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.localization": "1.2.1"
-      },
-      "url": "https://registry.npmjs.org"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -89,11 +80,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.localization": {
-      "version": "1.2.1",
-      "depth": 1,
+      "version": "1.0.5",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.addressables": "1.19.17",
+        "com.unity.addressables": "1.19.9",
         "com.unity.nuget.newtonsoft-json": "2.0.0"
       },
       "url": "https://packages.unity.com"
