@@ -13,6 +13,10 @@ public class TornadoScript : MonoBehaviour
     private GameManagerScript gameManagerScript;
     private List<GameObject> objectsBeingSucked = new List<GameObject>();
 
+    //Variables
+    private bool canSuck = true;
+
+
     //Get the game manager
     private void Start()
     {
@@ -73,8 +77,9 @@ public class TornadoScript : MonoBehaviour
                     );
 
                 //Remove the bee from the list and destroy it
-                if (suckObject != null && distanceIn2D <= 1f)
+                if (suckObject != null && distanceIn2D <= 1f && canSuck)
                 {
+                    canSuck = false;
                     StartCoroutine(DestroyBee(suckObject, beeScript));
                 }
             }
@@ -82,7 +87,7 @@ public class TornadoScript : MonoBehaviour
     }
 
 
-    //Destroy the bee after being sucked
+    //Coroutine => Destroy the bee after being sucked
     private IEnumerator DestroyBee(GameObject beeObject, BeeAiScript beeScript)
     {
         //Remove it from the list
@@ -103,18 +108,20 @@ public class TornadoScript : MonoBehaviour
         //Destroy it
         if (beeObject != null)
         {
-            //beeScript.DOKill();
-
             GameObject parentObject = beeObject.transform.parent.gameObject;
             Destroy(parentObject);
         }
+
+        Debug.Log(Time.time);
+
+        canSuck = true;
     }
 
 
-    //Re-enable the bee agents, then, clear the list of objects when being disabled
+    //Disable the bee suck, then, clear the list of objects when being disabled
     private void OnDisable()
     {
-        //Re-enable the bee agents
+        //Disable the bee suck
         foreach (GameObject suckObject in objectsBeingSucked)
         {
             //Set to false the bees getting sucked
@@ -127,6 +134,8 @@ public class TornadoScript : MonoBehaviour
 
         //Clear the list
         objectsBeingSucked.Clear();
+
+        canSuck = true;
     }
 
 }
