@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904443bf3224ed84c9e5e5ebbdf63999, type: 3}
   m_Name: EmptySave
   m_EditorClassIdentifier: 
-  playerPosition: {x: 0, y: 0, z: 0}
+  playerPosition: {x: 0, y: 13, z: 0}
   playerRotation: {x: 0, y: 0, z: 0, w: 1}
   playerPollen: 0
   playerHappiness: 0
