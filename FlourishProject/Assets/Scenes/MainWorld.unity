@@ -546,7 +546,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1b4b0995c9205f8419a4d67215b41109, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1402,7 +1402,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 38476b777df81e146acdccd5f4814219, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2605,10 +2605,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4134901727386174710, guid: aae96d24a198ac748b563271aa16a07c, type: 3}
-      propertyPath: m_fontSize
-      value: 16.9
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae96d24a198ac748b563271aa16a07c, type: 3}
 --- !u!1001 &8988160007240465564
@@ -2618,10 +2614,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 703401230}
     m_Modifications:
-    - target: {fileID: 5171602031882441949, guid: 2ec577acfb431f24f8581ab0eb917016, type: 3}
-      propertyPath: m_fontSize
-      value: 16.9
-      objectReference: {fileID: 0}
     - target: {fileID: 5171602032348164627, guid: 2ec577acfb431f24f8581ab0eb917016, type: 3}
       propertyPath: m_Name
       value: TulipCard
