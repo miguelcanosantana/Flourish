@@ -48,13 +48,13 @@ MonoBehaviour:
     value: 2
   toneCurveToeStrength:
     overrideState: 1
-    value: 0
+    value: 0.671
   toneCurveToeLength:
     overrideState: 1
-    value: 0.5
+    value: 0.514
   toneCurveShoulderStrength:
     overrideState: 1
-    value: 0
+    value: 1
   toneCurveShoulderLength:
     overrideState: 1
     value: 0.5
@@ -63,7 +63,7 @@ MonoBehaviour:
     value: 0
   toneCurveGamma:
     overrideState: 1
-    value: 1
+    value: 0.82
   ldrLut:
     overrideState: 1
     value: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
     value: 0
   colorFilter:
     overrideState: 1
-    value: {r: 1, g: 1, b: 1, a: 1}
+    value: {r: 1, g: 0.8459226, b: 0.6273585, a: 1}
   hueShift:
     overrideState: 1
     value: 0
@@ -1357,7 +1357,7 @@ MonoBehaviour:
     overrideState: 1
     value: {r: 0.56350124, g: 0.5991023, b: 0.6320754, a: 1}
   ambientOnly:
-    overrideState: 1
+    overrideState: 0
     value: 1
   noiseFilterTolerance:
     overrideState: 1
@@ -1392,13 +1392,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 30
+    value: 1
   intensityX:
     overrideState: 1
     value: 1
@@ -1426,13 +1426,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
   mode:
     overrideState: 1
-    value: 0
+    value: 1
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1470,13 +1470,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 2
+    value: 1
   threshold:
     overrideState: 1
     value: 1
@@ -1499,7 +1499,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   dirtTexture:
-    overrideState: 1
+    overrideState: 0
     value: {fileID: 2800000, guid: a2960ffde020f27409e070d92fb2e00b, type: 3}
     defaultState: 1
   dirtIntensity:
