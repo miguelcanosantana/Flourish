@@ -78,6 +78,22 @@ MonoBehaviour:
     m_Localized: Save Progress
     m_Metadata:
       m_Items: []
+  - m_Id: 4685820539035648
+    m_Localized: Just a normal wall...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4688867994492928
+    m_Localized: Can you see me?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4689951358050304
+    m_Localized: Hanging...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4691767600734208
+    m_Localized: Evident secret...
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

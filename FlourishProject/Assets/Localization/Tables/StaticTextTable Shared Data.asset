@@ -75,6 +75,22 @@ MonoBehaviour:
     m_Key: Player/Player/PauseMenuCanvas/MenuBackground/SaveButton/SaveText
     m_Metadata:
       m_Items: []
+  - m_Id: 4685820539035648
+    m_Key: MainWorld/Secret/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4688867994492928
+    m_Key: MainWorld/CanYouSeMeeSecret/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4689951358050304
+    m_Key: MainWorld/HangingSecret/Text (TMP)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4691767600734208
+    m_Key: MainWorld/EvidentSecret/Text (TMP)
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -605,14 +605,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6940962236483274099}
-  m_LocalRotation: {x: -0.71227354, y: -0, z: -0, w: 0.70190203}
+  m_LocalRotation: {x: -0.70312214, y: 0.0015505985, z: 0.000931681, w: 0.71106684}
   m_LocalPosition: {x: -0.02, y: 0.04, z: 0.04}
-  m_LocalScale: {x: 0.60751, y: 0.83735, z: 1.0468143}
+  m_LocalScale: {x: 0.53153473, y: 0.7322877, z: 1.0468143}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9018927124727838842}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -90.84, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.354, y: 4.555, z: -4.354}
 --- !u!64 &6828988908780298381
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -637,6 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9018927124727838842}
   - component: {fileID: -7293959906723128971}
+  - component: {fileID: 7951458117812661223}
   m_Layer: 0
   m_Name: LightTree
   m_TagString: Tree
@@ -709,3 +710,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7951458117812661223
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8530515622637462208}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.95, y: 4.94, z: 0.95}
+  m_MoveThreshold: 0.2
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.31, y: 2.7, z: 0.65}
+  m_TimeToStationary: 0.5

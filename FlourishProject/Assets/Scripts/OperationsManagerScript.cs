@@ -31,7 +31,7 @@ public class OperationsManagerScript : MonoBehaviour
     {
         GameObject[] allTrees = GameObject.FindGameObjectsWithTag("Tree");
 
-        float variation = 4f;
+        float variation = 0.1f;
 
         foreach (GameObject tree in allTrees)
         {

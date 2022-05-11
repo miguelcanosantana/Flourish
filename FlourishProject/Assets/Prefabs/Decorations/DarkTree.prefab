@@ -523,8 +523,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5632892536668462583}
   m_LocalRotation: {x: -0.71227354, y: -0, z: -0, w: 0.70190203}
-  m_LocalPosition: {x: -0.02, y: 0.04, z: 0.1}
-  m_LocalScale: {x: 0.62007, y: 0.82773, z: 0.9897882}
+  m_LocalPosition: {x: -0.02, y: 0.04, z: -0.01}
+  m_LocalScale: {x: 0.55061597, y: 0.70734715, z: 0.9897882}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6334634003543652275}
@@ -554,6 +554,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6334634003543652275}
   - component: {fileID: -2014467827092725124}
+  - component: {fileID: 7486492444439286919}
   m_Layer: 0
   m_Name: DarkTree
   m_TagString: Tree
@@ -626,6 +627,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7486492444439286919
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6675166689260481801}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1.02, y: 4.94, z: 1.02}
+  m_MoveThreshold: 0.2
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.31, y: 2.7, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8847553663922515036
 GameObject:
   m_ObjectHideFlags: 0
