@@ -201,23 +201,23 @@ public class GameManagerScript : MonoBehaviour
 
 
     //Load and save data (ONLY FOR DEBUGGING)
-    void OnGUI()
-    {
-        // Make a background box
-        GUI.Box(new Rect(10, 10, 100, 90), "Data Manager");
+    //void OnGUI()
+    //{
+    //    // Make a background box
+    //    GUI.Box(new Rect(10, 10, 100, 90), "Data Manager");
 
-        // Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
-        if (GUI.Button(new Rect(20, 40, 80, 20), "Load"))
-        {
-            LoadGame();
-        }
+    //    // Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
+    //    if (GUI.Button(new Rect(20, 40, 80, 20), "Load"))
+    //    {
+    //        LoadGame();
+    //    }
 
-        // Make the second button.
-        if (GUI.Button(new Rect(20, 70, 80, 20), "Save"))
-        {
-            SaveEntireGame();
-        }
-    }
+    //    // Make the second button.
+    //    if (GUI.Button(new Rect(20, 70, 80, 20), "Save"))
+    //    {
+    //        SaveEntireGame();
+    //    }
+    //}
 
 
     //Spawn player, flowers and bee according to loaded data

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 //All the actions that can be performed form the gun
@@ -109,7 +110,20 @@ public class PlayerControlScript : MonoBehaviour
     }
 
 
-    //Event => OnClickSave
+    //Event => OnClickSave, save the game
+    public void OnClickSave()
+    {
+        gameManagerScript.SaveEntireGame();
+    }
+
+
+    //Event => OnClickMenu, save and go to the menu scene
+    public void OnClickMenuScene()
+    {
+        gameManagerScript.SaveEntireGame();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
 
 
     //Update is called once per frame
