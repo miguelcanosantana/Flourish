@@ -275,7 +275,7 @@ public class Traveling : BeeStateClass
         }
 
         //If the agent is in the target position, land in the flower
-        if (agent.remainingDistance <= 0.1f && !agent.pathPending)
+        if (agent.remainingDistance <= 0.01f && !agent.pathPending)
         {
             nextState = new Recollecting(bee, beeScript);
 
