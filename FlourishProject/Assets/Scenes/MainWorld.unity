@@ -978,6 +978,7 @@ MonoBehaviour:
   tulipPrefab: {fileID: 8817038849507918884, guid: a0f1a924fba05ca4d8e80e1f967bc34c, type: 3}
   regularBeePrefab: {fileID: 8673488259849679950, guid: c9604ea148fad564e86deef8b2e1b796, type: 3}
   purpleBeePrefab: {fileID: 8673488259849679950, guid: 21cb33b5ddee68a41aaeac7a59454c22, type: 3}
+  emptySprite: {fileID: 21300000, guid: 13f742e0e88d3c84081ac50085ac3b32, type: 3}
   sunFlowerSprite: {fileID: 21300000, guid: 1d5a0e17efefe914c92b6d62587cefab, type: 3}
   regularBeeSprite: {fileID: 21300000, guid: 662c2d5e6b5c3714e97b21f2062a5f76, type: 3}
   tulipSprite: {fileID: 21300000, guid: 2afbbcfcef8768145b03cfb526c116c7, type: 3}

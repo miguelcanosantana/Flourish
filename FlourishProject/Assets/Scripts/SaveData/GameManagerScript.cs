@@ -38,6 +38,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject purpleBeePrefab;
 
     [Header("Items Sprites")]
+    [SerializeField] private Sprite emptySprite;
     [SerializeField] private Sprite sunFlowerSprite;
     [SerializeField] private Sprite regularBeeSprite;
     [SerializeField] private Sprite tulipSprite;
@@ -175,6 +176,7 @@ public class GameManagerScript : MonoBehaviour
             switch (item.itemType)
             {
                 case GunItemType.None:
+                    itemImage.sprite = emptySprite;
                     break;
 
                 case GunItemType.RegularBee:
