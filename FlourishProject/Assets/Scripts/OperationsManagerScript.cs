@@ -30,7 +30,7 @@ public class OperationsManagerScript : MonoBehaviour
     {
 
         //Get the terrain and it's Y position
-        if (terrain == null) FindObjectOfType<Terrain>();
+        if (terrain == null) terrain = FindObjectOfType<Terrain>();
 
         int terrainYPos = (int) terrain.transform.position.y;
 
