@@ -45,4 +45,20 @@ MonoBehaviour:
     exportedFromTable: StaticTextTable
     sourceSting: Bee
     translations: []
+  - key: BeeNavmeshScene/PurpleBeeCard/CardCanvas/NameText
+    exportedFromTable: StaticTextTable
+    sourceSting: Purple Bee
+    translations: []
+  - key: BeeNavmeshScene/TulipCard/CardCanvas/NameText
+    exportedFromTable: StaticTextTable
+    sourceSting: Tulip
+    translations: []
+  - key: BeeNavmeshScene/_GameManager/BarCanvas/StatsPanel/PollenPanel/PollenText
+    exportedFromTable: StaticTextTable
+    sourceSting: 'Pollen:'
+    translations: []
+  - key: BeeNavmeshScene/_GameManager/BarCanvas/StatsPanel/HappinessPanel/HappinessText
+    exportedFromTable: StaticTextTable
+    sourceSting: 'Happiness:'
+    translations: []
   translationImages: []
