@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 5924713824563585845}
   - component: {fileID: 5924713824563585844}
   - component: {fileID: 5924713824563585847}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EmptyCard
   m_TagString: CardCollectable
   m_Icon: {fileID: 0}
