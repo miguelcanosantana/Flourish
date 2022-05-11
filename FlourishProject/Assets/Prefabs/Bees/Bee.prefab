@@ -257,13 +257,16 @@ MonoBehaviour:
   maxTimeToPose: 0
   isLost: 0
   timeLost: 0
+  isBeingSucked: 0
+  angularSpeedBackup: 0
+  speedBackup: 0
+  accelerationBackup: 0
   saveData: {fileID: 11400000, guid: 41e112a2077744e46be9f82317a3a4bc, type: 2}
-  beeMaterials:
-  - {fileID: 0}
-  - {fileID: 0}
   beeContainerObject: {fileID: 8673488259503158960}
   animator: {fileID: 8673488260303581491}
   rangeChecker: {fileID: 7443405224141524266}
+  beeParentObject: {fileID: 0}
+  agent: {fileID: 0}
   smileFace: {fileID: 2100000, guid: 6a555d5b6f72a9c42a1cbe942e9de4d6, type: 2}
   confusedFace: {fileID: 2100000, guid: 586fdd6fda0026c4c92ff63ac5ba58c6, type: 2}
 --- !u!1 &8673488259849679950
@@ -373,7 +376,7 @@ PrefabInstance:
     - target: {fileID: 8541547550487494039, guid: 3dcdceffc1fade34eaad49eb819eaf28, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 6a555d5b6f72a9c42a1cbe942e9de4d6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dcdceffc1fade34eaad49eb819eaf28, type: 3}
 --- !u!1 &8403437971767623359 stripped

@@ -97,10 +97,31 @@ public class BeeAiScript : MonoBehaviour
 
             case BeeExpression.Smile:
                 skinMeshRender.materials = new Material[]{ skinMeshRender.materials[0], smileFace};
+
+                smileFace.SetOverrideTag("RenderType", "TransparentCutout");
+                smileFace.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                smileFace.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                smileFace.SetInt("_ZWrite", 1);
+                smileFace.EnableKeyword("_ALPHATEST_ON");
+                smileFace.DisableKeyword("_ALPHABLEND_ON");
+                smileFace.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                smileFace.renderQueue = 2450;
+
+
                 break;
 
             case BeeExpression.Lost:
                 skinMeshRender.materials = new Material[] { skinMeshRender.materials[0], confusedFace };
+
+                confusedFace.SetOverrideTag("RenderType", "TransparentCutout");
+                confusedFace.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                confusedFace.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                confusedFace.SetInt("_ZWrite", 1);
+                confusedFace.EnableKeyword("_ALPHATEST_ON");
+                confusedFace.DisableKeyword("_ALPHABLEND_ON");
+                confusedFace.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                confusedFace.renderQueue = 2450;
+
                 break;
         }
     }
