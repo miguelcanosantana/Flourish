@@ -74,6 +74,10 @@ MonoBehaviour:
     m_Localized: Continuar
     m_Metadata:
       m_Items: []
+  - m_Id: 4549720004747264
+    m_Localized: Guardar progreso
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

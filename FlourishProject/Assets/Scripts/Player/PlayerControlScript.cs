@@ -43,6 +43,7 @@ public class PlayerControlScript : MonoBehaviour
     [SerializeField] private GameObject seedPrefab;
     [SerializeField] private GameObject regularBeePrefab;
     [SerializeField] private GameObject purpleBeePrefab;
+    [SerializeField] private GameObject menuBackground;
     private GameObject seedsFolder;
     private GameObject beesFolder;
     private CharacterController playerController;

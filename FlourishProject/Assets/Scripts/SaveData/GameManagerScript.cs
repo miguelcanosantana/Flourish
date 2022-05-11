@@ -46,6 +46,7 @@ public class GameManagerScript : MonoBehaviour
 
     //Variables
     [HideInInspector] public int currentItemBarPosition = 0;
+    [HideInInspector] public bool isGamePaused = false;
 
 
     private void Start()
@@ -70,6 +71,15 @@ public class GameManagerScript : MonoBehaviour
     private void Update()
     {
         MoveSelectedFrame(0f);
+    }
+
+
+    //Pause or Resume the game
+    public void TogglePauseGame(bool state)
+    {
+
+        isGamePaused = state;
+
     }
 
 

@@ -71,6 +71,10 @@ MonoBehaviour:
     m_Key: MainWorld/_Player/PauseMenuCanvas/MenuBackground/ResumeButton/ResumeText
     m_Metadata:
       m_Items: []
+  - m_Id: 4549720004747264
+    m_Key: Player/Player/PauseMenuCanvas/MenuBackground/SaveButton/SaveText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
